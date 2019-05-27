@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Autohub</string>
+    <string name="title_activity_login">LoginActivity</string>
+</resources>
