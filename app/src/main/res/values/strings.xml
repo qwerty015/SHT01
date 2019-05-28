@@ -15,4 +15,7 @@
     <string name="next">Next</string>
     <string name="camera_info">Cool. Now let\'s get your bio done. Write something about your gear, lenses etc. , and make it interesting. You can always edit it later.</string>
     <string name="remaining">%d remaining</string>
+    <string name="title_activity_signup_last">SignupLastActivity</string>
+    <string name="sign_up_last_info">One last step. Set your rates for your services, and make sure to set rate less or around the average rate to attract clients.</string>
+
 </resources>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "460816414735",
+    "firebase_url": "https://sht1-78b97.firebaseio.com",
+    "project_id": "sht1-78b97",
+    "storage_bucket": "sht1-78b97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460816414735:android:e1d2adad5939d816",
+        "android_client_info": {
+          "package_name": "com.autohubtraining.autohub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460816414735-abn8cnjdg0778un2061olee5dr7gslsv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrrVbMY8zZypN0gd52V4N4lfRD9hdEJXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "460816414735-abn8cnjdg0778un2061olee5dr7gslsv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

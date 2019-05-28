@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context=".signup_last.SignupLastActivity">
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin10"
+        android:text="@string/shoot"
+        android:textColor="#ff000000"
+        android:textSize="@dimen/font26"
+        app:fontName="Montserrat_SemiBold" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/subTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin18"
+        android:text="SIGNUP."
+        android:textColor="#ff000000"
+        android:textSize="@dimen/font26"
+        app:fontName="Montserrat_SemiBold" />
+
+    <ProgressBar
+        android:id="@+id/activeProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subTitle"
+        android:layout_marginTop="@dimen/margin12"
+        android:progress="100"
+        android:progressDrawable="@drawable/custom_progress" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:padding="5dp"
+        android:id="@+id/your_name_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activeProgress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin20"
+        android:text="@string/sign_up_last_info"
+        android:textColor="#ff000000"
+        android:textSize="@dimen/margin18"
+        app:fontName="Montserrat_SemiBold" />
+
+    <TextView
+        android:padding="5dp"
+        android:background="@drawable/black_button"
+        android:textColor="@color/colorWhite"
+        android:text="Average Rate: Rs. 100/15 SHOTS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:background="@drawable/black_border"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:background="@null"
+            android:textSize="16sp"
+            android:drawableRight="@drawable/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include
+            layout="@layout/dummy_border" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="40dp"/>
+
+
+        <include
+            layout="@layout/dummy_border" />
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
