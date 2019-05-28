@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    tools:context=".onboarding.OnBoardingActivity">
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin10"
+        android:text="@string/shoot"
+        android:textColor="#ff000000"
+        android:textSize="@dimen/font26"
+        app:fontName="Montserrat_SemiBold" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="@dimen/margin50"
+        android:src="@drawable/logo" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/margin30"
+        android:layout_marginBottom="@dimen/margin50"
+        android:padding="@dimen/margin40"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/round_border"
+        >
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:id="@+id/lets_str"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/lets_click"
+            android:textColor="#ff000000"
+            android:textSize="@dimen/font22"
+            app:fontName="Montserrat_SemiBold"
+            android:layout_centerHorizontal="true"
+            />
+        <com.autohubtraining.autohub.customview.CustomButton
+            android:layout_below="@id/lets_str"
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin20"
+            android:background="@drawable/black_button"
+            android:gravity="center"
+            android:text="@string/sign_up"
+            android:textColor="#fff"
+            android:textSize="@dimen/font26"
+            app:fontName="Montserrat_Medium" />
+
+        <com.autohubtraining.autohub.customview.CustomButton
+            android:layout_below="@id/signup"
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin30"
+            android:background="@drawable/white_round_button"
+            android:gravity="center"
+            android:text="@string/login"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/font26"
+            app:fontName="Montserrat_Medium" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".signup_choose.SignUpChooseActivity">
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin10"
+        android:text="@string/shoot"
+        android:textColor="#ff000000"
+        android:textSize="@dimen/font26"
+        app:fontName="Montserrat_SemiBold" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/subTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin18"
+        android:text="SIGNUP."
+        android:textColor="#ff000000"
+        android:textSize="@dimen/font26"
+        app:fontName="Montserrat_SemiBold" />
+
+    <ProgressBar
+        android:id="@+id/activeProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subTitle"
+        android:layout_marginTop="@dimen/margin12"
+        android:paddingHorizontal="@dimen/margin10"
+        android:progress="20"
+        android:progressDrawable="@drawable/custom_progress" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/your_name_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activeProgress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/margin20"
+        android:paddingHorizontal="@dimen/margin10"
+        android:text="@string/sign_up_image_info"
+        android:textColor="#ff000000"
+        android:textSize="@dimen/margin18"
+        app:fontName="Montserrat_SemiBold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/profile_pic" />
+
+    </RelativeLayout>
+
+    <com.autohubtraining.autohub.customview.CustomButton
+        android:id="@+id/next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="@dimen/margin18"
+        android:layout_marginVertical="@dimen/margin27"
+        android:background="@drawable/black_button"
+        android:gravity="center"
+        android:text="@string/next"
+        android:textColor="#fff"
+        android:textSize="@dimen/font26"
+        app:fontName="Montserrat_Medium" />
+
+</LinearLayout>

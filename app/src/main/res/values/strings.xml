@@ -1,4 +1,18 @@
 <resources>
     <string name="app_name">Autohub</string>
     <string name="title_activity_login">LoginActivity</string>
+    <string name="Montserrat_Regular">Montserrat-Regular</string>
+    <string name="Montserrat_Medium">Montserrat-Medium</string>
+    <string name="Montserrat_SemiBold">Montserrat-SemiBold</string>
+    <string name="Montserrat_Bold">Montserrat-Bold</string>
+    <string name="shoot">SHOOT</string>
+    <string name="lets_click">let\'s get clicking.</string>
+    <string name="sign_up">SIGNUP</string>
+    <string name="login">LOGIN</string>
+    <string name="first_name">first Name.</string>
+    <string name="last_name">last Name.</string>
+    <string name="sign_up_image_info">Let\'s start with a cool yet professional photograph of yours. Generally, photos with cameras do the magic.</string>
+    <string name="next">Next</string>
+    <string name="camera_info">Cool. Now let\'s get your bio done. Write something about your gear, lenses etc. , and make it interesting. You can always edit it later.</string>
+    <string name="remaining">%d remaining</string>
 </resources>

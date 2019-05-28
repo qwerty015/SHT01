@@ -1,3 +1,34 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin2">2dp</dimen>
+    <dimen name="margin4">4dp</dimen>
+    <dimen name="margin6">6dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="margin10">10dp</dimen>
+    <dimen name="margin12">12dp</dimen>
+    <dimen name="margin14">14dp</dimen>
+    <dimen name="margin15">15dp</dimen>
+    <dimen name="margin18">18dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="margin25">25dp</dimen>
+    <dimen name="margin27">27dp</dimen>
+    <dimen name="margin30">30dp</dimen>
+    <dimen name="margin35">35dp</dimen>
+    <dimen name="margin40">40dp</dimen>
+    <dimen name="margin45">45dp</dimen>
+    <dimen name="margin50">50dp</dimen>
+    <dimen name="margin55">55dp</dimen>
+    <dimen name="font10">10sp</dimen>
+    <dimen name="font12">12sp</dimen>
+    <dimen name="font15">15sp</dimen>
+    <dimen name="font18">18sp</dimen>
+    <dimen name="font20">20sp</dimen>
+    <dimen name="font22">22sp</dimen>
+    <dimen name="font24">24sp</dimen>
+    <dimen name="font25">25sp</dimen>
+    <dimen name="font26">26sp</dimen>
+    <dimen name="font41">41sp</dimen>
+    <dimen name="height44">44dp</dimen>
+    <dimen name="height70">70dp</dimen>
+
 </resources>
