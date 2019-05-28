@@ -88,14 +88,14 @@
     <com.autohubtraining.autohub.customview.CustomButton
         android:id="@+id/nextBtn"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height44"
+        android:layout_height="@dimen/_44sdp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/next_button"
         android:gravity="center_vertical|right"
         android:text="NEXT"
         android:textColor="@color/colorWhite"
         android:paddingHorizontal="@dimen/margin10"
-        android:textSize="@dimen/font24"
+        android:textSize="@dimen/_18ssp"
         app:fontName="Montserrat_SemiBold" />
 
 </RelativeLayout>

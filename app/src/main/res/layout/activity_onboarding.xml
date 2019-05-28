@@ -12,18 +12,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin10"
+        android:layout_marginTop="@dimen/_6sdp"
         android:text="@string/shoot"
         android:textColor="#ff000000"
-        android:textSize="@dimen/font26"
+        android:textSize="@dimen/_17ssp"
         app:fontName="Montserrat_SemiBold" />
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/_119sdp"
+        android:layout_height="@dimen/_119sdp"
         android:layout_below="@+id/title"
-        android:layout_marginTop="@dimen/margin50"
-        android:src="@drawable/logo" />
+        android:layout_marginTop="@dimen/_32sdp"
+        android:src="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -42,7 +44,7 @@
             android:layout_height="wrap_content"
             android:text="@string/lets_click"
             android:textColor="#ff000000"
-            android:textSize="@dimen/font22"
+            android:textSize="@dimen/_14ssp"
             app:fontName="Montserrat_SemiBold"
             android:layout_centerHorizontal="true"
             />
@@ -50,26 +52,26 @@
             android:layout_below="@id/lets_str"
             android:id="@+id/signup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin20"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/black_button"
             android:gravity="center"
             android:text="@string/sign_up"
             android:textColor="#fff"
-            android:textSize="@dimen/font26"
+            android:textSize="@dimen/_17ssp"
             app:fontName="Montserrat_Medium" />
 
         <com.autohubtraining.autohub.customview.CustomButton
             android:layout_below="@id/signup"
             android:id="@+id/login"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin30"
+            android:layout_height="@dimen/_36sdp"
+            android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/white_round_button"
             android:gravity="center"
             android:text="@string/login"
             android:textColor="@color/colorBlack"
-            android:textSize="@dimen/font26"
+            android:textSize="@dimen/_17ssp"
             app:fontName="Montserrat_Medium" />
 
     </RelativeLayout>
