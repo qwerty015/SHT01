@@ -18,5 +18,12 @@
     <string name="title_activity_signup_last">SignupLastActivity</string>
     <string name="sign_up_last_info">One last step. Set your rates for your services, and make sure to set rate less or around the average rate to attract clients.</string>
     <string name="sign_up_dot">SIGNUP.</string>
+    <string name="average_rate_rs_100_15_shots">Average Rate: Rs. 100/15 SHOTS</string>
+    <string name="rs">RS.</string>
+    <string name="no_of_pictures">NO.OF PICTURES</string>
+    <string name="editing_included">EDITING INCLUDED?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="set_plan_name">SET PLAN NAME</string>
 
 </resources>
