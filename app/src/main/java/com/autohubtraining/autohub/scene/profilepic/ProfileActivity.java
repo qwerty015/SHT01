@@ -6,13 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.camerainfo.CameraInfoActivity;
 
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ProfileActivity extends AppCompatActivity implements ProfileContract.View {
+public class ProfileActivity extends BaseActivity implements ProfileContract.View {
 
     private ProfilePresenter presenter;
 
@@ -21,6 +22,7 @@ public class ProfileActivity extends AppCompatActivity implements ProfileContrac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_image);
         ButterKnife.bind(this);
+        setProgressBar(5);
         setup();
     }
 

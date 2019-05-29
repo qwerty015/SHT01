@@ -6,13 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.profilepic.ProfileActivity;
 
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LetsGoActivity extends AppCompatActivity implements LetsGoContract.View {
+public class LetsGoActivity extends BaseActivity implements LetsGoContract.View {
 
     private LetsGoPresenter presenter;
 
@@ -21,6 +22,7 @@ public class LetsGoActivity extends AppCompatActivity implements LetsGoContract.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_lets_go);
         ButterKnife.bind(this);
+        setProgressBar(4);
         setup();
     }
 

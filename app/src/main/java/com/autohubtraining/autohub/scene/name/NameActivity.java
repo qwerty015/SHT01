@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomEditView;
+import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.otp.OTPActivity;
 import com.autohubtraining.autohub.util.Utill;
 
@@ -16,7 +17,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class NameActivity extends AppCompatActivity implements NameContract.View {
+public class NameActivity extends BaseActivity implements NameContract.View {
 
     private NamePresenter presenter;
     @BindView(R.id.first_name)
@@ -30,6 +31,7 @@ public class NameActivity extends AppCompatActivity implements NameContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_name);
         ButterKnife.bind(this);
+        setProgressBar(1);
         setup();
     }
 

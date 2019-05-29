@@ -6,13 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.camerabrand.CameraBrandActivity;
 
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CameraInfoActivity extends AppCompatActivity implements CameraInfoContract.View {
+public class CameraInfoActivity extends BaseActivity implements CameraInfoContract.View {
 
     private CameraInfoPresenter presenter;
 
@@ -21,6 +22,7 @@ public class CameraInfoActivity extends AppCompatActivity implements CameraInfoC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_camera_info);
         ButterKnife.bind(this);
+        setProgressBar(6);
         setup();
     }
 

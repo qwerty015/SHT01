@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.bestimages.BestImagesActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class InterestActivity extends AppCompatActivity implements InterestContract.View {
+public class InterestActivity extends BaseActivity implements InterestContract.View {
 
     private InterestPresenter presenter;
 
@@ -20,6 +21,7 @@ public class InterestActivity extends AppCompatActivity implements InterestContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interest);
         ButterKnife.bind(this);
+        setProgressBar(8);
         setup();
     }
 

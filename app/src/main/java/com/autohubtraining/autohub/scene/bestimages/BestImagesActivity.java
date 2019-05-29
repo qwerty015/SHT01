@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.finalscreen.LastActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class BestImagesActivity extends AppCompatActivity implements BestImagesContract.View {
+public class BestImagesActivity extends BaseActivity implements BestImagesContract.View {
 
     private BestImagesPresenter presenter;
 
@@ -20,6 +21,7 @@ public class BestImagesActivity extends AppCompatActivity implements BestImagesC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_best_images);
         ButterKnife.bind(this);
+        setProgressBar(9);
         setup();
     }
 

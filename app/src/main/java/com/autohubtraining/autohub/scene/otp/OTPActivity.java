@@ -6,12 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.password.PasswordActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class OTPActivity extends AppCompatActivity implements OTPContract.View {
+public class OTPActivity extends BaseActivity implements OTPContract.View {
 
     private OTPPresenter presenter;
 
@@ -20,6 +21,7 @@ public class OTPActivity extends AppCompatActivity implements OTPContract.View {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_otp);
         ButterKnife.bind(this);
+        setProgressBar(2);
         setup();
     }
 

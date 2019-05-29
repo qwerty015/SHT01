@@ -23,7 +23,7 @@
         android:id="@+id/activeProgress"
         style="@style/appProgressBar"
         android:layout_below="@id/subTitle"
-        android:progress="20" />
+      />
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/your_name_title"

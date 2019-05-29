@@ -6,13 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.letsgo.LetsGoActivity;
 
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PasswordActivity extends AppCompatActivity implements PasswordContract.View {
+public class PasswordActivity extends BaseActivity implements PasswordContract.View {
 
     private PasswordPresenter presenter;
 
@@ -21,6 +22,7 @@ public class PasswordActivity extends AppCompatActivity implements PasswordContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_password);
         ButterKnife.bind(this);
+        setProgressBar(3);
         setup();
     }
 
