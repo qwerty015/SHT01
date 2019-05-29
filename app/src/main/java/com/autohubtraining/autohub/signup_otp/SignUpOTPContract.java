@@ -1,6 +1,6 @@
-package com.autohubtraining.autohub.signup_name;
+package com.autohubtraining.autohub.signup_otp;
 
-public class SignUpNameContract {
+public class SignUpOTPContract {
 
     public interface Presenter {
         void onCreate();
@@ -10,7 +10,6 @@ public class SignUpNameContract {
 
     public interface View {
         void navigateToNextScreen();
-        boolean isValidate();
     }
-
+    
 }

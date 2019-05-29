@@ -18,5 +18,16 @@
     <string name="title_activity_signup_last">SignupLastActivity</string>
     <string name="sign_up_last_info">One last step. Set your rates for your services, and make sure to set rate less or around the average rate to attract clients.</string>
     <string name="sign_up_dot">SIGNUP.</string>
+    <string name="f_name_error">Please enter first name</string>
+    <string name="l_name_error">Please enter last name</string>
+    <string name="your_number">Great, and your number?</string>
+    <string name="resend_code">RESEND CODE</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="otp_hint">OTP</string>
+    <string name="set_password">Set a password.</string>
+    <string name="password">password.</string>
+    <string name="confirm_password">confirm password.</string>
+    <string name="perfect_text">Perfect. Now let\'s build your profile and show the world your photographic abilities.</string>
+    <string name="letsgo">LET\'S GO</string>
 
 </resources>

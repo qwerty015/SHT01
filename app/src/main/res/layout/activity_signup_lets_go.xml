@@ -16,32 +16,31 @@
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/subTitle"
         style="@style/semiBold17TVBlack"
-        android:layout_below="@id/title"
         android:layout_marginTop="@dimen/_12sdp"
+        android:layout_below="@id/title"
         android:text="@string/sign_up_dot" />
 
+    <ProgressBar
+        android:id="@+id/activeProgress"
+        style="@style/appProgressBar"
+        android:layout_below="@id/subTitle"
+        android:progress="20"
+        />
+
     <com.autohubtraining.autohub.customview.CustomTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_33sdp"
-        android:text="I'M A..."
-        android:textColor="#ff000000"
-        android:textSize="@dimen/_27ssp"
-        app:fontName="Montserrat_Bold" />
+        android:id="@+id/your_name_title"
+        style="@style/pageInfo"
+        android:layout_below="@+id/activeProgress"
+        android:text="@string/perfect_text"
+        android:layout_marginTop="@dimen/_95sdp"
+        />
+
 
     <com.autohubtraining.autohub.customview.CustomButton
-        android:id="@+id/client"
-        style="@style/whiteRectButton"
-        android:layout_below="@id/lets_str"
-        android:layout_marginTop="@dimen/_17sdp"
-        android:text="CLIENT" />
-
-    <com.autohubtraining.autohub.customview.CustomButton
-        android:id="@+id/photographer"
-        style="@style/whiteRectButton"
-        android:layout_below="@id/lets_str"
-        android:layout_marginTop="@dimen/_17sdp"
-        android:text="PHOTOGRAPHER" />
+        android:id="@+id/nextBtn"
+        style="@style/blackButton"
+        android:text="@string/letsgo"
+        android:layout_marginTop="@dimen/_60sdp"
+    />
 
 </LinearLayout>

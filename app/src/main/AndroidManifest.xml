@@ -35,10 +35,34 @@
             android:windowSoftInputMode="adjustResize"
             ></activity>
         <activity
-            android:name=".signup_last.SignupLastActivity"
-            android:label="@string/title_activity_signup_last"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:name=".signup_otp.SignUpOTPActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
+        <activity
+            android:name=".signup_password.SignUpPasswordActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
+        <activity
+            android:name=".signup_letsgo.SignUpLetsGoActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
+        <activity
+            android:name=".signup_profile_pic.SignUpProfileActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
+        <activity
+            android:name=".signup_camera_info.SignUpCameraInfoActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>

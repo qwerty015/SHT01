@@ -91,5 +91,16 @@
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
+    <style name="whiteRectButton" parent="android:Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_47sdp</item>
+        <item name="android:layout_marginLeft">@dimen/_17sdp</item>
+        <item name="android:layout_marginRight">@dimen/_17sdp</item>
+        <item name="android:background">@drawable/white_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="fontName">Montserrat_Bold</item>
+    </style>
 
 </resources>
