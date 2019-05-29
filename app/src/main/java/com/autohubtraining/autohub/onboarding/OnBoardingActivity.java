@@ -3,12 +3,11 @@ package com.autohubtraining.autohub.onboarding;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.signup_choose.SignUpChooseActivity;
-import com.autohubtraining.autohub.signup_name.SignUpNameActivity;
+import com.autohubtraining.autohub.scene.choose.ChooseActivity;
+import com.autohubtraining.autohub.scene.name.NameActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -31,12 +30,12 @@ public class OnBoardingActivity extends AppCompatActivity implements OnBoardingC
 
     @Override
     public void navigateToSignUp() {
-        startActivity(new Intent(this, SignUpChooseActivity.class));
+        startActivity(new Intent(this, ChooseActivity.class));
     }
 
     @Override
     public void navigateToLogin() {
-        startActivity(new Intent(this, SignUpNameActivity.class));
+        startActivity(new Intent(this, NameActivity.class));
     }
 
     @OnClick({R.id.login, R.id.signup})

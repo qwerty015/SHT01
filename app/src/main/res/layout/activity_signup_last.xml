@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".signup_last.SignupLastActivity">
+    tools:context=".scene.finalscreen.LastActivity">
 
     <ScrollView
         android:layout_width="match_parent"

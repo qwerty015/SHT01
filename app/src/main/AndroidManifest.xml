@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".signup_camera_brand.SignupCameraBrandActivity"
+            android:name=".scene.camerabrand.CameraBrandActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MainActivity" />
@@ -19,53 +19,53 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".signup_last.SignupLastActivity"
+            android:name=".scene.finalscreen.LastActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".signup_choose.SignUpChooseActivity"
+            android:name=".scene.choose.ChooseActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".signup_name.SignUpNameActivity"
+            android:name=".scene.name.NameActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".signup_otp.SignUpOTPActivity"
+            android:name=".scene.otp.OTPActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".signup_password.SignUpPasswordActivity"
+            android:name=".scene.password.PasswordActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".signup_letsgo.SignUpLetsGoActivity"
+            android:name=".scene.letsgo.LetsGoActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".signup_profile_pic.SignUpProfileActivity"
+            android:name=".scene.profilepic.ProfileActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize"></activity>
         <activity
-            android:name=".signup_camera_info.SignUpCameraInfoActivity"
+            android:name=".scene.camerainfo.CameraInfoActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".signup_interest.SignUpInterestActivity"
+            android:name=".scene.interest.InterestActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
-            android:name=".signup_best_images.SignUpBestImagesActivity"
+            android:name=".scene.bestimages.BestImagesActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".onboarding.OnBoardingActivity"
-            android:label="@string/title_activity_signup_last"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
