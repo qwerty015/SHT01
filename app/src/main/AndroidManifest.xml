@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".signup_camera_brand.SignupCameraBrandActivity"></activity>
+        <activity
+            android:name=".signup_camera_brand.SignupCameraBrandActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MainActivity" />
         <activity
             android:name=".login.LoginActivity"
@@ -18,8 +21,7 @@
         <activity
             android:name=".signup_last.SignupLastActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".signup_choose.SignUpChooseActivity"
             android:label="@string/app_name"
@@ -33,35 +35,38 @@
             android:name=".signup_otp.SignUpOTPActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"
-            ></activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".signup_password.SignUpPasswordActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"
-            ></activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".signup_letsgo.SignUpLetsGoActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"
-            ></activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".signup_profile_pic.SignUpProfileActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize"
-            ></activity>
+            android:windowSoftInputMode="adjustResize"></activity>
         <activity
             android:name=".signup_camera_info.SignUpCameraInfoActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".signup_interest.SignUpInterestActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".signup_best_images.SignUpBestImagesActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".onboarding.OnBoardingActivity"
             android:label="@string/title_activity_signup_last"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

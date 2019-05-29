@@ -1,37 +1,31 @@
-package com.autohubtraining.autohub.signup_camera_info;
+package com.autohubtraining.autohub.signup_interest;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.onboarding.OnBoardingContract;
-import com.autohubtraining.autohub.onboarding.OnBoardingPresenter;
-import com.autohubtraining.autohub.signup_camera_brand.SignupCameraBrandActivity;
-import com.autohubtraining.autohub.signup_choose.SignUpChooseActivity;
+import com.autohubtraining.autohub.signup_best_images.SignUpBestImagesActivity;
 import com.autohubtraining.autohub.signup_profile_pic.SignUpProfileActivity;
-import com.autohubtraining.autohub.util.Utill;
-
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SignUpCameraInfoActivity extends AppCompatActivity implements SignUpCameraInfoContract.View {
+public class SignUpInterestActivity extends AppCompatActivity implements SignUpInterestContract.View {
 
-    private SignUpCameraInfoPresenter presenter;
+    private SignUpInterestPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_camera_info);
+        setContentView(R.layout.activity_interest);
         ButterKnife.bind(this);
         setup();
     }
 
     private void setup() {
-        presenter = new SignUpCameraInfoPresenter(this);
+        presenter = new SignUpInterestPresenter(this);
     }
 
 
@@ -47,7 +41,7 @@ public class SignUpCameraInfoActivity extends AppCompatActivity implements SignU
 
     @Override
     public void navigateToNextScreen() {
-        Intent intent = new Intent(this, SignupCameraBrandActivity.class);
+        Intent intent = new Intent(this, SignUpBestImagesActivity.class);
         startActivity(intent);
     }
 }

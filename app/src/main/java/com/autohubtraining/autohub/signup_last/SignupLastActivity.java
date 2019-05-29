@@ -6,12 +6,12 @@ import android.support.v7.widget.Toolbar;
 
 import com.autohubtraining.autohub.R;
 
-public class SignupLastActivity extends AppCompatActivity {
+public class SignupLastActivity extends AppCompatActivity implements SignupLastContract.View {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_camera_brand);
+        setContentView(R.layout.activity_signup_last);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }

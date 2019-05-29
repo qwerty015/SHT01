@@ -54,11 +54,11 @@
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_marginLeft">@dimen/_18sdp</item>
         <item name="android:layout_marginRight">@dimen/_18sdp</item>
-        <item name="android:layout_marginBottom">@dimen/_27sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_18sdp</item>
         <item name="android:background">@drawable/black_button</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">@dimen/_23ssp</item>
+        <item name="android:textSize">@dimen/_19ssp</item>
         <item name="fontName">Montserrat_SemiBold</item>
     </style>
 
