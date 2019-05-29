@@ -44,7 +44,7 @@ public class NameActivity extends BaseActivity implements NameContract.View {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-                presenter.onNextBtnClicked();
+                presenter.onNextBtnClicked("","");
                 break;
         }
     }
