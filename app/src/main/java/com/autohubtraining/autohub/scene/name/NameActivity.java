@@ -1,5 +1,6 @@
 package com.autohubtraining.autohub.scene.name;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -52,7 +53,6 @@ public class NameActivity extends AppCompatActivity implements NameContract.View
         startActivity(intent);
     }
 
-    @Override
     public boolean isValidate() {
         fNameStr = firstName.getText().toString().trim();
         lNameStr = lastName.getText().toString().trim();
@@ -64,5 +64,10 @@ public class NameActivity extends AppCompatActivity implements NameContract.View
             return false;
         }
         return true;
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
     }
 }
