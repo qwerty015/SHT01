@@ -25,5 +25,8 @@
     <string name="yes">YES</string>
     <string name="no">NO</string>
     <string name="set_plan_name">SET PLAN NAME</string>
+    <string name="e_g_tripod">E.g - Tripod</string>
+    <string name="mention_other_gear_one_equipment_per_field_optional">mention other gear, one equipment per field. (optional)</string>
+    <string name="e_g_50_mm_nikkor_prime_lens">E.g - 50 mm Nikkor Prime Lens</string>
 
 </resources>
