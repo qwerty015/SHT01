@@ -10,24 +10,15 @@
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_6sdp"
-        android:text="@string/shoot"
-        android:textColor="#ff000000"
-        android:textSize="@dimen/_17ssp"
-        app:fontName="Montserrat_SemiBold" />
+        style="@style/semiBold17TVBlack"
+        android:text="@string/shoot" />
 
     <com.autohubtraining.autohub.customview.CustomTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/subTitle"
+        style="@style/semiBold17TVBlack"
         android:layout_marginTop="@dimen/_12sdp"
-        android:text="SIGNUP."
-        android:textColor="#ff000000"
-        android:textSize="@dimen/_17ssp"
-        app:fontName="Montserrat_SemiBold" />
+        android:layout_below="@id/title"
+        android:text="@string/sign_up_dot" />
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:layout_width="wrap_content"

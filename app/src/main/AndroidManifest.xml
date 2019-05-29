@@ -31,7 +31,9 @@
         <activity
             android:name=".signup_name.SignUpNameActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustResize"
+            ></activity>
         <activity
             android:name=".signup_last.SignupLastActivity"
             android:label="@string/title_activity_signup_last"

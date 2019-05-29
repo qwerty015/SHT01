@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,92 +9,46 @@
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin10"
-        android:text="@string/shoot"
-        android:textColor="#ff000000"
-        android:textSize="@dimen/font26"
-        app:fontName="Montserrat_SemiBold" />
+        style="@style/semiBold17TVBlack"
+        android:text="@string/shoot" />
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/subTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/semiBold17TVBlack"
         android:layout_below="@id/title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin18"
-        android:text="SIGNUP."
-        android:textColor="#ff000000"
-        android:textSize="@dimen/font26"
-        app:fontName="Montserrat_SemiBold" />
+        android:layout_marginTop="@dimen/_12sdp"
+        android:text="@string/sign_up_dot" />
 
     <ProgressBar
         android:id="@+id/activeProgress"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/appProgressBar"
         android:layout_below="@id/subTitle"
-        android:layout_marginTop="@dimen/margin12"
-        android:paddingHorizontal="@dimen/margin10"
-        android:progress="20"
-        android:progressDrawable="@drawable/custom_progress" />
+        android:progress="20" />
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/your_name_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/pageInfo"
         android:layout_below="@+id/activeProgress"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/margin20"
-        android:paddingHorizontal="@dimen/margin10"
-        android:text="Hey! What's your \nname?"
-        android:textColor="#ff000000"
-        android:textSize="@dimen/margin18"
-        app:fontName="Montserrat_SemiBold" />
+        android:text="Hey! What's your \nname?" />
 
     <com.autohubtraining.autohub.customview.CustomEditView
-        android:layout_below="@id/your_name_title"
         android:id="@+id/first_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:background="@drawable/edit_box"
-        android:layout_marginHorizontal="@dimen/margin14"
-        android:elevation="@dimen/margin4"
-        android:hint="@string/first_name"
-        app:fontName="Montserrat_SemiBold"
-        android:textSize="@dimen/font18"
+        style="@style/inputBox"
+        android:layout_below="@id/your_name_title"
         android:layout_marginTop="@dimen/margin20"
-        android:inputType="text"/>
+        android:hint="@string/first_name" />
 
     <com.autohubtraining.autohub.customview.CustomEditView
+        android:id="@+id/last_name"
+        style="@style/inputBox"
         android:layout_below="@id/first_name"
-        android:id="@+id/edit_expiry_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dip"
-        android:background="@drawable/edit_box"
-        android:layout_marginHorizontal="@dimen/margin14"
-        android:layout_marginTop="@dimen/margin20"
-        android:elevation="@dimen/margin4"
-        android:hint="@string/last_name"
-        app:fontName="Montserrat_SemiBold"
-        android:textSize="@dimen/font18"
-        android:inputType="text"/>
+        android:layout_marginTop="@dimen/_14sdp"
+        android:hint="@string/last_name" />
 
     <com.autohubtraining.autohub.customview.CustomButton
         android:id="@+id/nextBtn"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_44sdp"
+        style="@style/pinkNextButton"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/next_button"
-        android:gravity="center_vertical|right"
-        android:text="NEXT"
-        android:textColor="@color/colorWhite"
-        android:paddingHorizontal="@dimen/margin10"
-        android:textSize="@dimen/_18ssp"
-        app:fontName="Montserrat_SemiBold" />
+        android:text="NEXT" />
 
 </RelativeLayout>

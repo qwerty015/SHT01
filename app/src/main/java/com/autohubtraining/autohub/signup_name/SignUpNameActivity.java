@@ -10,7 +10,7 @@ public class SignUpNameActivity extends AppCompatActivity implements SignUpNameC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_camera_info);
+        setContentView(R.layout.activity_signup_name);
     }
 
     @Override
