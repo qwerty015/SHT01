@@ -16,41 +16,59 @@
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/subTitle"
         style="@style/semiBold17TVBlack"
-        android:layout_marginTop="@dimen/_12sdp"
         android:layout_below="@id/title"
+        android:layout_marginTop="@dimen/_12sdp"
         android:text="@string/sign_up_dot" />
 
     <ProgressBar
         android:id="@+id/activeProgress"
         style="@style/appProgressBar"
         android:layout_below="@id/subTitle"
-        android:progress="20"
-        />
+        android:progress="20" />
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/your_name_title"
         style="@style/pageInfo"
         android:layout_below="@+id/activeProgress"
-        android:text="@string/sign_up_image_info"
-        />
+        android:text="@string/sign_up_image_info" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <ImageView
-            android:layout_width="@dimen/_113sdp"
-            android:layout_height="@dimen/_113sdp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/profile_pic" />
+        <RelativeLayout
+            android:layout_width="@dimen/_138sdp"
+            android:layout_height="@dimen/_138sdp"
+            android:layout_centerInParent="true">
+
+            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profilePic"
+                android:layout_width="@dimen/_113sdp"
+                android:layout_height="@dimen/_113sdp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_profile"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="0dp" />
+
+            <ImageView
+                android:id="@+id/icAdd"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@color/colorWhite"
+                android:src="@drawable/ic_add" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
     <com.autohubtraining.autohub.customview.CustomButton
         android:id="@+id/nextBtn"
         style="@style/blackButton"
-        android:text="@string/next"
-        />
+        android:text="@string/next" />
 
 </LinearLayout>
