@@ -38,7 +38,20 @@
     <string name="set_plan_name">SET PLAN NAME</string>
     <string name="e_g_tripod">E.g - Tripod</string>
     <string name="mention_other_gear_one_equipment_per_field_optional">mention other gear, one equipment per field. (optional)</string>
-    <string name="e_g_50_mm_nikkor_prime_lens">E.g - 50 mm Nikkor Prime Lens</string>
+    <string name="e_g_50_mm_nikkor_prime_lens">E.g - 50 mm Nikkor </string>
     <string name="superrb">Superrrb! You\'re closer to becoming a pro-grapher. Tell us about your interest areas, so we get more clients to you!</string>
     <string name="best_images">Let your pictures do the talking,  it\'s time to show your remarkable work for everyone to see, upload your 4 best photographs. You can always edit it later.</string>
+    <string name="profile">PROFILE</string>
+    <string name="alex_r">Alex R.</string>
+    <string name="edit_profile">EDIT PROFILE</string>
+    <string name="edit_your_details">EDIT YOUR DETAILS</string>
+    <string name="create_offers">CREATE OFFERS</string>
+    <string name="home">HOME</string>
+
+    <string name="bookings">BOOKINGS</string>
+    <string name="explore">EXPLORE</string>
+    <string name="logout">LOGOUT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
