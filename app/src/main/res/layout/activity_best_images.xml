@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,69 +29,73 @@
         android:id="@+id/your_name_title"
         style="@style/pageInfo"
         android:layout_below="@+id/activeProgress"
-        android:text="@string/superrb" />
+        android:text="@string/best_images" />
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_best_image_placeholder" />
+
+        <View
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp" />
+
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_best_image_placeholder" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_8sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_76sdp"
-            android:background="@drawable/black_border"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_11sdp">
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_best_image_placeholder" />
 
-            <com.autohubtraining.autohub.customview.CustomTextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="PHOTO SHOOT"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10ssp"
-                app:fontName="Montserrat_SemiBold" />
+        <View
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp" />
 
-            <CheckBox
-                android:id="@+id/photoShootCB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_76sdp"
-            android:background="@drawable/black_border"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_11sdp">
-
-            <com.autohubtraining.autohub.customview.CustomTextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="PHOTO SHOOT"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10ssp"
-                app:fontName="Montserrat_SemiBold" />
-
-            <CheckBox
-                android:id="@+id/photoShootCB1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-
+        <ImageView
+            android:id="@+id/image4"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_best_image_placeholder" />
     </LinearLayout>
 
     <com.autohubtraining.autohub.customview.CustomButton
         android:id="@+id/nextBtn"
         style="@style/blackButton"
-        android:layout_marginTop="@dimen/_60sdp"
         android:text="@string/next" />
 </LinearLayout>
 
