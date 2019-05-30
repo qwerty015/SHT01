@@ -17,6 +17,8 @@ public class OTPContract {
         Context getContext();
         void requestOTP();
         void showError(String errorMessage);
+        void showLoader();
+        void hideLoader();
     }
 
     public interface Repository {

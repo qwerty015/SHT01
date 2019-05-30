@@ -1,6 +1,6 @@
 package com.autohubtraining.autohub.scene.choose;
 
-import com.autohubtraining.autohub.constants.AppConstants;
+import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.data.DataHandler;
 
 public class ChoosePresenter implements ChooseContract.Presenter {

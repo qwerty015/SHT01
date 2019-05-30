@@ -103,4 +103,13 @@
         <item name="fontName">Montserrat_Bold</item>
     </style>
 
+    <style name="InOutColorsCircularProgressDrawableStylenew" parent="Material.Drawable.CircularProgress">
+        <item name="cpd_inAnimDuration">1000</item>
+        <item name="cpd_inStepPercent">0.5</item>
+        <item name="cpd_inStepColors">@array/in_step_colors</item>
+        <item name="cpd_outAnimDuration">400</item>
+        <item name="cpd_strokeColors">@array/in_step_colors</item>
+        <item name="cpd_maxSweepAngle">300</item>
+    </style>
+
 </resources>

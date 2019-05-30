@@ -22,17 +22,20 @@ public class OTPPresenter implements OTPContract.Presenter, PhoneAuthDataListene
 
     @Override
     public void onCodeSent(String verificationId) {
+        view.hideLoader();
         this.verificationId = verificationId;
         this.view.requestOTP();
     }
 
     @Override
     public void onVerificationFailure(String errorMessage) {
+        view.hideLoader();
         this.view.showError(errorMessage);
     }
 
     @Override
     public void onVerificationSuccess() {
+        view.hideLoader();
         view.navigateToNextScreen();
     }
 
@@ -44,11 +47,13 @@ public class OTPPresenter implements OTPContract.Presenter, PhoneAuthDataListene
 
     @Override
     public void submitPhoneNumberForVerification(String phoneNumber) {
+        view.showLoader();
         this.repository.requestPhoneVerification(phoneNumber, this.view.getContext());
     }
 
     @Override
     public void submitOTP(String otp) {
+        view.showLoader();
         this.repository.verifyOTP(verificationId, otp);
     }
 }

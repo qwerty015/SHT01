@@ -73,4 +73,14 @@ public class OTPActivity extends BaseActivity implements OTPContract.View {
     public void showError(String errorMessage) {
         Utill.showToast(errorMessage, this);
     }
+
+    @Override
+    public void showLoader() {
+        showLoading("");
+    }
+
+    @Override
+    public void hideLoader() {
+        dismissLoading();
+    }
 }
