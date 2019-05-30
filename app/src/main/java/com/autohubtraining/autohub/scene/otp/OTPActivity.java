@@ -43,10 +43,10 @@ public class OTPActivity extends BaseActivity implements OTPContract.View {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-                presenter.submitPhoneNumberForVerification("+91 7049994945");
+                presenter.submitPhoneNumberForVerification("+91 9098358687");
                 break;
             case R.id.resendBtn:
-                presenter.submitOTP("704999");
+                presenter.submitOTP("123456");
                 break;
         }
     }

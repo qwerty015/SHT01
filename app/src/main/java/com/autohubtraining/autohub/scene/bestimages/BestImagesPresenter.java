@@ -22,5 +22,5 @@ public class BestImagesPresenter implements BestImagesContract.Presenter {
     public void onNextBtnClicked() {
         view.navigateToNextScreen();
     }
-
+    
 }
