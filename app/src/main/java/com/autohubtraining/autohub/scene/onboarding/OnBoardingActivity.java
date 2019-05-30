@@ -1,4 +1,4 @@
-package com.autohubtraining.autohub.onboarding;
+package com.autohubtraining.autohub.scene.onboarding;
 
 import android.content.Intent;
 import android.os.Bundle;

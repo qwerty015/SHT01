@@ -1,4 +1,4 @@
-package com.autohubtraining.autohub.login;
+package com.autohubtraining.autohub.scene.login;
 
 public class LoginContract {
 

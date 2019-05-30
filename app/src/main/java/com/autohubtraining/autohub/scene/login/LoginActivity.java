@@ -1,4 +1,4 @@
-package com.autohubtraining.autohub.login;
+package com.autohubtraining.autohub.scene.login;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

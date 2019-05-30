@@ -1,4 +1,4 @@
-package com.autohubtraining.autohub.onboarding;
+package com.autohubtraining.autohub.scene.onboarding;
 
 public class OnBoardingContract {
 
