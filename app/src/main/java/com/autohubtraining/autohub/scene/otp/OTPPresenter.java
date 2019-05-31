@@ -1,5 +1,8 @@
 package com.autohubtraining.autohub.scene.otp;
 
+import com.autohubtraining.autohub.customview.CustomEditView;
+import com.hbb20.CountryCodePicker;
+
 public class OTPPresenter implements OTPContract.Presenter, PhoneAuthDataListener {
     private OTPContract.View view;
     private OTPContract.Repository repository;
@@ -65,5 +68,10 @@ public class OTPPresenter implements OTPContract.Presenter, PhoneAuthDataListene
     public void submitOTP(String otp) {
         view.showLoader();
         this.repository.verifyOTP(verificationId, otp);
+    }
+
+    @Override
+    public boolean isNumberValid(CountryCodePicker countryCodePicker) {
+        return countryCodePicker.isValidFullNumber();
     }
 }

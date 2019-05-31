@@ -2,6 +2,9 @@ package com.autohubtraining.autohub.scene.otp;
 
 import android.content.Context;
 
+import com.autohubtraining.autohub.customview.CustomEditView;
+import com.hbb20.CountryCodePicker;
+
 public class OTPContract {
 
     public interface Presenter {
@@ -10,6 +13,7 @@ public class OTPContract {
         void onNextBtnClicked();
         void submitPhoneNumberForVerification(String phoneNumber);
         void submitOTP(String otp);
+        boolean isNumberValid(CountryCodePicker countryCodePicker);
     }
 
     public interface View  {

@@ -14,5 +14,6 @@ public interface AppConstants {
     int SCREEN7 = 7;
     int SCREEN8 = 8;
     int SCREEN9 = 9;
+    int OTP_TIME_OUT = 60;
 
 }

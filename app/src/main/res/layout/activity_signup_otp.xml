@@ -32,17 +32,63 @@
         android:layout_below="@+id/activeProgress"
         android:text="@string/your_number" />
 
-    <com.autohubtraining.autohub.customview.CustomEditView
-        android:id="@+id/mobile_no"
-        style="@style/inputBox"
+    <LinearLayout
         android:layout_below="@id/your_name_title"
-        android:layout_marginTop="@dimen/margin20"
-        android:hint="@string/mobile_no" />
+        android:id="@+id/mobile_no_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_29sdp"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:background="@drawable/edit_box"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="@dimen/_9sdp"
+        android:elevation="@dimen/_1sdp"
+        >
+
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/countryCodePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:ccpDialog_backgroundColor="@color/colorWhite"
+            app:ccpDialog_keyboardAutoPopup="false"
+            app:ccpDialog_searchEditTextTint="@color/colorPrimary"
+            app:ccpDialog_textColor="@color/colorBlack"
+            app:ccp_areaCodeDetectedCountry="true"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_autoFormatNumber="false"
+            app:ccp_contentColor="@color/colorBlack"
+            app:ccp_countryAutoDetectionPref="SIM_NETWORK_LOCALE"
+            app:ccp_countryPreference="GB,US,IN,AU"
+            app:ccp_hintExampleNumberType="FIXED_LINE_OR_MOBILE"
+            app:ccp_showFlag="true"
+            app:ccp_showNameCode="false"
+            app:ccp_textSize="@dimen/_13ssp"
+            />
+        <View
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="match_parent"
+            android:background="#ededed"
+            android:layout_marginVertical="@dimen/_5sdp"
+            />
+
+        <com.autohubtraining.autohub.customview.CustomEditView
+            android:id="@+id/mobile_no"
+            android:layout_width="match_parent"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:layout_below="@id/your_name_title"
+            android:layout_height="@dimen/_29sdp"
+            android:background="@color/colorWhite"
+            android:hint="@string/mobile_no"
+            android:inputType="number"
+            />
+    </LinearLayout>
+
+
 
     <com.mukesh.OtpView
         android:id="@+id/otp_view"
         android:layout_width="wrap_content"
-        android:layout_below="@id/mobile_no"
+        android:layout_below="@id/mobile_no_ll"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
         android:inputType="number"
@@ -51,12 +97,15 @@
         android:layout_centerHorizontal="true"
         android:textColor="@android:color/black"
         app:itemCount="6"
-        app:itemSpacing="6dp"
+        app:itemSpacing="@dimen/_6sdp"
         app:lineColor="@color/colorBlack"
         app:state_filled="true"
+        app:lineWidth="@dimen/_1sdp"
+        android:layout_marginLeft="@dimen/_8sdp"
+        android:layout_marginRight="@dimen/_8sdp"
         app:viewType="rectangle" />
 
-    <TextView
+    <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/auto_retrieve_textview"
         android:layout_width="wrap_content"
         android:layout_below="@id/otp_view"
@@ -64,6 +113,8 @@
         android:visibility="gone"
         android:paddingTop="@dimen/_10sdp"
         android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        app:fontName="Montserrat_SemiBold"
         android:text="@string/auto_detect_otp"/>
 
     <com.autohubtraining.autohub.customview.CustomButton
@@ -81,7 +132,7 @@
         android:id="@+id/nextBtn"
         style="@style/pinkNextButton"
         android:layout_alignParentBottom="true"
-        android:text="NEXT"
+        android:text="GET OTP"
         />
 
 

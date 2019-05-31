@@ -36,6 +36,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:17.0.0'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
     implementation 'com.github.rey5137:material:1.2.2'
+    implementation 'com.hbb20:ccp:2.2.9'
 }
 
 apply plugin: 'com.google.gms.google-services'

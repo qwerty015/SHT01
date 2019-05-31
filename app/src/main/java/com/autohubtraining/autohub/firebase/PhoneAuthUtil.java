@@ -18,6 +18,8 @@ import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.autohubtraining.autohub.util.AppConstants.OTP_TIME_OUT;
+
 public class PhoneAuthUtil {
 
     private PhoneAuthProvider authProvider;
@@ -55,7 +57,7 @@ public class PhoneAuthUtil {
     }
 
     public void verifyPhoneNumber (String phoneNumber, Context context) {
-        authProvider.verifyPhoneNumber(phoneNumber, 60, TimeUnit.SECONDS, (Activity) context, mCallback);
+        authProvider.verifyPhoneNumber(phoneNumber, OTP_TIME_OUT, TimeUnit.SECONDS, (Activity) context, mCallback);
     }
 
     public void signIn (PhoneAuthCredential credential) {

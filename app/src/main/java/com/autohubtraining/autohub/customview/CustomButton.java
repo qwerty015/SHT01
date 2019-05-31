@@ -58,5 +58,16 @@ public class CustomButton extends android.support.v7.widget.AppCompatButton {
         setTypeface(tf);
         a.recycle();
     }
+
+
+    @Override
+    public void setEnabled(boolean enabled) {
+        if(enabled){
+            setAlpha(1.0f);
+        }else{
+            setAlpha(0.4f);
+        }
+        super.setEnabled(enabled);
+    }
 }
 
