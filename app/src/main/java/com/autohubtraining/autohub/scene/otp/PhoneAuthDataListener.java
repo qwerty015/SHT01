@@ -6,4 +6,6 @@ public interface PhoneAuthDataListener {
     void onCodeSent(String verificationId);
     void onVerificationFailure(String errorMessage);
     void onVerificationSuccess();
+    void onOTPAutoRetrieved(String smsCode);
+    void onOTPAutoRetrievalFailed(String s);
 }

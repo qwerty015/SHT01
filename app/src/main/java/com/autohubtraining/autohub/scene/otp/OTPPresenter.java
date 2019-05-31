@@ -24,7 +24,7 @@ public class OTPPresenter implements OTPContract.Presenter, PhoneAuthDataListene
     public void onCodeSent(String verificationId) {
         view.hideLoader();
         this.verificationId = verificationId;
-        this.view.requestOTP();
+        this.view.showAutoRetrievingUI();
     }
 
     @Override
@@ -37,6 +37,16 @@ public class OTPPresenter implements OTPContract.Presenter, PhoneAuthDataListene
     public void onVerificationSuccess() {
         view.hideLoader();
         view.navigateToNextScreen();
+    }
+
+    @Override
+    public void onOTPAutoRetrieved(String smsCode) {
+        view.showAutoRetrievedOTP(smsCode);
+    }
+
+    @Override
+    public void onOTPAutoRetrievalFailed(String s) {
+        view.showAutoRetrieveingFailed();
     }
 
     //actions

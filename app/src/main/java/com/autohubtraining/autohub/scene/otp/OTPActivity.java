@@ -3,15 +3,19 @@ package com.autohubtraining.autohub.scene.otp;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
+import android.widget.TextView;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.customview.CustomEditView;
+import com.autohubtraining.autohub.customview.CustomButton;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.letsgo.LetsGoActivity;
 import com.autohubtraining.autohub.scene.profilepic.ProfileActivity;
 import com.autohubtraining.autohub.util.Utill;
+import com.mukesh.OnOtpCompletionListener;
+import com.mukesh.OtpView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,11 +24,18 @@ import butterknife.OnClick;
 import static com.autohubtraining.autohub.util.AppConstants.PHOTOGRAPHER;
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN2;
 
-public class OTPActivity extends BaseActivity implements OTPContract.View {
+public class OTPActivity extends BaseActivity implements OTPContract.View, OnOtpCompletionListener{
 
-    @BindView(R.id.otp)
-    CustomEditView editView;
-    private OTPPresenter presenter;
+    private OTPContract.Presenter presenter;
+
+    @BindView(R.id.auto_retrieve_textview)
+    TextView autoRetrieveTextView;
+
+    @BindView(R.id.otp_view)
+    OtpView otpView;
+
+    @BindView(R.id.resendBtn)
+    CustomButton resendButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +47,7 @@ public class OTPActivity extends BaseActivity implements OTPContract.View {
     }
 
     private void setup() {
+        otpView.setOtpCompletionListener(this);
         presenter = new OTPPresenter(this);
     }
 
@@ -45,11 +57,10 @@ public class OTPActivity extends BaseActivity implements OTPContract.View {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-                navigateToNextScreen();
-                // presenter.submitPhoneNumberForVerification("+91 9098358687");
+                presenter.submitPhoneNumberForVerification("+917000762503");
                 break;
             case R.id.resendBtn:
-                presenter.submitOTP("123456");
+                presenter.submitPhoneNumberForVerification("+917000762503");
                 break;
         }
     }
@@ -71,13 +82,6 @@ public class OTPActivity extends BaseActivity implements OTPContract.View {
     }
 
     @Override
-    public void requestOTP() {
-        //do anything UI related like show OTP input fields or disable/enable widgets.
-        Utill.showToast("Please provide OTP.", this);
-        editView.setEnabled(true);
-    }
-
-    @Override
     public void showError(String errorMessage) {
         Utill.showToast(errorMessage, this);
     }
@@ -90,5 +94,34 @@ public class OTPActivity extends BaseActivity implements OTPContract.View {
     @Override
     public void hideLoader() {
         dismissLoading();
+    }
+
+    @Override
+    public void showAutoRetrievingUI () {
+        this.resendButton.setVisibility(View.GONE);
+        this.autoRetrieveTextView.setVisibility(View.VISIBLE);
+        this.otpView.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void showAutoRetrievedOTP (String otp) {
+        this.autoRetrieveTextView.setVisibility(View.GONE);
+        this.otpView.setText(otp);
+    }
+
+    @Override
+    public void onOtpCompleted(final String otp) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presenter.submitOTP(otp);
+            }
+        }, 200);
+    }
+
+    @Override
+    public void showAutoRetrieveingFailed() {
+        this.autoRetrieveTextView.setVisibility(View.GONE);
+        this.resendButton.setVisibility(View.VISIBLE);
     }
 }

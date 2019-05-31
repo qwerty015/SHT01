@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".scene.choose.ChooseActivity">
@@ -38,16 +39,37 @@
         android:layout_marginTop="@dimen/margin20"
         android:hint="@string/mobile_no" />
 
-    <com.autohubtraining.autohub.customview.CustomEditView
-        android:id="@+id/otp"
-        style="@style/inputBox"
+    <com.mukesh.OtpView
+        android:id="@+id/otp_view"
+        android:layout_width="wrap_content"
         android:layout_below="@id/mobile_no"
-        android:layout_marginTop="@dimen/margin20"
-        android:hint="@string/otp_hint" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:inputType="number"
+        android:visibility="gone"
+        android:itemBackground="@color/colorWhite"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/black"
+        app:itemCount="6"
+        app:itemSpacing="6dp"
+        app:lineColor="@color/colorBlack"
+        app:state_filled="true"
+        app:viewType="rectangle" />
+
+    <TextView
+        android:id="@+id/auto_retrieve_textview"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/otp_view"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:paddingTop="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/auto_detect_otp"/>
 
     <com.autohubtraining.autohub.customview.CustomButton
         android:id="@+id/resendBtn"
-        android:layout_below="@id/otp"
+        android:visibility="gone"
+        android:layout_below="@id/otp_view"
         style="@style/whiteRectButton"
         android:layout_marginTop="@dimen/_17sdp"
         android:text="@string/resend_code"
@@ -61,5 +83,6 @@
         android:layout_alignParentBottom="true"
         android:text="NEXT"
         />
+
 
 </RelativeLayout>

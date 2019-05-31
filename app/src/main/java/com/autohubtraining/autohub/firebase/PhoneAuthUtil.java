@@ -46,6 +46,11 @@ public class PhoneAuthUtil {
             public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                 firebaseListener.onCodeSent(s);
             }
+
+            @Override
+            public void onCodeAutoRetrievalTimeOut(String s) {
+               firebaseListener.onCodeAutoRetrievalTimeOut(s);
+            }
         };
     }
 
@@ -56,15 +61,13 @@ public class PhoneAuthUtil {
     public void signIn (PhoneAuthCredential credential) {
         FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             public void onComplete(@NonNull Task<AuthResult> task) {
+
                 if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
                     FirebaseUser user = task.getResult().getUser();
                     firebaseListener.onLoginSuccess(user);
                 } else {
-                    // Sign in failed, display a message and update the UI
-                    if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                        firebaseListener.onLoginFailed(task.getException().getMessage());
-                    }
+
+                    firebaseListener.onLoginFailed(task.getException().getMessage());
                 }
             }
         });

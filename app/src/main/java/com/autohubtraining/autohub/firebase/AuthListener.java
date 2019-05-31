@@ -8,6 +8,7 @@ public interface AuthListener {
     void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential);
     void onVerificationFailed(FirebaseException e);
     void onCodeSent(String verificationId);
+    void onCodeAutoRetrievalTimeOut(String s);
     void onLoginSuccess(FirebaseUser user);
     void onLoginFailed(String errorMessage);
 }

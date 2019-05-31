@@ -15,10 +15,12 @@ public class OTPContract {
     public interface View  {
         void navigateToNextScreen();
         Context getContext();
-        void requestOTP();
         void showError(String errorMessage);
         void showLoader();
         void hideLoader();
+        void showAutoRetrievedOTP(String otp);
+        void showAutoRetrievingUI();
+        void showAutoRetrieveingFailed();
     }
 
     public interface Repository {

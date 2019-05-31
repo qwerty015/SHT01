@@ -32,7 +32,7 @@ public class OTPRepository implements OTPContract.Repository, AuthListener {
 
     @Override
     public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-        phoneAuth.signIn(phoneAuthCredential);
+        dataListener.onOTPAutoRetrieved(phoneAuthCredential.getSmsCode());
     }
 
     @Override
@@ -43,6 +43,11 @@ public class OTPRepository implements OTPContract.Repository, AuthListener {
     @Override
     public void onCodeSent(String verificationId) {
         dataListener.onCodeSent(verificationId);
+    }
+
+    @Override
+    public void onCodeAutoRetrievalTimeOut(String s) {
+        dataListener.onOTPAutoRetrievalFailed(s);
     }
 
     @Override
