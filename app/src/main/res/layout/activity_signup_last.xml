@@ -328,6 +328,7 @@
 
 
             <com.autohubtraining.autohub.customview.CustomButton
+                android:id="@+id/nextBtn"
                 style="@style/blackButton"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="@dimen/_13sdp"

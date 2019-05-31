@@ -13,6 +13,8 @@ import com.autohubtraining.autohub.scene.camerabrand.CameraBrandActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.autohubtraining.autohub.util.AppConstants.SCREEN5;
+
 public class CameraInfoActivity extends BaseActivity implements CameraInfoContract.View {
 
     private CameraInfoPresenter presenter;
@@ -22,7 +24,7 @@ public class CameraInfoActivity extends BaseActivity implements CameraInfoContra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_camera_info);
         ButterKnife.bind(this);
-        setProgressBar(6);
+        setProgressBar(SCREEN5);
         setup();
     }
 

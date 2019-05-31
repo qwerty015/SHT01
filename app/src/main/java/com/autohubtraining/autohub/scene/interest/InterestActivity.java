@@ -12,6 +12,8 @@ import com.autohubtraining.autohub.scene.bestimages.BestImagesActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.autohubtraining.autohub.util.AppConstants.SCREEN7;
+
 public class InterestActivity extends BaseActivity implements InterestContract.View {
 
     private InterestPresenter presenter;
@@ -21,7 +23,7 @@ public class InterestActivity extends BaseActivity implements InterestContract.V
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interest);
         ButterKnife.bind(this);
-        setProgressBar(8);
+        setProgressBar(SCREEN7);
         setup();
     }
 

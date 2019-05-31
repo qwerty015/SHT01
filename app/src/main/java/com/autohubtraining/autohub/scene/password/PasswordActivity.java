@@ -13,6 +13,7 @@ import com.autohubtraining.autohub.scene.letsgo.LetsGoActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+
 public class PasswordActivity extends BaseActivity implements PasswordContract.View {
 
     private PasswordPresenter presenter;
@@ -22,7 +23,6 @@ public class PasswordActivity extends BaseActivity implements PasswordContract.V
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_password);
         ButterKnife.bind(this);
-        setProgressBar(3);
         setup();
     }
 

@@ -3,11 +3,11 @@ package com.autohubtraining.autohub.scene.finalscreen;
 
 import com.autohubtraining.autohub.scene.interest.InterestContract;
 
-public class LastPresenter implements InterestContract.Presenter {
+public class LastPresenter implements LastContract.Presenter {
 
-    private InterestContract.View view;
+    private LastContract.View view;
 
-    public LastPresenter(InterestContract.View view) {
+    public LastPresenter(LastContract.View view) {
         this.view = view;
     }
 
@@ -24,6 +24,11 @@ public class LastPresenter implements InterestContract.Presenter {
     @Override
     public void onNextBtnClicked() {
         view.navigateToNextScreen();
+    }
+
+    @Override
+    public void onLoginBtnClicked() {
+
     }
 
 }

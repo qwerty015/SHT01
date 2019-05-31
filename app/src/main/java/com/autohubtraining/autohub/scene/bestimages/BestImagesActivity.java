@@ -15,6 +15,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.autohubtraining.autohub.util.AppConstants.SCREEN8;
+
 public class BestImagesActivity extends BaseActivity implements BestImagesContract.View {
 
     @BindView(R.id.image1)
@@ -34,7 +36,7 @@ public class BestImagesActivity extends BaseActivity implements BestImagesContra
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_best_images);
         ButterKnife.bind(this);
-        setProgressBar(9);
+        setProgressBar(SCREEN8);
         setup();
     }
 

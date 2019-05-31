@@ -4,17 +4,23 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.camerainfo.CameraInfoActivity;
+import com.autohubtraining.autohub.scene.deshboard.DeshboardActivity;
 import com.autohubtraining.autohub.util.ImageUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.autohubtraining.autohub.util.AppConstants.CLIENT;
+import static com.autohubtraining.autohub.util.AppConstants.PHOTOGRAPHER;
+import static com.autohubtraining.autohub.util.AppConstants.SCREEN3;
+import static com.autohubtraining.autohub.util.AppConstants.SCREEN4;
 
 public class ProfileActivity extends BaseActivity implements ProfileContract.View {
     @BindView(R.id.profilePic)
@@ -28,7 +34,10 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_image);
         ButterKnife.bind(this);
-        setProgressBar(5);
+        if (DataHandler.getInstance().getUserType() == PHOTOGRAPHER)
+            setProgressBar(SCREEN4);
+        else
+            setProgressBar(SCREEN3);
         setup();
     }
 
@@ -54,8 +63,13 @@ public class ProfileActivity extends BaseActivity implements ProfileContract.Vie
 
     @Override
     public void navigateToNextScreen() {
-        Intent intent = new Intent(this, CameraInfoActivity.class);
-        startActivity(intent);
+        if(DataHandler.getInstance().getUserType() == CLIENT){
+            DeshboardActivity.startActivity(this);
+        }
+        else {
+            Intent intent = new Intent(this, CameraInfoActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override

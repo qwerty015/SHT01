@@ -13,6 +13,8 @@ import com.autohubtraining.autohub.scene.profilepic.ProfileActivity;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.autohubtraining.autohub.util.AppConstants.SCREEN3;
+
 public class LetsGoActivity extends BaseActivity implements LetsGoContract.View {
 
     private LetsGoPresenter presenter;
@@ -22,7 +24,7 @@ public class LetsGoActivity extends BaseActivity implements LetsGoContract.View 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_lets_go);
         ButterKnife.bind(this);
-        setProgressBar(4);
+        setProgressBar(SCREEN3);
         setup();
     }
 

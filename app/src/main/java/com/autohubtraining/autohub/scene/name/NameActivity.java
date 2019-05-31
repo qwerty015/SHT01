@@ -17,6 +17,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static com.autohubtraining.autohub.util.AppConstants.SCREEN1;
+
 public class NameActivity extends BaseActivity implements NameContract.View {
 
     private NamePresenter presenter;
@@ -31,7 +33,7 @@ public class NameActivity extends BaseActivity implements NameContract.View {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_name);
         ButterKnife.bind(this);
-        setProgressBar(1);
+        setProgressBar(SCREEN1);
         setup();
     }
 

@@ -13,7 +13,7 @@ public class LastContract {
     }
 
     public interface View {
-
+       void navigateToNextScreen();
     }
 
 
