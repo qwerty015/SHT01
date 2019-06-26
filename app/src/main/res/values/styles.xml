@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="otpViewStyle">@style/OtpWidget.OtpView</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -16,5 +17,100 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="semiBold17TVBlack" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">@dimen/_6sdp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/_17ssp</item>
+        <item name="fontName">Montserrat_SemiBold</item>
+    </style>
+
+    <style name="pageInfo" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_marginTop">@dimen/_17sdp</item>
+        <item name="android:layout_marginLeft">@dimen/_13sdp</item>
+        <item name="android:layout_marginRight">@dimen/_13sdp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+        <item name="fontName">Montserrat_SemiBold</item>
+    </style>
+
+    <style name="appProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_7sdp</item>
+        <item name="android:layout_marginTop">@dimen/_8sdp</item>
+        <item name="android:layout_marginLeft">@dimen/_7sdp</item>
+        <item name="android:layout_marginRight">@dimen/_7sdp</item>
+        <item name="android:progressDrawable">@drawable/custom_progress</item>
+    </style>
+
+    <style name="blackButton" parent="android:Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_39sdp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_marginLeft">@dimen/_18sdp</item>
+        <item name="android:layout_marginRight">@dimen/_18sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_18sdp</item>
+        <item name="android:background">@drawable/black_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/_19ssp</item>
+        <item name="fontName">Montserrat_SemiBold</item>
+    </style>
+
+    <style name="pinkNextButton" parent="android:Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_35sdp</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:gravity">center_vertical|right</item>
+        <item name="android:background">@drawable/next_button</item>
+        <item name="android:paddingLeft">@dimen/_9sdp</item>
+        <item name="android:paddingRight">@dimen/_9sdp</item>
+        <item name="android:text">NEXT</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="fontName">Montserrat_SemiBold</item>
+    </style>
+
+    <style name="inputBox" parent="android:Widget.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">@dimen/_8sdp</item>
+        <item name="android:paddingRight">@dimen/_8sdp</item>
+        <item name="android:background">@drawable/edit_box</item>
+        <item name="android:layout_marginLeft">@dimen/_9sdp</item>
+        <item name="android:layout_marginRight">@dimen/_9sdp</item>
+        <item name="android:elevation">@dimen/_1sdp</item>
+        <item name="fontName">Montserrat_SemiBold</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:inputType">text</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="whiteRectButton" parent="android:Widget.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/_47sdp</item>
+        <item name="android:layout_marginLeft">@dimen/_17sdp</item>
+        <item name="android:layout_marginRight">@dimen/_17sdp</item>
+        <item name="android:background">@drawable/white_button</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="fontName">Montserrat_Bold</item>
+    </style>
+
+    <style name="InOutColorsCircularProgressDrawableStylenew" parent="Material.Drawable.CircularProgress">
+        <item name="cpd_inAnimDuration">1000</item>
+        <item name="cpd_inStepPercent">0.5</item>
+        <item name="cpd_inStepColors">@array/in_step_colors</item>
+        <item name="cpd_outAnimDuration">400</item>
+        <item name="cpd_strokeColors">@array/in_step_colors</item>
+        <item name="cpd_maxSweepAngle">300</item>
+    </style>
 
 </resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".scene.choose.ChooseActivity">
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/title"
+        style="@style/semiBold17TVBlack"
+        android:text="@string/shoot" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/subTitle"
+        style="@style/semiBold17TVBlack"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_below="@id/title"
+        android:text="@string/sign_up_dot" />
+
+    <ProgressBar
+        android:id="@+id/activeProgress"
+        style="@style/appProgressBar"
+        android:layout_below="@id/subTitle"
+        android:progress="20"
+        />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/your_name_title"
+        style="@style/pageInfo"
+        android:layout_below="@+id/activeProgress"
+        android:text="@string/perfect_text"
+        android:layout_marginTop="@dimen/_95sdp"
+        />
+
+
+    <com.autohubtraining.autohub.customview.CustomButton
+        android:id="@+id/nextBtn"
+        style="@style/blackButton"
+        android:text="@string/letsgo"
+        android:layout_marginTop="@dimen/_60sdp"
+    />
+
+</LinearLayout>

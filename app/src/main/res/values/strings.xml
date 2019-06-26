@@ -15,4 +15,45 @@
     <string name="next">Next</string>
     <string name="camera_info">Cool. Now let\'s get your bio done. Write something about your gear, lenses etc. , and make it interesting. You can always edit it later.</string>
     <string name="remaining">%d remaining</string>
+    <string name="title_activity_signup_last">SignupLastActivity</string>
+    <string name="sign_up_last_info">One last step. Set your rates for your services, and make sure to set rate less or around the average rate to attract clients.</string>
+    <string name="sign_up_dot">SIGNUP.</string>
+    <string name="f_name_error">Please enter first name</string>
+    <string name="l_name_error">Please enter last name</string>
+    <string name="your_number">Great, and your number?</string>
+    <string name="resend_code">RESEND CODE</string>
+    <string name="mobile_no">Mobile No</string>
+    <string name="otp_hint">OTP</string>
+    <string name="set_password">Set a password.</string>
+    <string name="password">password.</string>
+    <string name="confirm_password">confirm password.</string>
+    <string name="perfect_text">Perfect. Now let\'s build your profile and show the world your photographic abilities.</string>
+    <string name="letsgo">LET\'S GO</string>
+    <string name="average_rate_rs_100_15_shots">Average Rate: Rs. 100/15 SHOTS</string>
+    <string name="rs">RS.</string>
+    <string name="no_of_pictures">NO.OF PICTURES</string>
+    <string name="editing_included">EDITING INCLUDED?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="set_plan_name">SET PLAN NAME</string>
+    <string name="e_g_tripod">E.g - Tripod</string>
+    <string name="mention_other_gear_one_equipment_per_field_optional">mention other gear, one equipment per field. (optional)</string>
+    <string name="e_g_50_mm_nikkor_prime_lens">E.g - 50 mm Nikkor </string>
+    <string name="superrb">Superrrb! You\'re closer to becoming a pro-grapher. Tell us about your interest areas, so we get more clients to you!</string>
+    <string name="best_images">Let your pictures do the talking,  it\'s time to show your remarkable work for everyone to see, upload your 4 best photographs. You can always edit it later.</string>
+    <string name="profile">PROFILE</string>
+    <string name="alex_r">Alex R.</string>
+    <string name="edit_profile">EDIT PROFILE</string>
+    <string name="edit_your_details">EDIT YOUR DETAILS</string>
+    <string name="create_offers">CREATE OFFERS</string>
+    <string name="home">HOME</string>
+
+    <string name="bookings">BOOKINGS</string>
+    <string name="explore">EXPLORE</string>
+    <string name="logout">LOGOUT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="auto_detect_otp">Please wait while we auto detect the verification code.</string>
+    <string name="invalid_no">Please enter valid number</string>
 </resources>

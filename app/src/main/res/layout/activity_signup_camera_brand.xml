@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".scene.finalscreen.LastActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <com.autohubtraining.autohub.customview.CustomTextView
+                android:id="@+id/title"
+                style="@style/semiBold17TVBlack"
+                android:text="@string/shoot" />
+
+            <com.autohubtraining.autohub.customview.CustomTextView
+                android:id="@+id/subTitle"
+                style="@style/semiBold17TVBlack"
+                android:layout_below="@id/title"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="@string/sign_up_dot" />
+
+            <ProgressBar
+                android:id="@+id/activeProgress"
+                style="@style/appProgressBar"
+                android:progress="100" />
+
+            <com.autohubtraining.autohub.customview.CustomTextView
+                android:id="@+id/your_name_title"
+                style="@style/pageInfo"
+                android:layout_below="@+id/activeProgress"
+                android:text="@string/sign_up_last_info" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_13sdp"
+                android:orientation="vertical">
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_21sdp">
+
+                </Spinner>
+
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_21sdp"
+                    android:layout_marginTop="@dimen/_10sdp">
+
+                </Spinner>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.autohubtraining.autohub.customview.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_13sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_73sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@string/mention_other_gear_one_equipment_per_field_optional"
+                    android:textColor="#ff000000"
+                    android:textSize="@dimen/_9ssp"
+                    app:fontName="Montserrat_SemiBold" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_7sdp"
+                android:layout_marginRight="@dimen/_13sdp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <com.autohubtraining.autohub.customview.CustomEditView
+                    android:id="@+id/edt_eg_tripod"
+                    android:layout_width="@dimen/_235sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@mipmap/rectangle_edt_background"
+                    android:hint="@string/e_g_tripod"
+                    android:padding="@dimen/_5sdp"
+                    android:textSize="@dimen/_9ssp"
+                    app:fontName="Montserrat_SemiBold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.autohubtraining.autohub.customview.CustomEditView
+                        android:id="@+id/edt_eg_model"
+                        android:layout_width="@dimen/_235sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:background="@mipmap/rectangle_edt_background"
+                        android:hint="@string/e_g_50_mm_nikkor_prime_lens"
+                        android:padding="@dimen/_5sdp"
+                        android:textSize="@dimen/_9ssp"
+                        app:fontName="Montserrat_SemiBold" />
+
+                    <ImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:background="@drawable/ic_add_black_24dp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <com.autohubtraining.autohub.customview.CustomButton
+                android:id="@+id/nextBtn"
+                style="@style/blackButton"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/_13sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                android:layout_marginRight="@dimen/_13sdp"
+                android:text="@string/next" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

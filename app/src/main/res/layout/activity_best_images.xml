@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".scene.choose.ChooseActivity">
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/title"
+        style="@style/semiBold17TVBlack"
+        android:text="@string/shoot" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/subTitle"
+        style="@style/semiBold17TVBlack"
+        android:layout_below="@id/title"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:text="@string/sign_up_dot" />
+
+    <ProgressBar
+        android:id="@+id/activeProgress"
+        style="@style/appProgressBar"
+        android:layout_below="@id/subTitle"
+        android:progress="20" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/your_name_title"
+        style="@style/pageInfo"
+        android:layout_below="@+id/activeProgress"
+        android:text="@string/best_images" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_best_image_placeholder" />
+
+        <View
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp" />
+
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_best_image_placeholder" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_8sdp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_best_image_placeholder" />
+
+        <View
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp" />
+
+        <ImageView
+            android:id="@+id/image4"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_best_image_placeholder" />
+    </LinearLayout>
+
+    <com.autohubtraining.autohub.customview.CustomButton
+        android:id="@+id/nextBtn"
+        style="@style/blackButton"
+        android:text="@string/next" />
+</LinearLayout>
+
+

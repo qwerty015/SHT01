@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".scene.choose.ChooseActivity">
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/title"
+        style="@style/semiBold17TVBlack"
+        android:text="@string/shoot" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/subTitle"
+        style="@style/semiBold17TVBlack"
+        android:layout_below="@id/title"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:text="@string/sign_up_dot" />
+
+    <ProgressBar
+        android:id="@+id/activeProgress"
+        style="@style/appProgressBar"
+        android:layout_below="@id/subTitle"
+        android:progress="20" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/your_name_title"
+        style="@style/pageInfo"
+        android:layout_below="@+id/activeProgress"
+        android:text="@string/best_images" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_43sdp"
+            android:background="@drawable/black_border"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_11sdp">
+
+            <com.autohubtraining.autohub.customview.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="PHOTO SHOOT"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_10ssp"
+                app:fontName="Montserrat_SemiBold"
+                />
+
+            <CheckBox
+                android:id="@+id/photoShootCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_43sdp"
+            android:layout_marginTop="@dimen/_9sdp"
+            android:background="@drawable/black_border"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_11sdp">
+
+            <com.autohubtraining.autohub.customview.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="VIDEOGRAPHY"
+                android:textColor="@color/colorBlack"
+                app:fontName="Montserrat_SemiBold"
+                android:textSize="@dimen/_10ssp" />
+
+            <CheckBox
+                android:id="@+id/videographyCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <com.autohubtraining.autohub.customview.CustomButton
+        android:id="@+id/nextBtn"
+        style="@style/blackButton"
+        android:layout_marginTop="@dimen/_60sdp"
+        android:text="@string/next" />
+
+</LinearLayout>
