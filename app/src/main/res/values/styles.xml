@@ -3,8 +3,8 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/colorAccent</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="otpViewStyle">@style/OtpWidget.OtpView</item>
     </style>
@@ -59,7 +59,31 @@
         <item name="android:background">@drawable/black_button</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:textSize">@dimen/_19ssp</item>
+        <item name="android:textSize">@dimen/_17ssp</item>
+        <item name="fontName">Montserrat_SemiBold</item>
+    </style>
+
+    <style name="setSemiBoldFont" parent="android:Widget.TextView">
+        <item name="fontName">Montserrat_SemiBold</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+
+    </style>
+
+    <style name="setRegularFont" parent="android:Widget.TextView">
+        <item name="fontName">Montserrat_Regular</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/_13ssp</item>
+
+    </style>
+
+    <style name="setfontButton" parent="android:Widget.Button">
         <item name="fontName">Montserrat_SemiBold</item>
     </style>
 

@@ -1,16 +1,14 @@
 package com.autohubtraining.autohub.customview;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 import com.autohubtraining.autohub.R;
 
 
-public class CustomTextView extends android.support.v7.widget.AppCompatTextView {
+public class CustomTextView extends androidx.appcompat.widget.AppCompatTextView {
 
     String customFont;
 

@@ -1,34 +1,50 @@
 {
   "project_info": {
-    "project_number": "460816414735",
-    "firebase_url": "https://sht1-78b97.firebaseio.com",
-    "project_id": "sht1-78b97",
-    "storage_bucket": "sht1-78b97.appspot.com"
+    "project_number": "1075942104571",
+    "firebase_url": "https://velox-android.firebaseio.com",
+    "project_id": "velox-android",
+    "storage_bucket": "velox-android.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:460816414735:android:e1d2adad5939d816",
+        "mobilesdk_app_id": "1:1075942104571:android:e1d2adad5939d816",
         "android_client_info": {
           "package_name": "com.autohubtraining.autohub"
         }
       },
       "oauth_client": [
         {
-          "client_id": "460816414735-abn8cnjdg0778un2061olee5dr7gslsv.apps.googleusercontent.com",
+          "client_id": "1075942104571-lbnvduv0flsu9t5ok10gcg7s1t8ghs60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autohubtraining.autohub",
+            "certificate_hash": "5b798a7779a6db7ba83b4b4cc86d50d79fb52aac"
+          }
+        },
+        {
+          "client_id": "1075942104571-g8r4j7ajaj6n31jjmvm0gkla56a8meru.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autohubtraining.autohub",
+            "certificate_hash": "ea4ccb4da3c1e98db7f10542fc6a763cbd2766c3"
+          }
+        },
+        {
+          "client_id": "1075942104571-366kbnikvjb8emv6lng0ietqaiedjefg.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBrrVbMY8zZypN0gd52V4N4lfRD9hdEJXs"
+          "current_key": "AIzaSyCHeVTSSiPwz7Iyiq_4yHRgWGq6iA4NI_4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "460816414735-abn8cnjdg0778un2061olee5dr7gslsv.apps.googleusercontent.com",
+              "client_id": "1075942104571-366kbnikvjb8emv6lng0ietqaiedjefg.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

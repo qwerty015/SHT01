@@ -1,11 +1,26 @@
 package com.autohubtraining.autohub.scene;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
+import com.autohubtraining.autohub.scene.onboarding.OnBoardingActivity;
+import com.autohubtraining.autohub.scene.settings.SettingsActivity;
 import com.autohubtraining.autohub.util.Loading;
+import com.autohubtraining.autohub.util.Utill;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.SplittableRandom;
 
 import butterknife.BindView;
 
@@ -18,13 +33,16 @@ public class BaseActivity extends AppCompatActivity {
     @BindView(R.id.activeProgress)
     ProgressBar progressBar;
 
-    protected void setProgressBar(int progress){
-        if(DataHandler.getInstance().getUserType() == PHOTOGRAPHER){
+
+
+
+    protected void setProgressBar(int progress) {
+        if (DataHandler.getInstance().getUserType() == PHOTOGRAPHER) {
             progressBar.setMax(MAX_SCREEN_PHOTOGRAPHER);
-        } else{
+        } else {
             progressBar.setMax(MAX_SCREEN_CLIENT);
         }
-       progressBar.setProgress(progress);
+        progressBar.setProgress(progress);
     }
 
     protected void showLoading(String message) {
@@ -41,5 +59,59 @@ public class BaseActivity extends AppCompatActivity {
             loading.dismiss();
         }
     }
+
+    public static void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        if (listAdapter == null) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
+    }
+    protected void showErrorToast(String errorMessage) {
+        Utill.showToast(errorMessage, this);
+    }
+
+    public void logout() {
+        new AlertDialog.Builder(this)
+                .setTitle(getResources().getString(R.string.logout))
+                .setMessage(getResources().getString(R.string.logout_confirmation))
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+                        FirebaseAuth.getInstance().signOut();
+
+                        Intent intent = new Intent(getApplicationContext(), OnBoardingActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish();
+                    }
+                })
+
+                // A null listener allows the button to dismiss the dialog and take no further action.
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
 
 }

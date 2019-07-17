@@ -46,7 +46,7 @@
         android:hint="@string/last_name" />
 
     <com.autohubtraining.autohub.customview.CustomButton
-        android:id="@+id/nextBtn"
+            android:id="@+id/nextBtn"
         style="@style/pinkNextButton"
         android:layout_alignParentBottom="true"
         android:text="NEXT" />

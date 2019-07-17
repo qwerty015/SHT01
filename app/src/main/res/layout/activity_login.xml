@@ -1,23 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".scene.login.LoginActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:visibility="gone">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:id="@+id/title"
+            style="@style/semiBold17TVBlack"
+            android:text="@string/shoot" />
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:id="@+id/subTitle"
+            style="@style/semiBold17TVBlack"
+            android:layout_below="@id/title"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:text="@string/login_dot" />
+
+        <ProgressBar
+            android:id="@+id/activeProgress"
+            style="@style/appProgressBar"
+            android:layout_below="@id/subTitle"
+            android:progress="20"
+            android:visibility="gone" />
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:id="@+id/your_name_title"
+            style="@style/pageInfo"
+            android:layout_below="@+id/activeProgress"
+            android:text="@string/your_number" />
+
+        <LinearLayout
+            android:id="@+id/mobile_no_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_29sdp"
+            android:layout_below="@id/your_name_title"
+            android:layout_marginHorizontal="@dimen/_9sdp"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:background="@drawable/edit_box"
+            android:elevation="@dimen/_1sdp"
+            android:orientation="horizontal">
+
+            <com.hbb20.CountryCodePicker
+                android:id="@+id/countryCodePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                app:ccpDialog_backgroundColor="@color/colorWhite"
+                app:ccpDialog_keyboardAutoPopup="false"
+                app:ccpDialog_searchEditTextTint="@color/colorPrimary"
+                app:ccpDialog_textColor="@color/colorBlack"
+                app:ccp_areaCodeDetectedCountry="true"
+                app:ccp_autoDetectCountry="true"
+                app:ccp_autoFormatNumber="false"
+                app:ccp_contentColor="@color/colorBlack"
+                app:ccp_countryAutoDetectionPref="SIM_NETWORK_LOCALE"
+                app:ccp_countryPreference="GB,US,IN,AU"
+                app:ccp_hintExampleNumberType="FIXED_LINE_OR_MOBILE"
+                app:ccp_showFlag="true"
+                app:ccp_showNameCode="false"
+                app:ccp_textSize="@dimen/_13ssp" />
+
+            <View
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:background="#ededed" />
+
+            <com.autohubtraining.autohub.customview.CustomEditView
+                android:id="@+id/mobile_no"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_29sdp"
+                android:layout_below="@id/your_name_title"
+                android:background="@color/colorWhite"
+                android:hint="@string/mobile_no"
+                android:inputType="number"
+                android:paddingHorizontal="@dimen/_8sdp" />
+        </LinearLayout>
+
+
+        <com.mukesh.OtpView
+            android:id="@+id/otp_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mobile_no_ll"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_8sdp"
+            android:inputType="number"
+            android:itemBackground="@color/colorWhite"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            app:itemCount="6"
+            app:itemSpacing="@dimen/_6sdp"
+            app:lineColor="@color/colorBlack"
+            app:lineWidth="@dimen/_1sdp"
+            app:state_filled="true"
+            app:viewType="rectangle" />
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:id="@+id/auto_retrieve_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/otp_view"
+            android:layout_centerHorizontal="true"
+            android:layout_marginHorizontal="@dimen/_13sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:text="@string/auto_detect_otp"
+            android:visibility="gone"
+            app:fontName="Montserrat_SemiBold" />
+
+        <com.autohubtraining.autohub.customview.CustomButton
+            android:id="@+id/resendBtn"
+            style="@style/whiteRectButton"
+            android:layout_height="@dimen/_26sdp"
+            android:layout_below="@id/otp_view"
+            android:layout_marginTop="@dimen/_17sdp"
+            android:text="@string/resend_code"
+            android:textSize="@dimen/_15ssp"
+            android:visibility="gone" />
+
+        <com.autohubtraining.autohub.customview.CustomButton
+            android:id="@+id/nextBtn"
+            style="@style/pinkNextButton"
+            android:layout_alignParentBottom="true"
+            android:text="GET OTP" />
+
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
