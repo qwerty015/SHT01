@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".scene.homescreen.HomeFragment">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="horizontal">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivPic"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:civ_border_color="@color/colorBlack"
+                app:civ_border_width="1dp"
+                android:src="@mipmap/profile_image_icon" />
+
+
+            <ImageView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/profile_bottom_center_icon" />
+
+            <ImageView
+                android:id="@+id/ivEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:src="@android:drawable/ic_menu_edit" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/black_bg"
+            android:orientation="vertical">
+
+
+            <TextView
+                style="@style/setSemiBoldFont"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/find_your_perfect_photographer"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_30ssp" />
+
+            <Button
+                android:id="@+id/btnFindPhotographer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@color/colorWhite"
+                android:text="@string/find"
+                android:textSize="@dimen/_17ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/black_bg"
+            android:orientation="vertical">
+
+
+            <TextView
+                style="@style/setSemiBoldFont"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="20dp"
+                android:text="@string/photogenic_locations_nearby"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_27ssp" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:background="@color/colorWhite"
+                android:text="@string/find"
+                android:textSize="@dimen/_17ssp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

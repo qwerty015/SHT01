@@ -3,18 +3,22 @@ package com.autohubtraining.autohub.util;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
+
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+
 import android.widget.ImageView;
 
 
 import com.autohubtraining.autohub.R;
+import com.bumptech.glide.Glide;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -46,6 +50,22 @@ public class ImageUtils {
         return scaledBitmap;
     }
 
+
+    public static String getFilePath(Context context, Uri selectedImage) {
+
+        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+        Cursor cursor = context.getContentResolver().query(selectedImage,
+                filePathColumn, null, null, null);
+        cursor.moveToFirst();
+
+        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+        String picturePath = cursor.getString(columnIndex);
+        cursor.close();
+        return picturePath;
+    }
+
+
     public void setFragment(Fragment fragment) {
         this.fragment = fragment;
     }
@@ -71,7 +91,7 @@ public class ImageUtils {
         }
     }
 
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, Intent data, Context context) {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_LOAD_IMAGE && null != data) {
                 Uri imageUri = data.getData();
@@ -81,6 +101,14 @@ public class ImageUtils {
                         String base64String = Utill.convertBitmapToBase64(bitmap);
                         this.bitmap = bitmap;
                         this.base64String = base64String;
+
+
+                        Uri selectedImage = data.getData();
+                        mImageFile = new File(ImageUtils.getFilePath(context, selectedImage));
+                        //Log.e("filePath",path);
+                        //Glide.with(this).load(new File(path)).into(profilePic);
+
+
                         //imageView.setImageBitmap(bitmap);
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -104,7 +132,7 @@ public class ImageUtils {
         }
     }
 
-    public File getImageFile() {
+    public   File getImageFile() {
         return mImageFile;
     }
 

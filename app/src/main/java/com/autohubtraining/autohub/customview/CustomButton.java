@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 
 import com.autohubtraining.autohub.R;
 
-public class CustomButton extends android.support.v7.widget.AppCompatButton {
+public class CustomButton extends androidx.appcompat.widget.AppCompatButton {
 
     String customFont;
 

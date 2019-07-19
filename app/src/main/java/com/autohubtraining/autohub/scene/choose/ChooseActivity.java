@@ -2,7 +2,7 @@ package com.autohubtraining.autohub.scene.choose;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
@@ -21,11 +21,13 @@ public class ChooseActivity extends AppCompatActivity implements ChooseContract.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_choose);
         ButterKnife.bind(this);
+
         setup();
     }
 
     private void setup() {
         presenter = new ChoosePresenter(this);
+
     }
 
     @Override

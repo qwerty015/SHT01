@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".scene.choose.ChooseActivity">
@@ -30,7 +30,7 @@
         android:id="@+id/your_name_title"
         style="@style/pageInfo"
         android:layout_below="@+id/activeProgress"
-        android:text="@string/best_images" />
+        android:text="@string/superb" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,8 +55,7 @@
                 android:text="PHOTO SHOOT"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_10ssp"
-                app:fontName="Montserrat_SemiBold"
-                />
+                app:fontName="Montserrat_SemiBold" />
 
             <CheckBox
                 android:id="@+id/photoShootCB"
@@ -79,8 +78,8 @@
                 android:layout_weight="1"
                 android:text="VIDEOGRAPHY"
                 android:textColor="@color/colorBlack"
-                app:fontName="Montserrat_SemiBold"
-                android:textSize="@dimen/_10ssp" />
+                android:textSize="@dimen/_10ssp"
+                app:fontName="Montserrat_SemiBold" />
 
             <CheckBox
                 android:id="@+id/videographyCB"

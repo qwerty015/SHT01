@@ -3,7 +3,6 @@ package com.autohubtraining.autohub.scene.name;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 
@@ -26,7 +25,7 @@ public class NameActivity extends BaseActivity implements NameContract.View {
     CustomEditView firstName;
     @BindView(R.id.last_name)
     CustomEditView lastName;
-    String fNameStr,lNameStr;
+    String fNameStr, lNameStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +45,8 @@ public class NameActivity extends BaseActivity implements NameContract.View {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-                presenter.onNextBtnClicked("","");
+                if (isValidate())
+                    presenter.onNextBtnClicked(firstName.getText().toString(), lastName.getText().toString());
                 break;
         }
     }
@@ -54,17 +54,21 @@ public class NameActivity extends BaseActivity implements NameContract.View {
     @Override
     public void navigateToNextScreen() {
         Intent intent = new Intent(this, OTPActivity.class);
+        intent.putExtra("first_name", firstName.getText().toString());
+        intent.putExtra("last_name", lastName.getText().toString());
         startActivity(intent);
+
+
     }
 
     public boolean isValidate() {
         fNameStr = firstName.getText().toString().trim();
         lNameStr = lastName.getText().toString().trim();
-        if(TextUtils.isEmpty(fNameStr)){
-            Utill.showToast(getString(R.string.f_name_error),this);
+        if (TextUtils.isEmpty(fNameStr)) {
+            Utill.showToast(getString(R.string.f_name_error), this);
             return false;
-        }else if(TextUtils.isEmpty(lNameStr)){
-            Utill.showToast(getString(R.string.l_name_error),this);
+        } else if (TextUtils.isEmpty(lNameStr)) {
+            Utill.showToast(getString(R.string.l_name_error), this);
             return false;
         }
         return true;
@@ -74,4 +78,5 @@ public class NameActivity extends BaseActivity implements NameContract.View {
     public Context getContext() {
         return this;
     }
+
 }

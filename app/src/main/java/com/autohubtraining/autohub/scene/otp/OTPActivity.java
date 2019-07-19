@@ -5,6 +5,10 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.annotation.NonNull;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -12,13 +16,22 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomButton;
 import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.DataHandler;
+import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.letsgo.LetsGoActivity;
 import com.autohubtraining.autohub.scene.profilepic.ProfileActivity;
 import com.autohubtraining.autohub.util.Utill;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.hbb20.CountryCodePicker;
 import com.mukesh.OnOtpCompletionListener;
 import com.mukesh.OtpView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,12 +55,24 @@ public class OTPActivity extends BaseActivity implements OTPContract.View, OnOtp
     @BindView(R.id.nextBtn)
     CustomButton nextBtn;
     private OTPContract.Presenter presenter;
+    String firstName = "", lastName = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_otp);
         ButterKnife.bind(this);
+        /* getting data from bundle*/
+        FirebaseApp.initializeApp(this);
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+
+            firstName = bundle.getString("first_name");
+            lastName = bundle.getString("last_name");
+
+
+        }
         setProgressBar(SCREEN2);
         setup();
     }
@@ -72,10 +97,12 @@ public class OTPActivity extends BaseActivity implements OTPContract.View, OnOtp
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
+
             case R.id.resendBtn:
                 if (presenter.isNumberValid(countryCodePicker)) {
                     presenter.submitPhoneNumberForVerification(countryCodePicker.getFullNumberWithPlus());
-                } else {
+                }
+                else {
                     Utill.showToast(getString(R.string.invalid_no), this);
                 }
                 break;
@@ -83,7 +110,7 @@ public class OTPActivity extends BaseActivity implements OTPContract.View, OnOtp
     }
 
     @Override
-    public void navigateToNextScreen() {
+    public void navigateToNextScreen(User user) {
         Intent intent = null;
         if (DataHandler.getInstance().getUserType() == PHOTOGRAPHER)
             intent = new Intent(this, LetsGoActivity.class);
@@ -132,7 +159,7 @@ public class OTPActivity extends BaseActivity implements OTPContract.View, OnOtp
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                presenter.submitOTP(otp);
+                presenter.submitOTP(otp, firstName, lastName);
             }
         }, 200);
     }

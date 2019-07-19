@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@color/colorWhite">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnUpdate"
+        android:orientation="vertical"
+        tools:context=".scene.editdetails.EditDetailsActivity">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.autohubtraining.autohub.customview.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_13sdp"
+                    android:text="@string/profile"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_17ssp"
+                    app:fontName="Montserrat_SemiBold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_13sdp"
+                    android:text="@string/edit_details"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_15ssp" />
+
+                <com.autohubtraining.autohub.customview.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_13sdp"
+                    android:paddingRight="@dimen/_13sdp"
+                    android:text="@string/first_name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_14ssp"
+                    app:fontName="Montserrat_SemiBold" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:elevation="20dp"
+
+                    android:focusableInTouchMode="true"
+                    android:focusedByDefault="false"
+                    card_view:cardCornerRadius="0dp">
+
+                    <EditText
+                        android:id="@+id/etName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/john_dalton"
+                        android:padding="@dimen/_11sdp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_15ssp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <com.autohubtraining.autohub.customview.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_13sdp"
+                    android:paddingTop="@dimen/_13sdp"
+                    android:paddingRight="@dimen/_13sdp"
+                    android:text="@string/last_name"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_14ssp"
+                    app:fontName="Montserrat_SemiBold" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:elevation="20dp"
+                    android:focusableInTouchMode="true"
+                    android:focusedByDefault="false"
+                    card_view:cardCornerRadius="0dp">
+
+                    <EditText
+                        android:id="@+id/etLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:editable="false"
+                        android:hint="@string/last_name"
+                        android:padding="@dimen/_11sdp"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_15ssp" />
+
+                </androidx.cardview.widget.CardView>
+
+                <com.autohubtraining.autohub.customview.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/_13sdp"
+                    android:paddingTop="@dimen/_13sdp"
+                    android:paddingRight="@dimen/_13sdp"
+                    android:text="@string/contact_number"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_14ssp"
+                    app:fontName="Montserrat_SemiBold" />
+
+                <ListView
+                    android:id="@+id/listView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:visibility="gone">
+
+
+                </ListView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:elevation="20dp"
+                    card_view:cardCornerRadius="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.hbb20.CountryCodePicker
+                            android:id="@+id/countryCodePicker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"></com.hbb20.CountryCodePicker>
+
+                        <com.autohubtraining.autohub.customview.CustomEditView
+                            android:id="@+id/etPhoneNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:drawablePadding="10dp"
+                            android:inputType="phone"
+                            android:padding="@dimen/_13sdp"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_17ssp"
+                            app:fontName="Montserrat_SemiBold" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+                <com.mukesh.OtpView
+                    android:id="@+id/otp_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mobile_no_ll"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:inputType="number"
+                    android:itemBackground="@color/colorWhite"
+                    android:textColor="@android:color/black"
+
+                    android:visibility="gone"
+                    app:itemCount="6"
+                    app:itemSpacing="@dimen/_6sdp"
+                    app:lineColor="@color/colorBlack"
+                    app:lineWidth="@dimen/_1sdp"
+                    app:state_filled="true"
+                    app:viewType="rectangle" />
+
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <com.autohubtraining.autohub.customview.CustomButton
+        android:id="@+id/btnUpdate"
+        style="@style/setSemiBoldFont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:background="@drawable/black_button"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        android:text="@string/update"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_19ssp" />
+
+    <ProgressBar
+        android:id="@+id/activeProgress"
+        style="@style/appProgressBar"
+
+        android:progress="20"
+        android:visibility="gone" />
+</RelativeLayout>

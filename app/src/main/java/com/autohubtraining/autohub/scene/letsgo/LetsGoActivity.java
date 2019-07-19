@@ -2,13 +2,11 @@ package com.autohubtraining.autohub.scene.letsgo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.profilepic.ProfileActivity;
-
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

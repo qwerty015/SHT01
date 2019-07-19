@@ -14,6 +14,16 @@ public interface AppConstants {
     int SCREEN7 = 7;
     int SCREEN8 = 8;
     int SCREEN9 = 9;
+    int SPLASH = 12;
+    int DESCRIPTIION_LENGTH=240;
     int OTP_TIME_OUT = 60;
+
+    String USERDATA = "uer_data";
+    String userRef = "user";
+    String cameraRef = "user_cameras";
+    String public_data = "public_data";
+    String service_plan = "service_plans";
+    String favourite_ref="my_favourite";
+    String liked_by="liked_by";
 
 }

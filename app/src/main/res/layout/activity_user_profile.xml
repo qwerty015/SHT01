@@ -7,12 +7,22 @@
     tools:context=".scene.deshboard.DeshboardActivity">
 
     <FrameLayout
+        android:id="@+id/fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_above="@+id/navigation">
 
     </FrameLayout>
 
-    <android.support.design.widget.BottomNavigationView
+    <com.autohubtraining.autohub.util.views.CustomViewPager
+        android:id="@+id/viewpager1"
+        android:layout_width="match_parent"
+        android:layout_above="@+id/navigation"
+
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +34,8 @@
         app:itemTextColor="@android:color/black"
         app:menu="@menu/navigation">
 
-    </android.support.design.widget.BottomNavigationView>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 
 </RelativeLayout>
+

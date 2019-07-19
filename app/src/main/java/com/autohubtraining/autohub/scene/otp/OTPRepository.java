@@ -14,7 +14,7 @@ public class OTPRepository implements OTPContract.Repository, AuthListener {
     private PhoneAuthDataListener dataListener;
     private PhoneAuthUtil phoneAuth;
 
-    OTPRepository(PhoneAuthDataListener dataListener) {
+    public OTPRepository(PhoneAuthDataListener dataListener) {
         this.dataListener = dataListener;
         this.phoneAuth = new PhoneAuthUtil(this);
     }
@@ -28,6 +28,7 @@ public class OTPRepository implements OTPContract.Repository, AuthListener {
     public void verifyOTP(String vId, String otp) {
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(vId, otp);
         phoneAuth.signIn(credential);
+
     }
 
     @Override
@@ -52,7 +53,9 @@ public class OTPRepository implements OTPContract.Repository, AuthListener {
 
     @Override
     public void onLoginSuccess(FirebaseUser user) {
-        dataListener.onVerificationSuccess();
+        dataListener.onVerificationSuccess(user);
+
+
     }
 
     @Override
