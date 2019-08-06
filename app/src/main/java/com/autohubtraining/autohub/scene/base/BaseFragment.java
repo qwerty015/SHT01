@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class BaseFragment extends Fragment {
     private Loading loading;
+
     protected void showErrorToast(String errorMessage) {
         Utill.showToast(errorMessage, getActivity());
     }
@@ -27,8 +28,6 @@ public class BaseFragment extends Fragment {
 
 
                         FirebaseAuth.getInstance().signOut();
-
-
                         Intent intent = new Intent(getActivity(), OnBoardingActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);

@@ -161,6 +161,7 @@ public class ItemFragment extends Fragment {
     /* recieving the broadcast message when user set the favourite from view more screen  */
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     public void onMessageEvent(UserFavorites userFavorites) {
+
         if (userFavorites != null) {
             if (userFavorites.getUserId().equals(userData.getUserId())) {
                 userData.setFavourite(Boolean.parseBoolean(userFavorites.getIsFavorite()));

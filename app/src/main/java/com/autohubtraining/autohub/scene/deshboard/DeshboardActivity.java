@@ -50,30 +50,26 @@ public class DeshboardActivity extends AppCompatActivity implements BottomNaviga
 
 
         adapter.addFragment(userData.getType() == AppConstants.PHOTOGRAPHER ? new HomeScreenPhotographers() : new HomeFragment(), "title");
-
-
         adapter.addFragment(new ExploreFragment(), "title");
-
         adapter.addFragment(new UserProfileFragment(), "title");
+
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
-
-
-
-
 
 
     }
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, DeshboardActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-        // Intent.FLAG_ACTIVITY_CLEAR_TOP |
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
         ((Activity) context).finish();
 
 
     }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -81,20 +77,22 @@ public class DeshboardActivity extends AppCompatActivity implements BottomNaviga
 
         switch (item.getItemId()) {
             case R.id.navigation_home:
-
-                viewPager.setCurrentItem(0);
+                if (viewPager != null)
+                    viewPager.setCurrentItem(0);
                 //fragment = new HomeFragment();
                 break;
 
             case R.id.navigation_preview:
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new ExploreFragment()).commit();
                 //fragment = ExploreFragment.newInstance(this);
-                viewPager.setCurrentItem(1);
+                if (viewPager != null)
+                    viewPager.setCurrentItem(1);
 
                 break;
 
             case R.id.navigation_bookings:
-                viewPager.setCurrentItem(2);
+                if (viewPager != null)
+                    viewPager.setCurrentItem(2);
                 //fragment = new UserProfileFragment();
                 break;
         }

@@ -97,7 +97,7 @@ public class EditDetailsActivity extends BaseActivity implements EditDetailContr
 
                 if (!(phoneText.equals(userData.getPhoneNo()))) {
 
-                    Log.e("insdeee", "insideeee");
+
                     if (editDetailsPresenter.isNumberValid(countryCodePicker)) {
                         map.put("phoneNo", etPhoneNumber.getText().toString().replaceAll(" ", ""));
                         editDetailsPresenter.sendPhone(countryCodePicker.getFullNumberWithPlus());
@@ -175,8 +175,10 @@ public class EditDetailsActivity extends BaseActivity implements EditDetailContr
 
     @Override
     public void navigateToNextScreen() {
-        EventBus.getDefault().postSticky("Updated");
 
+
+        Log.e("wokingg", "workingg");
+        EventBus.getDefault().postSticky("Updated");
         finish();
     }
 
@@ -187,7 +189,6 @@ public class EditDetailsActivity extends BaseActivity implements EditDetailContr
 
     @Override
     public void verifyOTP() {
-
         otpView.setVisibility(View.VISIBLE);
     }
 

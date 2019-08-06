@@ -200,9 +200,13 @@ public class EditInfoPresenter implements EditInfoContract.Presenter {
 
                 UserData user = DataHandler.getInstance().getCurrentUser();
 
+
                 UserCameraResponse response = user.getUserCamera();
 
-                response.setCameraAccessories(alEquipments);
+
+                if(response!=null && alEquipments!=null) {
+                    response.setCameraAccessories(alEquipments);
+                }
                 user.setUserCamera(response);
 
 

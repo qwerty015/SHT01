@@ -15,6 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.model.user.UserData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExploreCarouselPagerAdapter extends FragmentPagerAdapter implements ViewPager.OnPageChangeListener {
@@ -29,13 +30,17 @@ public class ExploreCarouselPagerAdapter extends FragmentPagerAdapter implements
     List<UserData> alUsers;
     Fragment fragment;
 
-    public ExploreCarouselPagerAdapter(FragmentActivity context, FragmentManager fm, int id, List<UserData> alUsers,Fragment fragment) {
+    public ExploreCarouselPagerAdapter(FragmentActivity context, FragmentManager fm, int id, List<UserData> alUsers, Fragment fragment) {
         super(fm);
         this.fragmentManager = fm;
         this.context = context;
         pagerID = id;
+
+
+        this.alUsers = new ArrayList<>();
         this.alUsers = alUsers;
-        this.fragment=fragment;
+
+        this.fragment = fragment;
 
     }
 
@@ -57,7 +62,6 @@ public class ExploreCarouselPagerAdapter extends FragmentPagerAdapter implements
         try {
 
 
-
             if (position == 0)
                 scale = BIG_SCALE;
             else
@@ -66,22 +70,25 @@ public class ExploreCarouselPagerAdapter extends FragmentPagerAdapter implements
             position = position % alUsers.size();
 
         } catch (Exception e) {
-            Log.e("exceptioj", e.toString());
+
             e.printStackTrace();
         }
 
-        return ItemFragment.newInstance(context, position, scale, alUsers.get(position),fragment);
+        return ItemFragment.newInstance(context, position, scale, alUsers.get(position), fragment);
     }
 
     @Override
     public int getCount() {
 
+
         return alUsers.size();
     }
 
-    void updateData(UserData data,int pos){
+    void updateData(UserData data, int pos) {
+
         alUsers.set(pos, data);
-        notifyDataSetChanged();
+        if (context != null)
+            notifyDataSetChanged();
     }
 
     @Override
@@ -89,12 +96,16 @@ public class ExploreCarouselPagerAdapter extends FragmentPagerAdapter implements
         try {
             if (positionOffset >= 0f && positionOffset <= 1f) {
                 CarouselLinearLayout cur = getRootView(position);
-                CarouselLinearLayout next = getRootView(position + 1);
                 cur.setScaleBoth(BIG_SCALE - DIFF_SCALE * positionOffset);
+
+                CarouselLinearLayout next = getRootView(position + 1);
                 next.setScaleBoth(SMALL_SCALE + DIFF_SCALE * positionOffset);
+
             }
+
         } catch (Exception e) {
 
+            Log.e("expectionnn", alUsers.size() + " sissss" + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -112,8 +123,12 @@ public class ExploreCarouselPagerAdapter extends FragmentPagerAdapter implements
 
     private CarouselLinearLayout getRootView(int position) {
 
-        return fragmentManager.findFragmentByTag(this.getFragmentTag(position))
-                .getView().findViewById(R.id.root_container);
+
+        if (fragmentManager.findFragmentByTag(this.getFragmentTag(position)).getView() != null)
+            return fragmentManager.findFragmentByTag(this.getFragmentTag(position))
+                    .getView().findViewById(R.id.root_container);
+        else
+            return null;
 
     }
 

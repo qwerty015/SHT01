@@ -2,6 +2,8 @@ package com.autohubtraining.autohub.scene.onboarding;
 
 import com.autohubtraining.autohub.scene.base.BaseView;
 
+import org.json.JSONException;
+
 public class OnBoardingContract {
 
     public interface Presenter {
@@ -15,6 +17,7 @@ public class OnBoardingContract {
         void onSignUpBtnClicked();
 
         void onLoginBtnClicked();
+        void postData() throws JSONException;
     }
 
     public interface View extends BaseView {

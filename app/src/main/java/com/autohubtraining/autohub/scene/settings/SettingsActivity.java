@@ -48,6 +48,7 @@ public class SettingsActivity extends BaseActivity {
         setContentView(R.layout.activity_settings);
         ButterKnife.bind(this);
         setDataIntoViews();
+
         ivEditprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,10 +100,10 @@ public class SettingsActivity extends BaseActivity {
 
 
     void setDataIntoViews() {
-
+        Log.e("usreee", "settingsss");
 
         UserData user = DataHandler.getInstance().getCurrentUser();
-//        Log.e("usreee", user.getPictureUrl().toString());
+
         tvName.setText(user.getFirstName() + " " + user.getLastName());
 
         Glide.with(SettingsActivity.this).load(user.getPictureUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
@@ -113,23 +114,27 @@ public class SettingsActivity extends BaseActivity {
     @Override
     public void onStart() {
         super.onStart();
-        EventBus.getDefault().register(this);
+        if (!EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().register(this);
     }
 
     @Override
     public void onStop() {
         super.onStop();
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
         EventBus.getDefault().unregister(this);
     }
 
-
     @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
     public void onMessageEvent(String str) {
-        Log.e("str", str.toString());
+        Log.e("messageEventttt", str.toString());
         if (str != null) {
-
             setDataIntoViews();
-
             EventBus.getDefault().removeStickyEvent(str);
         }
 

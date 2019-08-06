@@ -138,7 +138,8 @@ public class EditInfoActivity extends BaseActivity implements EditInfoContract.V
                 break;
             case R.id.ivAdd:
                 alEquipments.add("");
-                equipmentAdapter.notifyDataSetChanged();
+                if (equipmentAdapter != null)
+                    equipmentAdapter.notifyDataSetChanged();
                 setListViewHeightBasedOnChildren(lvEquipment);
                 break;
             case R.id.image1:
