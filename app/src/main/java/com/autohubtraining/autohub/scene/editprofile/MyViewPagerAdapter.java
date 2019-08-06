@@ -2,13 +2,14 @@ package com.autohubtraining.autohub.scene.editprofile;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
-import androidx.viewpager.widget.PagerAdapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.autohubtraining.autohub.R;
 import com.bumptech.glide.Glide;
@@ -64,9 +65,9 @@ public class MyViewPagerAdapter extends PagerAdapter {
     @Override
     public int getCount() {
         if (alBestImages.size() == 0) {
-            return this.images.size();
+            return images.size();
         } else {
-            return this.alBestImages.size();
+            return alBestImages.size();
         }
     }
 
@@ -74,6 +75,8 @@ public class MyViewPagerAdapter extends PagerAdapter {
     public int getItemPosition(@NonNull Object object) {
         return super.getItemPosition(object);
     }
+
+
 
 
     @Override

@@ -66,6 +66,7 @@ public class OnBoardingActivity extends AppCompatActivity implements OnBoardingC
         //setProgressBar(SPLASH);
 
         setup();
+
         //getBrandData();
         //getModels();
 
@@ -75,6 +76,11 @@ public class OnBoardingActivity extends AppCompatActivity implements OnBoardingC
     private void setup() {
         presenter = new OnBoardingPresenter(this);
         presenter.isLogin();
+//        try {
+//            presenter.postData();
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override

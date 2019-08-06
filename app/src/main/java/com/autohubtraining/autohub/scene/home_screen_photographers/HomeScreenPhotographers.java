@@ -51,6 +51,7 @@ public class HomeScreenPhotographers extends BaseFragment {
         View retView = inflater.inflate(R.layout.home_screen_photographer_fragment, container, false);
         ButterKnife.bind(this, retView);
         setDataIntoViews();
+
         retView.findViewById(R.id.ivEdit).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

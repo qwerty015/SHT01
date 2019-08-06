@@ -93,7 +93,7 @@ public class ExploreItem extends RecyclerView.Adapter<ExploreItem.ViewHolder> {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                Log.e("workingg", "workingngngg");
+               // Log.e("workingg", "workingngngg");
                 itemClick.getAction(event.getAction());
                 return false;
             }

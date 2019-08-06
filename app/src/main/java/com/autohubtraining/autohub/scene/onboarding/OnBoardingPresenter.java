@@ -56,7 +56,8 @@ public class OnBoardingPresenter implements OnBoardingContract.Presenter {
         checkUserIsLogin();
     }
 
-    void postData() throws JSONException {
+    @Override
+    public void postData() throws JSONException {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 

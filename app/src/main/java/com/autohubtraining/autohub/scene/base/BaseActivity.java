@@ -38,7 +38,7 @@ public class BaseActivity  extends AppCompatActivity {
         if (loading == null) {
             loading = new Loading(this);
         }
-        if (!isFinishing()) {
+        if (!isFinishing() && loading!=null) {
             loading.show(message);
         }
     }

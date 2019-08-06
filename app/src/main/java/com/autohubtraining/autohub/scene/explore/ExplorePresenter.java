@@ -36,6 +36,8 @@ public class ExplorePresenter implements ExploreContract.Presenter {
     List<UserData> alUsers = new ArrayList<>();
     int index = 0;
     ArrayList<Favourite> alFavourite = new ArrayList<>();
+    boolean isUserDataLoaded = false;
+
 
     public ExplorePresenter(ExploreContract.View view) {
         this.view = view;
@@ -68,9 +70,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
         map.put(user.getUserId(), likeMap);
 
 
-        Log.e("isFa",isFavourite+"");
-
-        if(isFavourite) {
+        if (isFavourite) {
             db.collection(AppConstants.userRef).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -87,9 +87,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
                     Log.e("firestore", "data failed with an exception" + e.toString());
                 }
             });
-        }
-        else
-        {
+        } else {
             db.collection(AppConstants.userRef).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
@@ -120,21 +118,30 @@ public class ExplorePresenter implements ExploreContract.Presenter {
         Query query = documentReference.whereEqualTo("type", AppConstants.PHOTOGRAPHER);
 
 
+        alUsers.clear();
+
         query.addSnapshotListener((documentSnapshot, e) -> {
 
-
-
-
-            if(documentSnapshot.getDocuments()!=null) {
+            Log.e("workingg", isUserDataLoaded + "");
+            if (isUserDataLoaded) {
+                return;
+            }
+            if (documentSnapshot.getDocuments() != null) {
                 index = documentSnapshot.getDocuments().size();
 
+
+                UserData currentUser = DataHandler.getInstance().getCurrentUser();
                 List<DocumentSnapshot> alDocuments = documentSnapshot.getDocuments();
 
                 for (DocumentSnapshot snapshot : alDocuments) {
+
+
                     UserData user = snapshot.toObject(UserData.class);
 
 
-                    getCameraBrands(user);
+                    if (!user.getUserId().equals(currentUser.getUserId())) {
+                        getCameraBrands(user);
+                    }
 
 
                 }
@@ -152,25 +159,16 @@ public class ExplorePresenter implements ExploreContract.Presenter {
 
         UserData userData = DataHandler.getInstance().getCurrentUser();
 
-
         CollectionReference documentReference = db.collection(AppConstants.userRef).document(userData.getUserId()).collection(AppConstants.favourite_ref);
-
         documentReference.addSnapshotListener((documentSnapshot, e) -> {
 
-
             for (DocumentSnapshot ds : documentSnapshot.getDocuments()) {
-
-
                 Map<String, Object> map = ds.getData();
-
-
                 for (Map.Entry<String, Object> entry : map.entrySet()) {
                     Gson gson = new Gson();
                     JsonElement jsonElement = gson.toJsonTree(entry.getValue());
                     Favourite pojo = gson.fromJson(jsonElement, Favourite.class);
                     alFavourite.add(pojo);
-
-
                 }
 
 
@@ -289,8 +287,10 @@ public class ExplorePresenter implements ExploreContract.Presenter {
             alUsers.add(user);
 
 
-            if (index == alUsers.size())
+            if ((index - 1) == alUsers.size())
                 view.getUsers(alUsers);
+
+            isUserDataLoaded = true;
 
 
         });
