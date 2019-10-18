@@ -39,7 +39,7 @@
         android:layout_marginTop="@dimen/_28sdp"
         android:layout_marginBottom="@dimen/_35sdp"
         android:layout_weight="1"
-        android:background="@drawable/white_round_button">
+        android:background="@drawable/white_roundcorner_button">
 
         <EditText
             android:id="@+id/etBio"

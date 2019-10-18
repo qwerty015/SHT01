@@ -6,42 +6,50 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:context=".scene.choose.ChooseActivity">
 
     <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/title"
-        style="@style/semiBold17TVBlack"
-        android:text="@string/shoot" />
-
-    <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/subTitle"
-        style="@style/semiBold17TVBlack"
-        android:layout_below="@id/title"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:text="@string/sign_up_dot" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_42sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_22ssp"
+        android:text="@string/sign_up_dot"
+        app:fontName="Montserrat_Bold"/>
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_33sdp"
+        android:layout_marginTop="@dimen/_48sdp"
         android:text="I'M A..."
         android:textColor="#ff000000"
-        android:textSize="@dimen/_27ssp"
+        android:textSize="@dimen/_34ssp"
         app:fontName="Montserrat_Bold" />
 
     <com.autohubtraining.autohub.customview.CustomButton
         android:id="@+id/client"
-        style="@style/whiteRectButton"
-        android:layout_below="@id/lets_str"
-        android:layout_marginTop="@dimen/_17sdp"
-        android:text="CLIENT" />
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_32sdp"
+        android:text="CLIENT"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_20ssp"
+        android:background="@drawable/white_round_button"
+        app:fontName="Montserrat_Bold"/>
 
     <com.autohubtraining.autohub.customview.CustomButton
         android:id="@+id/photographer"
-        style="@style/whiteRectButton"
-        android:layout_below="@id/lets_str"
-        android:layout_marginTop="@dimen/_17sdp"
-        android:text="PHOTOGRAPHER" />
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_marginHorizontal="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:text="PHOTOGRAPHER"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_20ssp"
+        android:background="@drawable/white_round_button"
+        app:fontName="Montserrat_Bold"/>
 
 </LinearLayout>

@@ -5,68 +5,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
+    android:background="@color/colorWhite"
     tools:context=".scene.onboarding.OnBoardingActivity">
-
-    <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/title"
-        style="@style/semiBold17TVBlack"
-        android:text="@string/shoot" />
-
-    <ImageView
-        android:layout_width="@dimen/_119sdp"
-        android:layout_height="@dimen/_119sdp"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_32sdp"
-        android:src="@drawable/logo" />
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/layout_bottom">
+        <ImageView
+            android:layout_width="@dimen/_149sdp"
+            android:layout_height="@dimen/_149sdp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/logo" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="@dimen/_62sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:src="@drawable/ellipse_2"/>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_270sdp"
         android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="@dimen/margin30"
-        android:layout_marginBottom="@dimen/_minus35sdp"
+        android:layout_marginHorizontal="@dimen/margin10"
+        android:layout_marginBottom="@dimen/_minus28sdp"
         android:background="@drawable/border_image"
-        android:gravity="center"
         android:orientation="vertical"
-        android:padding="@dimen/margin40">
+        android:paddingHorizontal="@dimen/margin42">
 
         <com.autohubtraining.autohub.customview.CustomTextView
             android:id="@+id/lets_str"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:layout_gravity="center_horizontal"
             android:text="@string/lets_click"
             android:textColor="#ff000000"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_18ssp"
             app:fontName="Montserrat_SemiBold" />
 
         <com.autohubtraining.autohub.customview.CustomButton
             android:id="@+id/signup"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_below="@id/lets_str"
-            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_20sdp"
             android:background="@drawable/black_button"
             android:gravity="center"
             android:text="@string/sign_up"
             android:textColor="#fff"
-            android:textSize="@dimen/_17ssp"
-            app:fontName="Montserrat_Medium" />
+            android:textSize="@dimen/_22ssp"
+            app:fontName="Montserrat_SemiBold" />
 
         <com.autohubtraining.autohub.customview.CustomButton
             android:id="@+id/login"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_36sdp"
-            android:layout_below="@id/signup"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:background="@drawable/white_round_button"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_marginTop="@dimen/_26sdp"
+            android:background="@drawable/white_roundcorner_button"
             android:gravity="center"
             android:text="@string/login"
             android:textColor="@color/colorBlack"
-            android:textSize="@dimen/_17ssp"
-            app:fontName="Montserrat_Medium" />
+            android:textSize="@dimen/_22ssp"
+            app:fontName="Montserrat_SemiBold" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>

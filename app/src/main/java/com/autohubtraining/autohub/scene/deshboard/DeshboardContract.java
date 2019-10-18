@@ -11,5 +11,5 @@ public class DeshboardContract {
     public interface View {
         void navigateToNextScreen();
     }
-    
+
 }
