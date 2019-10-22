@@ -35,7 +35,7 @@
         android:text="Hey! What's your\nname?"
         android:textSize="@dimen/_16ssp"
         android:textColor="@color/colorBlack"
-        app:fontName="Montserrat_Bold"/>
+        app:fontName="Montserrat_SemiBold"/>
 
     <com.autohubtraining.autohub.customview.CustomEditView
         android:id="@+id/first_name"

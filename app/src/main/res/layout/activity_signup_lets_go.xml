@@ -6,41 +6,44 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:context=".scene.choose.ChooseActivity">
 
     <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/title"
-        style="@style/semiBold17TVBlack"
-        android:text="@string/shoot" />
-
-    <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/subTitle"
-        style="@style/semiBold17TVBlack"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:layout_below="@id/title"
-        android:text="@string/sign_up_dot" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_42sdp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/sign_up_dot"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_22ssp"
+        app:fontName="Montserrat_Bold"/>
 
     <ProgressBar
         android:id="@+id/activeProgress"
         style="@style/appProgressBar"
         android:layout_below="@id/subTitle"
-        android:progress="20"
+        android:progress="40"
         />
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/your_name_title"
-        style="@style/pageInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/activeProgress"
+        android:layout_marginTop="@dimen/_78sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         android:text="@string/perfect_text"
-        android:layout_marginTop="@dimen/_95sdp"
-        />
-
+        android:textSize="@dimen/_16ssp"
+        android:textColor="@color/colorBlack"
+        app:fontName="Montserrat_SemiBold" />
 
     <com.autohubtraining.autohub.customview.CustomButton
         android:id="@+id/nextBtn"
         style="@style/blackButton"
         android:text="@string/letsgo"
-        android:layout_marginTop="@dimen/_60sdp"
+        android:layout_marginTop="@dimen/_50sdp"
     />
 
 </LinearLayout>

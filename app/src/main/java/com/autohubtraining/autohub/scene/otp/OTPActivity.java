@@ -19,6 +19,7 @@ import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.letsgo.LetsGoActivity;
+import com.autohubtraining.autohub.scene.password.PasswordActivity;
 import com.autohubtraining.autohub.scene.profilepic.ProfileActivity;
 import com.autohubtraining.autohub.util.Utill;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -113,7 +114,7 @@ public class OTPActivity extends BaseActivity implements OTPContract.View, OnOtp
     public void navigateToNextScreen(User user) {
         Intent intent = null;
         if (DataHandler.getInstance().getUserType() == PHOTOGRAPHER)
-            intent = new Intent(this, LetsGoActivity.class);
+            intent = new Intent(this, PasswordActivity.class);
         else
             intent = new Intent(this, ProfileActivity.class);
 

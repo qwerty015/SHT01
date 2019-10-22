@@ -1,45 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/colorWhite"
     tools:context=".scene.finalscreen.LastActivity">
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/subTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_42sdp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/sign_up_dot"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_22ssp"
+        app:fontName="Montserrat_Bold"/>
+
+    <ProgressBar
+        android:id="@+id/activeProgress"
+        style="@style/appProgressBar"
+        android:layout_below="@id/subTitle"
+        android:progress="60" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/your_name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activeProgress"
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:text="@string/sign_up_last_info"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_14ssp"
+        app:fontName="Montserrat_SemiBold" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@id/your_name_title"
+        android:layout_above="@id/nextBtn">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:padding="@dimen/_5sdp">
-
-
-            <com.autohubtraining.autohub.customview.CustomTextView
-                android:id="@+id/title"
-                style="@style/semiBold17TVBlack"
-                android:text="@string/shoot" />
-
-            <com.autohubtraining.autohub.customview.CustomTextView
-                android:id="@+id/subTitle"
-                style="@style/semiBold17TVBlack"
-                android:layout_below="@id/title"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:text="@string/sign_up_dot" />
-
-            <ProgressBar
-                android:id="@+id/activeProgress"
-                style="@style/appProgressBar"
-                android:progress="100" />
-
-            <com.autohubtraining.autohub.customview.CustomTextView
-                android:id="@+id/your_name_title"
-                style="@style/pageInfo"
-                android:text="@string/sign_up_last_info" />
+            android:orientation="vertical">
 
             <com.autohubtraining.autohub.customview.CustomTextView
                 android:layout_width="wrap_content"
@@ -49,30 +59,31 @@
                 android:padding="@dimen/_5sdp"
                 android:text="@string/average_rate_rs_100_15_shots"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/_6ssp" />
+                android:textSize="@dimen/_8ssp" />
 
             <LinearLayout
                 android:id="@+id/container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_13sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_8sdp"
                 android:background="@drawable/black_border"
                 android:orientation="vertical">
 
                 <com.autohubtraining.autohub.customview.CustomEditView
                     android:id="@+id/etPlanName"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_marginRight="@dimen/_12sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
                     android:background="@null"
                     android:drawableRight="@drawable/edit"
                     android:hint="@string/set_plan_name"
-                    android:padding="@dimen/_5sdp"
+                    android:padding="@dimen/_1sdp"
                     android:textColorHint="#ff000000"
-                    android:textSize="@dimen/_9ssp"
+                    android:textSize="@dimen/_16ssp"
                     app:fontName="Montserrat_SemiBold" />
 
 
@@ -82,15 +93,16 @@
                 <Spinner
                     android:id="@+id/svPlanType"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp" />
 
                 <include layout="@layout/dummy_border" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -99,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/rs"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/_9ssp"
+                        android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />
 
                     <com.autohubtraining.autohub.customview.CustomEditView
@@ -110,7 +122,7 @@
                         android:fontFamily="@string/Montserrat_SemiBold"
                         android:inputType="number"
                         android:singleLine="true"
-                        android:textSize="@dimen/_9ssp"
+                        android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />
 
 
@@ -119,7 +131,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -129,7 +142,7 @@
                         android:gravity="center_vertical"
                         android:text="@string/no_of_pictures"
                         android:textColor="#ff000000"
-                        android:textSize="@dimen/_9ssp"
+                        android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />
 
                     <com.autohubtraining.autohub.customview.CustomEditView
@@ -140,7 +153,7 @@
                         android:fontFamily="@string/Montserrat_SemiBold"
                         android:inputType="number"
                         android:singleLine="true"
-                        android:textSize="@dimen/_9ssp" />
+                        android:textSize="@dimen/_16ssp" />
 
 
                 </LinearLayout>
@@ -148,10 +161,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
-                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_5sdp">
+                    android:orientation="horizontal">
 
                     <com.autohubtraining.autohub.customview.CustomTextView
                         android:layout_width="wrap_content"
@@ -159,7 +172,7 @@
                         android:fontFamily="@string/Montserrat_SemiBold"
                         android:text="@string/editing_included"
                         android:textColor="#ff000000"
-                        android:textSize="@dimen/_9ssp"
+                        android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />
 
                     <LinearLayout
@@ -194,7 +207,7 @@
                         <com.autohubtraining.autohub.customview.CustomTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin10"
+                            android:layout_marginLeft="@dimen/margin20"
                             android:fontFamily="@string/Montserrat_SemiBold"
                             android:text="@string/no"
                             android:textColor="#ff000000"
@@ -213,9 +226,9 @@
                 android:id="@+id/container_lower"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_13sdp"
+                android:layout_marginLeft="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_8sdp"
                 android:background="@drawable/black_border"
                 android:orientation="vertical">
 
@@ -223,14 +236,14 @@
                     android:id="@+id/etPlanName1"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_25sdp"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:layout_marginRight="@dimen/_12sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
                     android:background="@null"
                     android:drawableRight="@drawable/edit"
                     android:hint="SET PLAN NAME"
-                    android:padding="@dimen/_5sdp"
                     android:textColorHint="#ff000000"
-                    android:textSize="@dimen/_9ssp"
+                    android:textSize="@dimen/_16ssp"
                     app:fontName="Montserrat_SemiBold" />
 
                 <include layout="@layout/dummy_border" />
@@ -239,7 +252,9 @@
                     android:id="@+id/svPlanType1"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_25sdp"
-                    android:layout_marginTop="@dimen/_5sdp" />
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginRight="@dimen/_20sdp"/>
 
 
                 <include layout="@layout/dummy_border" />
@@ -247,7 +262,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -257,7 +273,7 @@
                         android:fontFamily="@string/Montserrat_SemiBold"
                         android:text="@string/rs"
                         android:textColor="#ff000000"
-                        android:textSize="@dimen/_9ssp"
+                        android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />
 
                     <com.autohubtraining.autohub.customview.CustomEditView
@@ -268,7 +284,7 @@
                         android:fontFamily="@string/Montserrat_SemiBold"
                         android:inputType="number"
                         android:singleLine="true"
-                        android:textSize="@dimen/_9ssp"
+                        android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />
 
                 </LinearLayout>
@@ -277,9 +293,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_35sdp"
-                    android:layout_marginLeft="@dimen/_5sdp"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/_5sdp">
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:orientation="horizontal">
 
                     <com.autohubtraining.autohub.customview.CustomTextView
                         android:layout_width="wrap_content"
@@ -288,7 +304,7 @@
                         android:fontFamily="@string/Montserrat_SemiBold"
                         android:text="@string/editing_included"
                         android:textColor="#ff000000"
-                        android:textSize="@dimen/_9ssp"
+                        android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />
 
                     <LinearLayout
@@ -333,17 +349,12 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-
-            <com.autohubtraining.autohub.customview.CustomButton
-                android:id="@+id/nextBtn"
-                style="@style/blackButton"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="@dimen/_13sdp"
-                android:layout_marginTop="@dimen/_8sdp"
-                android:layout_marginRight="@dimen/_13sdp"
-                android:text="@string/next" />
         </LinearLayout>
 
     </ScrollView>
-</LinearLayout>
+
+    <com.autohubtraining.autohub.customview.CustomButton
+        android:id="@+id/nextBtn"
+        style="@style/blackButton"
+        android:text="@string/next" />
+</RelativeLayout>

@@ -16,7 +16,7 @@
     <string name="camera_info">Cool. Now let\'s get your bio done. Write something about your gear, lenses etc. , and make it interesting. You can always edit it later.</string>
     <string name="remaining">240 remaining</string>
     <string name="title_activity_signup_last">SignupLastActivity</string>
-    <string name="sign_up_last_info">One last step. Set your rates for your services, and make sure to set rate less or around the average rate to attract clients.</string>
+    <string name="sign_up_last_info">One last step. Set your rates for your services, and make sure to set rate less or around the average rate to attract clients.\nYou can create two plans for now.</string>
     <string name="sign_up_dot">signup.</string>
     <string name="login_dot">LOGIN.</string>
     <string name="f_name_error">Please enter first name</string>
@@ -26,7 +26,7 @@
     <string name="mobile_no">Mobile No</string>
     <string name="otp_hint">OTP</string>
     <string name="set_password">Set a password.</string>
-    <string name="password">password</string>
+    <string name="password">password.</string>
     <string name="confirm_password">confirm password.</string>
     <string name="perfect_text">Perfect. Now let\'s build your profile and show the world your photographic abilities.</string>
     <string name="letsgo">LET\'S GO</string>
@@ -41,7 +41,7 @@
     <string name="mention_other_gear_one_equipment_per_field_optional">mention other gear, one equipment per field. (optional)</string>
     <string name="e_g_50_mm_nikkor_prime_lens">E.g - 50 mm Nikkor </string>
     <string name="superrb">Superrrb! You\'re closer to becoming a pro-grapher. Tell us about your interest areas, so we get more clients to you!</string>
-    <string name="best_images">Let your pictures do the talking,  it\'s time to show your remarkable work for everyone to see, upload your 4 best photographs. You can always edit it later.</string>
+    <string name="best_images">Let your pictures do the talking,\nit\'s time to show your\nremarkable work for everyone to see, upload your 4 best photographs. You can always\nedit it later.</string>
     <string name="profile">PROFILE</string>
     <string name="alex_r">Alex R.</string>
     <string name="edit_profile">EDIT PROFILE</string>

@@ -6,47 +6,54 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:context=".scene.choose.ChooseActivity">
 
     <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/title"
-        style="@style/semiBold17TVBlack"
-        android:text="@string/shoot" />
-
-    <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/subTitle"
-        style="@style/semiBold17TVBlack"
-        android:layout_below="@id/title"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:text="@string/sign_up_dot" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_42sdp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/sign_up_dot"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_22ssp"
+        app:fontName="Montserrat_Bold"/>
 
     <ProgressBar
         android:id="@+id/activeProgress"
         style="@style/appProgressBar"
         android:layout_below="@id/subTitle"
-        android:progress="20" />
+        android:progress="60" />
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/your_name_title"
-        style="@style/pageInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/activeProgress"
-        android:text="@string/superb" />
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_23sdp"
+        android:text="@string/superb"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_16ssp"
+        app:fontName="Montserrat_SemiBold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_40sdp"
         android:layout_weight="1"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_43sdp"
+            android:layout_height="@dimen/_54sdp"
             android:background="@drawable/black_border"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_11sdp">
+            android:paddingHorizontal="@dimen/_14sdp">
 
             <com.autohubtraining.autohub.customview.CustomTextView
                 android:layout_width="0dp"
@@ -54,7 +61,7 @@
                 android:layout_weight="1"
                 android:text="PHOTO SHOOT"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_13ssp"
                 app:fontName="Montserrat_SemiBold" />
 
             <CheckBox
@@ -65,12 +72,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/_43sdp"
-            android:layout_marginTop="@dimen/_9sdp"
+            android:layout_height="@dimen/_54sdp"
+            android:layout_marginTop="@dimen/_11sdp"
             android:background="@drawable/black_border"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="@dimen/_11sdp">
+            android:paddingHorizontal="@dimen/_14sdp">
 
             <com.autohubtraining.autohub.customview.CustomTextView
                 android:layout_width="0dp"
@@ -78,7 +85,7 @@
                 android:layout_weight="1"
                 android:text="VIDEOGRAPHY"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_10ssp"
+                android:textSize="@dimen/_13ssp"
                 app:fontName="Montserrat_SemiBold" />
 
             <CheckBox
@@ -88,11 +95,9 @@
         </LinearLayout>
     </LinearLayout>
 
-
     <com.autohubtraining.autohub.customview.CustomButton
         android:id="@+id/nextBtn"
         style="@style/blackButton"
-        android:layout_marginTop="@dimen/_60sdp"
         android:text="@string/next" />
 
 </LinearLayout>

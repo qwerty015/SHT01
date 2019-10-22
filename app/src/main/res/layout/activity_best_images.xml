@@ -1,61 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@color/colorWhite"
     tools:context=".scene.choose.ChooseActivity">
 
     <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/title"
-        style="@style/semiBold17TVBlack"
-        android:text="@string/shoot" />
-
-    <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/subTitle"
-        style="@style/semiBold17TVBlack"
-        android:layout_below="@id/title"
-        android:layout_marginTop="@dimen/_12sdp"
-        android:text="@string/sign_up_dot" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_42sdp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/sign_up_dot"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_22ssp"
+        app:fontName="Montserrat_Bold"/>
 
     <ProgressBar
         android:id="@+id/activeProgress"
         style="@style/appProgressBar"
         android:layout_below="@id/subTitle"
-        android:progress="20" />
+        android:progress="60" />
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/your_name_title"
-        style="@style/pageInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/activeProgress"
-        android:text="@string/best_images" />
-
-
+        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_16sdp"
+        android:text="@string/best_images"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_16ssp"
+        app:fontName="Montserrat_SemiBold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_13sdp"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:layout_height="126dp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/image1"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_height="@dimen/_95sdp"
             android:layout_weight="1"
             android:scaleType="fitXY"
             android:src="@drawable/ic_best_image_placeholder" />
 
         <View
-            android:layout_width="@dimen/_8sdp"
-            android:layout_height="@dimen/_8sdp" />
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp" />
 
         <ImageView
             android:id="@+id/image2"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_height="@dimen/_95sdp"
             android:layout_weight="1"
             android:scaleType="fitXY"
             android:src="@drawable/ic_best_image_placeholder" />
@@ -63,31 +69,31 @@
 
     <View
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/_8sdp" />
+        android:layout_height="@dimen/_10sdp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginHorizontal="@dimen/_13sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/image3"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_height="@dimen/_95sdp"
             android:layout_weight="1"
             android:scaleType="fitXY"
             android:src="@drawable/ic_best_image_placeholder" />
 
         <View
-            android:layout_width="@dimen/_8sdp"
-            android:layout_height="@dimen/_8sdp" />
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp" />
 
         <ImageView
             android:id="@+id/image4"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_100sdp"
+            android:layout_height="@dimen/_95sdp"
             android:layout_weight="1"
             android:scaleType="fitXY"
             android:src="@drawable/ic_best_image_placeholder" />
