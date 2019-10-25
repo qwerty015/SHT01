@@ -10,7 +10,7 @@ import android.widget.ToggleButton;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.deshboard.DeshboardActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 
@@ -23,7 +23,7 @@ import butterknife.OnClick;
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN9;
 import static com.autohubtraining.autohub.util.AppConstants.SPLASH;
 
-public class LastActivity extends BaseActivity implements LastContract.View {
+public class LastActivity extends SignupBaseActivity implements LastContract.View {
 
     private LastPresenter presenter;
 

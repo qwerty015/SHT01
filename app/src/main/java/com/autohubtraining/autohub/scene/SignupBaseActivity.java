@@ -2,7 +2,6 @@ package com.autohubtraining.autohub.scene;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,12 +14,9 @@ import android.widget.ProgressBar;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.scene.onboarding.OnBoardingActivity;
-import com.autohubtraining.autohub.scene.settings.SettingsActivity;
 import com.autohubtraining.autohub.util.Loading;
 import com.autohubtraining.autohub.util.Utill;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.SplittableRandom;
 
 import butterknife.BindView;
 
@@ -28,13 +24,10 @@ import static com.autohubtraining.autohub.util.AppConstants.MAX_SCREEN_CLIENT;
 import static com.autohubtraining.autohub.util.AppConstants.MAX_SCREEN_PHOTOGRAPHER;
 import static com.autohubtraining.autohub.util.AppConstants.PHOTOGRAPHER;
 
-public class BaseActivity extends AppCompatActivity {
+public class SignupBaseActivity extends AppCompatActivity {
     private Loading loading;
     @BindView(R.id.activeProgress)
     ProgressBar progressBar;
-
-
-
 
     protected void setProgressBar(int progress) {
         if (DataHandler.getInstance().getUserType() == PHOTOGRAPHER) {
@@ -80,6 +73,7 @@ public class BaseActivity extends AppCompatActivity {
         listView.setLayoutParams(params);
         listView.requestLayout();
     }
+
     protected void showErrorToast(String errorMessage) {
         Utill.showToast(errorMessage, this);
     }
@@ -90,8 +84,6 @@ public class BaseActivity extends AppCompatActivity {
                 .setMessage(getResources().getString(R.string.logout_confirmation))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
-
                         FirebaseAuth.getInstance().signOut();
 
                         Intent intent = new Intent(getApplicationContext(), OnBoardingActivity.class);
@@ -105,13 +97,10 @@ public class BaseActivity extends AppCompatActivity {
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                         dialog.dismiss();
                     }
                 })
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
-
-
 }

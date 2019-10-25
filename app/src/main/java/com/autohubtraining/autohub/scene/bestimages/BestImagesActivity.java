@@ -13,7 +13,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.finalscreen.LastActivity;
 import com.autohubtraining.autohub.util.ImageUtils;
 import com.bumptech.glide.Glide;
@@ -27,7 +28,7 @@ import butterknife.OnClick;
 
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN8;
 
-public class BestImagesActivity extends BaseActivity implements BestImagesContract.View {
+public class BestImagesActivity extends SignupBaseActivity implements BestImagesContract.View {
 
     @BindView(R.id.image1)
     ImageView image1;

@@ -16,7 +16,7 @@ import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.public_data.CameraBrand;
 import com.autohubtraining.autohub.data.model.public_data.CameraModel;
 import com.autohubtraining.autohub.data.model.user.UserData;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.camerainfo.CameraInfoActivity;
 import com.autohubtraining.autohub.scene.choose.ChooseActivity;
 import com.autohubtraining.autohub.scene.deshboard.DeshboardActivity;

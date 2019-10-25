@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomEditView;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.otp.OTPActivity;
 import com.autohubtraining.autohub.util.Utill;
 
@@ -18,7 +18,7 @@ import butterknife.OnClick;
 
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN1;
 
-public class NameActivity extends BaseActivity implements NameContract.View {
+public class NameActivity extends SignupBaseActivity implements NameContract.View {
 
     private NamePresenter presenter;
     @BindView(R.id.first_name)
@@ -30,7 +30,7 @@ public class NameActivity extends BaseActivity implements NameContract.View {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_name);
+        setContentView(R.layout.fragment_signup_name);
         ButterKnife.bind(this);
         setProgressBar(SCREEN1);
         setup();

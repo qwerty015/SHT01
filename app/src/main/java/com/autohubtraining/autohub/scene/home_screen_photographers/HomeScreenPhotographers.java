@@ -2,12 +2,10 @@ package com.autohubtraining.autohub.scene.home_screen_photographers;
 
 import android.content.Intent;
 import android.content.res.ColorStateList;
-import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.text.style.TextAppearanceSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +20,6 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomTextView;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.user.UserData;
-import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
 import com.autohubtraining.autohub.scene.settings.SettingsActivity;
 import com.bumptech.glide.Glide;
@@ -48,7 +45,7 @@ public class HomeScreenPhotographers extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View retView = inflater.inflate(R.layout.home_screen_photographer_fragment, container, false);
+        View retView = inflater.inflate(R.layout.fragment_home_screen_photographer, container, false);
         ButterKnife.bind(this, retView);
         setDataIntoViews();
 

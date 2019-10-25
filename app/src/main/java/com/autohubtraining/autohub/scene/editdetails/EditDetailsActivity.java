@@ -18,7 +18,7 @@ import com.autohubtraining.autohub.customview.CustomButton;
 import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.user.UserData;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.util.Utill;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hbb20.CountryCodePicker;
@@ -33,7 +33,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class EditDetailsActivity extends BaseActivity implements EditDetailContract.View, OnOtpCompletionListener {
+public class EditDetailsActivity extends SignupBaseActivity implements EditDetailContract.View, OnOtpCompletionListener {
 
 
     @BindView(R.id.etName)

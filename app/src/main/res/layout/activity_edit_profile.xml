@@ -264,7 +264,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/black_button"
+            android:background="@drawable/black_roundcorner_button"
             android:gravity="center"
             android:text="@string/editinfo"
             android:textAllCaps="true"

@@ -1,6 +1,5 @@
 package com.autohubtraining.autohub.scene.editinfo;
 
-import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.base.BaseView;
 
 import java.util.ArrayList;

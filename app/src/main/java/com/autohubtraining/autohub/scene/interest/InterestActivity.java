@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.CheckBox;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.bestimages.BestImagesActivity;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import butterknife.OnClick;
 
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN7;
 
-public class InterestActivity extends BaseActivity implements InterestContract.View {
+public class InterestActivity extends SignupBaseActivity implements InterestContract.View {
 
     private InterestPresenter presenter;
     @BindView(R.id.photoShootCB)

@@ -1,40 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:background="@color/colorWhite"
-    tools:context=".scene.choose.ChooseActivity">
-
-    <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/subTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_42sdp"
-        android:layout_centerHorizontal="true"
-        android:text="@string/signup_dot"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_22ssp"
-        app:fontName="Montserrat_Bold"/>
-
-    <ProgressBar
-        android:id="@+id/activeProgress"
-        style="@style/appProgressBar"
-        android:layout_below="@id/subTitle"
-        android:progress="50" />
+    android:orientation="vertical">
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/your_name_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginLeft="@dimen/_16sdp"
-        android:layout_marginRight="@dimen/_22sdp"
-        android:layout_below="@+id/activeProgress"
-        android:text="@string/sign_up_image_info"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:text="@string/signup_avatar_info"
         android:textSize="@dimen/_16ssp"
         android:textColor="@color/colorBlack"
         app:fontName="Montserrat_SemiBold"/>
@@ -49,7 +26,8 @@
             android:layout_height="@dimen/_138sdp"
             android:layout_centerInParent="true">
 
-            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profilePic"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

@@ -14,7 +14,8 @@ import android.widget.Spinner;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.model.public_data.CameraBrand;
 import com.autohubtraining.autohub.data.model.public_data.CameraModel;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.camerabrand.EquipmentAdapter.EquipmentAdapter;
 import com.autohubtraining.autohub.scene.interest.InterestActivity;
 
@@ -26,7 +27,7 @@ import butterknife.OnClick;
 
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN6;
 
-public class CameraBrandActivity extends BaseActivity implements CameraBrandContract.View,EquipmentAdapter.ItemClick {
+public class CameraBrandActivity extends SignupBaseActivity implements CameraBrandContract.View,EquipmentAdapter.ItemClick {
 
     private CameraBrandPresenter presenter;
     @BindView(R.id.spBrand)

@@ -7,12 +7,12 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
-import com.autohubtraining.autohub.MainActivity;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.home_screen_photographers.HomeScreenPhotographers;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.views.CustomViewPager;
+import com.autohubtraining.autohub.util.views.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.fragment.app.Fragment;
@@ -21,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.scene.BaseActivity;
 import com.autohubtraining.autohub.scene.deshboard.userProfile.UserProfileFragment;
 import com.autohubtraining.autohub.scene.explore.ExploreFragment;
 import com.autohubtraining.autohub.scene.homescreen.HomeFragment;
@@ -47,7 +46,6 @@ public class DeshboardActivity extends AppCompatActivity implements BottomNaviga
         UserData userData = DataHandler.getInstance().getCurrentUser();
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(this.getSupportFragmentManager());
-
 
         adapter.addFragment(userData.getType() == AppConstants.PHOTOGRAPHER ? new HomeScreenPhotographers() : new HomeFragment(), "title");
         adapter.addFragment(new ExploreFragment(), "title");

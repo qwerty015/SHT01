@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.profilepic.ProfileActivity;
 
 import butterknife.ButterKnife;
@@ -13,7 +13,7 @@ import butterknife.OnClick;
 
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN3;
 
-public class LetsGoActivity extends BaseActivity implements LetsGoContract.View {
+public class LetsGoActivity extends SignupBaseActivity implements LetsGoContract.View {
 
     private LetsGoPresenter presenter;
 

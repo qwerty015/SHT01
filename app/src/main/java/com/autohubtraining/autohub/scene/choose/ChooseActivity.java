@@ -19,7 +19,7 @@ public class ChooseActivity extends AppCompatActivity implements ChooseContract.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_choose);
+        setContentView(R.layout.fragment_signup_choose);
         ButterKnife.bind(this);
 
         setup();

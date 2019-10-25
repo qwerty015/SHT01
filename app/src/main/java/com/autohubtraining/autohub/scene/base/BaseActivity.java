@@ -27,13 +27,6 @@ import static com.autohubtraining.autohub.util.AppConstants.PHOTOGRAPHER;
 public class BaseActivity  extends AppCompatActivity {
     private Loading loading;
 
-
-
-
-
-
-
-
     protected void showLoading(String message) {
         if (loading == null) {
             loading = new Loading(this);
@@ -69,38 +62,35 @@ public class BaseActivity  extends AppCompatActivity {
         listView.setLayoutParams(params);
         listView.requestLayout();
     }
+
     protected void showErrorToast(String errorMessage) {
         Utill.showToast(errorMessage, this);
     }
 
     public void logout() {
         new AlertDialog.Builder(this)
-                .setTitle(getResources().getString(R.string.logout))
-                .setMessage(getResources().getString(R.string.logout_confirmation))
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+            .setTitle(getResources().getString(R.string.logout))
+            .setMessage(getResources().getString(R.string.logout_confirmation))
+            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    FirebaseAuth.getInstance().signOut();
 
+                    Intent intent = new Intent(getApplicationContext(), OnBoardingActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            })
 
-                        FirebaseAuth.getInstance().signOut();
+            // A null listener allows the button to dismiss the dialog and take no further action.
+            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
 
-                        Intent intent = new Intent(getApplicationContext(), OnBoardingActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(intent);
-                        finish();
-                    }
-                })
-
-                // A null listener allows the button to dismiss the dialog and take no further action.
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        dialog.dismiss();
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
+                    dialog.dismiss();
+                }
+            })
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .show();
     }
-
-
 }

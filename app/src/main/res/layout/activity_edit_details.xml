@@ -209,7 +209,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="30dp"
-        android:background="@drawable/black_button"
+        android:background="@drawable/black_roundcorner_button"
         android:paddingTop="@dimen/_10sdp"
         android:paddingBottom="@dimen/_10sdp"
         android:text="@string/update"

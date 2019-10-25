@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.letsgo.LetsGoActivity;
 
 
@@ -13,7 +13,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class PasswordActivity extends BaseActivity implements PasswordContract.View {
+public class PasswordActivity extends SignupBaseActivity implements PasswordContract.View {
 
     private PasswordPresenter presenter;
 

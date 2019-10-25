@@ -37,7 +37,6 @@ public class DataHandler {
         return user;
     }
 
-
     public void setCurrentUser(UserData adminUser) {
         this.userData = adminUser;
     }
@@ -45,17 +44,5 @@ public class DataHandler {
     public UserData getCurrentUser() {
         return userData;
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

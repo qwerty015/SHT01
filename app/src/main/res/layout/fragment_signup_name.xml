@@ -1,38 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorWhite"
-    tools:context=".scene.choose.ChooseActivity">
+    android:orientation="vertical">
 
     <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/subTitle"
+        android:id="@+id/name_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_42sdp"
-        android:layout_centerHorizontal="true"
-        android:text="@string/sign_up_dot"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_22ssp"
-        app:fontName="Montserrat_Bold"/>
-
-    <ProgressBar
-        android:id="@+id/activeProgress"
-        style="@style/appProgressBar"
-        android:layout_below="@id/subTitle"
-      />
-
-    <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/your_name_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_10sdp"
-        android:layout_below="@+id/activeProgress"
-        android:text="Hey! What's your\nname?"
+        android:text="@string/signup_name_info"
         android:textSize="@dimen/_16ssp"
         android:textColor="@color/colorBlack"
         app:fontName="Montserrat_SemiBold"/>
@@ -40,7 +19,7 @@
     <com.autohubtraining.autohub.customview.CustomEditView
         android:id="@+id/first_name"
         style="@style/inputBox"
-        android:layout_below="@id/your_name_title"
+        android:layout_below="@id/name_info"
         android:layout_marginTop="@dimen/_18sdp"
         android:hint="@string/first_name" />
 

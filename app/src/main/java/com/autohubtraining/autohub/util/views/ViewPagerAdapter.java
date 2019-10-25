@@ -1,4 +1,4 @@
-package com.autohubtraining.autohub.scene.deshboard;
+package com.autohubtraining.autohub.util.views;
 
 import android.util.SparseArray;
 import android.view.ViewGroup;
@@ -16,7 +16,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
     private final List<String> mFragmentTitleList = new ArrayList<>();
 
-    ViewPagerAdapter(FragmentManager manager) {
+    public ViewPagerAdapter(FragmentManager manager) {
         super(manager);
     }
 
@@ -30,9 +30,13 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         return mFragmentList.size();
     }
 
-    void addFragment(Fragment fragment, String title) {
+    public void addFragment(Fragment fragment, String title) {
         mFragmentList.add(fragment);
         mFragmentTitleList.add(title);
+    }
+
+    public void removeFragment(int position) {
+        mFragmentList.remove(position);
     }
 
     @Override

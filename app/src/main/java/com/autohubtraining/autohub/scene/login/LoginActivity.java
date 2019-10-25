@@ -18,7 +18,7 @@ import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.user.UserData;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.choose.ChooseActivity;
 import com.autohubtraining.autohub.scene.deshboard.DeshboardActivity;
 import com.autohubtraining.autohub.scene.letsgo.LetsGoActivity;
@@ -35,7 +35,7 @@ import butterknife.OnClick;
 
 import static com.autohubtraining.autohub.util.AppConstants.PHOTOGRAPHER;
 
-public class LoginActivity extends BaseActivity implements LoginContract.LoginView, OnOtpCompletionListener {
+public class LoginActivity extends SignupBaseActivity implements LoginContract.LoginView, OnOtpCompletionListener {
 
 
     @BindView(R.id.auto_retrieve_textview)

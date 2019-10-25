@@ -17,7 +17,7 @@ import com.autohubtraining.autohub.customview.CustomButton;
 import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.letsgo.LetsGoActivity;
 import com.autohubtraining.autohub.scene.password.PasswordActivity;
 import com.autohubtraining.autohub.scene.profilepic.ProfileActivity;
@@ -41,7 +41,7 @@ import butterknife.OnClick;
 import static com.autohubtraining.autohub.util.AppConstants.PHOTOGRAPHER;
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN2;
 
-public class OTPActivity extends BaseActivity implements OTPContract.View, OnOtpCompletionListener {
+public class OTPActivity extends SignupBaseActivity implements OTPContract.View, OnOtpCompletionListener {
 
     @BindView(R.id.auto_retrieve_textview)
     TextView autoRetrieveTextView;

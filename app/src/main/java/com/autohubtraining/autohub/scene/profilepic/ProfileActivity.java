@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.camerainfo.CameraInfoActivity;
 import com.autohubtraining.autohub.scene.deshboard.DeshboardActivity;
 import com.autohubtraining.autohub.util.ImageUtils;
@@ -31,7 +31,7 @@ import static com.autohubtraining.autohub.util.AppConstants.PHOTOGRAPHER;
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN3;
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN4;
 
-public class ProfileActivity extends BaseActivity implements ProfileContract.View {
+public class ProfileActivity extends SignupBaseActivity implements ProfileContract.View {
     @BindView(R.id.profilePic)
     CircleImageView profilePic;
     private ProfilePresenter presenter;

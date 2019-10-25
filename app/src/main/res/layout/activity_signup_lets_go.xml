@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_42sdp"
         android:layout_centerHorizontal="true"
-        android:text="@string/sign_up_dot"
+        android:text="@string/signup_dot"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_22ssp"
         app:fontName="Montserrat_Bold"/>

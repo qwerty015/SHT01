@@ -1,39 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorWhite"
-    tools:context=".scene.finalscreen.LastActivity">
+    android:orientation="vertical">
 
     <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/subTitle"
+        android:id="@+id/camerabrand_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_42sdp"
-        android:layout_centerHorizontal="true"
-        android:text="@string/signup_dot"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/_22ssp"
-        app:fontName="Montserrat_Bold"/>
-
-    <ProgressBar
-        android:id="@+id/activeProgress"
-        style="@style/appProgressBar"
-        android:layout_below="@id/subTitle"
-        android:progress="60" />
-
-    <com.autohubtraining.autohub.customview.CustomTextView
-        android:id="@+id/your_name_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/activeProgress"
-        android:layout_marginLeft="@dimen/_16sdp"
+        android:layout_marginHorizontal="@dimen/_16sdp"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginRight="@dimen/_23sdp"
-        android:text="@string/asweometext"
+        android:text="@string/signup_camerabrand_info"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_16ssp"
         app:fontName="Montserrat_SemiBold" />
@@ -41,10 +19,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/your_name_title"
+        android:layout_below="@id/camerabrand_info"
         android:layout_above="@id/nextBtn"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_20sdp">
+        android:layout_marginVertical="@dimen/_20sdp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -55,8 +32,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_16sdp"
-                android:layout_marginRight="@dimen/_16sdp"
+                android:layout_marginHorizontal="@dimen/_16sdp"
                 android:orientation="vertical">
 
                 <Spinner
@@ -85,9 +61,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_16sdp"
-                    android:layout_marginRight="@dimen/_66sdp"
                     android:layout_marginTop="@dimen/_20sdp"
-                    android:text="@string/mention_other_gear_one_equipment_per_field_optional"
+                    android:text="@string/signup_camerabrand_info1"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_12ssp"
                     app:fontName="Montserrat_SemiBold" />

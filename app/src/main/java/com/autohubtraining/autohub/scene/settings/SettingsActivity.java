@@ -11,7 +11,7 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomTextView;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.user.UserData;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.editdetails.EditDetailsActivity;
 import com.autohubtraining.autohub.scene.editprofile.EditProfileActivity;
 import com.autohubtraining.autohub.scene.my_favourites.MyFavourites;
@@ -26,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SettingsActivity extends BaseActivity {
+public class SettingsActivity extends SignupBaseActivity {
     @BindView(R.id.ivEditProfile)
     View ivEditprofile;
     @BindView(R.id.ivEditDetails)

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.scene.BaseActivity;
+import com.autohubtraining.autohub.scene.SignupBaseActivity;
 import com.autohubtraining.autohub.scene.camerabrand.CameraBrandActivity;
 
 
@@ -16,7 +16,7 @@ import butterknife.OnClick;
 
 import static com.autohubtraining.autohub.util.AppConstants.SCREEN5;
 
-public class CameraInfoActivity extends BaseActivity implements CameraInfoContract.View {
+public class CameraInfoActivity extends SignupBaseActivity implements CameraInfoContract.View {
 
     private CameraInfoPresenter presenter;
     @BindView(R.id.etBio)
