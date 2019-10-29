@@ -13,9 +13,9 @@ import android.widget.ProgressBar;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.scene.onboarding.OnBoardingActivity;
+import com.autohubtraining.autohub.scene.main.MainActivity;
 import com.autohubtraining.autohub.util.Loading;
-import com.autohubtraining.autohub.util.Utill;
+import com.autohubtraining.autohub.util.AppUtils;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
@@ -75,7 +75,7 @@ public class SignupBaseActivity extends AppCompatActivity {
     }
 
     protected void showErrorToast(String errorMessage) {
-        Utill.showToast(errorMessage, this);
+        AppUtils.showToast(errorMessage, this);
     }
 
     public void logout() {
@@ -86,7 +86,7 @@ public class SignupBaseActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         FirebaseAuth.getInstance().signOut();
 
-                        Intent intent = new Intent(getApplicationContext(), OnBoardingActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                         finish();

@@ -3,19 +3,17 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@mipmap/profile_home_icon"
-        android:title="@string/home" />
+        android:icon="@drawable/tab_home"
+        android:title="HOME" />
 
     <item
-        android:id="@+id/navigation_preview"
-        android:icon="@mipmap/profile_bottom_center_icon"
-        android:title="@string/explore" />
+        android:id="@+id/navigation_explore"
+        android:icon="@drawable/tab_explore"
+        android:title="EXPLORE" />
 
     <item
-        android:id="@+id/navigation_bookings"
-        android:icon="@mipmap/profile_bottom_right_icon"
-        android:title="@string/bookings" />
-
-
+        android:id="@+id/navigation_booking"
+        android:icon="@drawable/tab_booking"
+        android:title="BOOKING" />
 
 </menu>

@@ -6,39 +6,30 @@ import java.util.List;
 
 
 public class User implements Serializable{
-
-
+	private int type;
 	private String firstName;
-
-
 	private String lastName;
+	private String email;
+
 
 
 	private String countryCode;
-
-
 	private String pictureUrl;
-
-
 	private String bio;
-
-
 	private List<String> bestImages;
-
-
 	private List<String> userInterests;
 
-
-	private int type;
-
-
 	private String userId;
-
-
 	private String phoneNo;
-
-
 	private String signupStatus;
+
+	public void setType(int type){
+		this.type = type;
+	}
+
+	public int getType(){
+		return type;
+	}
 
 	public void setFirstName(String firstName){
 		this.firstName = firstName;
@@ -55,6 +46,17 @@ public class User implements Serializable{
 	public String getLastName(){
 		return lastName;
 	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
 
 	public void setCountryCode(String countryCode){
 		this.countryCode = countryCode;
@@ -96,13 +98,7 @@ public class User implements Serializable{
 		return userInterests;
 	}
 
-	public void setType(int type){
-		this.type = type;
-	}
 
-	public int getType(){
-		return type;
-	}
 
 	public void setUserId(String userId){
 		this.userId = userId;
@@ -127,22 +123,4 @@ public class User implements Serializable{
 	public String getSignupStatus(){
 		return signupStatus;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"User{" + 
-			"firstName = '" + firstName + '\'' + 
-			",lastName = '" + lastName + '\'' + 
-			",countryCode = '" + countryCode + '\'' + 
-			",pictureUrl = '" + pictureUrl + '\'' + 
-			",bio = '" + bio + '\'' + 
-			",bestImages = '" + bestImages + '\'' + 
-			",userInterests = '" + userInterests + '\'' + 
-			",type = '" + type + '\'' + 
-			",userId = '" + userId + '\'' + 
-			",phoneNo = '" + phoneNo + '\'' + 
-			",signupStatus = '" + signupStatus + '\'' + 
-			"}";
-		}
 }

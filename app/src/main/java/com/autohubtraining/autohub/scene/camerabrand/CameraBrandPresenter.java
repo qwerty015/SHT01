@@ -3,8 +3,6 @@ package com.autohubtraining.autohub.scene.camerabrand;
 
 import androidx.annotation.NonNull;
 
-import android.util.Log;
-
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.public_data.CameraBrand;
@@ -14,11 +12,7 @@ import com.autohubtraining.autohub.data.model.user_cameras.UserCameraResponse;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -73,7 +67,7 @@ public class CameraBrandPresenter implements CameraBrandContract.Presenter {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection(AppConstants.cameraRef).document(user.getUserId()).set(userCameraResponse).addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection(AppConstants.ref_camera).document(user.getUserId()).set(userCameraResponse).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
 
@@ -107,7 +101,7 @@ public class CameraBrandPresenter implements CameraBrandContract.Presenter {
     public void getCameraBrands() {
 
 
-//        dbRef.getReference("public_data").child("camera_brands").addListenerForSingleValueEvent(new ValueEventListener() {
+//        dbRef.getReference("ref_public_data").child("camera_brands").addListenerForSingleValueEvent(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //
@@ -141,7 +135,7 @@ public class CameraBrandPresenter implements CameraBrandContract.Presenter {
 
 
         //DocumentReference cities = db.collection("dummyyyy").document("camera_brands");
-        db.collection(AppConstants.public_data).document("camera_brands").addSnapshotListener((documentSnapshot, e) -> {
+        db.collection(AppConstants.ref_public_data).document("camera_brands").addSnapshotListener((documentSnapshot, e) -> {
 
 
             Map<String, Object> map = documentSnapshot.getData();
@@ -180,7 +174,7 @@ public class CameraBrandPresenter implements CameraBrandContract.Presenter {
     public void getModels(String brandId) {
 
 
-//        Query query = dbRef.getReference("public_data").child("camera_models").orderByKey().equalTo(brandId);
+//        Query query = dbRef.getReference("ref_public_data").child("camera_models").orderByKey().equalTo(brandId);
 //
 //        query.addListenerForSingleValueEvent(new ValueEventListener() {
 //            @Override
@@ -224,7 +218,7 @@ public class CameraBrandPresenter implements CameraBrandContract.Presenter {
 
 
         //DocumentReference cities = db.collection("dummyyyy").document("camera_brands");
-        db.collection(AppConstants.public_data).document("camera_models").addSnapshotListener((documentSnapshot, e) -> {
+        db.collection(AppConstants.ref_public_data).document("camera_models").addSnapshotListener((documentSnapshot, e) -> {
 
             Map<String, Object> map = documentSnapshot.getData();
             map = (Map<String, Object>) map.get(brandId);

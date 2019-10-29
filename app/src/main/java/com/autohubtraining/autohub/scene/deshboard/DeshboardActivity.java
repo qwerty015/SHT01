@@ -80,7 +80,7 @@ public class DeshboardActivity extends AppCompatActivity implements BottomNaviga
                 //fragment = new HomeFragment();
                 break;
 
-            case R.id.navigation_preview:
+            case R.id.navigation_explore:
                 //getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new ExploreFragment()).commit();
                 //fragment = ExploreFragment.newInstance(this);
                 if (viewPager != null)
@@ -88,7 +88,7 @@ public class DeshboardActivity extends AppCompatActivity implements BottomNaviga
 
                 break;
 
-            case R.id.navigation_bookings:
+            case R.id.navigation_booking:
                 if (viewPager != null)
                     viewPager.setCurrentItem(2);
                 //fragment = new UserProfileFragment();

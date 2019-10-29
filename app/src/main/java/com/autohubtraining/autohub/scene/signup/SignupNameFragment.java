@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
-import com.autohubtraining.autohub.util.Utill;
+import com.autohubtraining.autohub.util.AppUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,12 +25,13 @@ public class SignupNameFragment extends BaseFragment {
     @BindView(R.id.last_name)
     CustomEditView lastName;
 
-    String fNameStr, lNameStr;
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View retView = inflater.inflate(R.layout.fragment_signup_name, container, false);
         ButterKnife.bind(this, retView);
+
+//        firstName.setText("Mohamed");
+//        lastName.setText("Fouad");
 
         return retView;
     }
@@ -42,6 +43,7 @@ public class SignupNameFragment extends BaseFragment {
         switch (id) {
             case R.id.nextBtn:
                 if (isValidate()) {
+
                     activity.setViewPager(new SignupEmailPasswordFragment());
                 }
                 break;
@@ -49,14 +51,16 @@ public class SignupNameFragment extends BaseFragment {
     }
 
     private boolean isValidate() {
-        fNameStr = firstName.getText().toString().trim();
-        lNameStr = lastName.getText().toString().trim();
+        SignupActivity activity = (SignupActivity) getActivity();
 
-        if (TextUtils.isEmpty(fNameStr)) {
-            Utill.showToast(getString(R.string.f_name_error), getActivity());
+        activity.str_firstname = firstName.getText().toString().trim();
+        activity.str_lastname = lastName.getText().toString().trim();
+
+        if (TextUtils.isEmpty(activity.str_firstname)) {
+            AppUtils.showToast(getString(R.string.f_name_error), getActivity());
             return false;
-        } else if (TextUtils.isEmpty(lNameStr)) {
-            Utill.showToast(getString(R.string.l_name_error), getActivity());
+        } else if (TextUtils.isEmpty(activity.str_lastname)) {
+            AppUtils.showToast(getString(R.string.l_name_error), getActivity());
             return false;
         }
 

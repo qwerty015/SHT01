@@ -18,7 +18,6 @@ import android.widget.ImageView;
 
 
 import com.autohubtraining.autohub.R;
-import com.bumptech.glide.Glide;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -81,7 +80,7 @@ public class ImageUtils {
     }
 
     public void chooseMultipleImagesFromGallery() {
-        Utill.openGallery(context, ImageUtils.REQUEST_LOAD_MULTIPLE_IMAGE);
+        AppUtils.openGallery(context, ImageUtils.REQUEST_LOAD_MULTIPLE_IMAGE);
     }
 
     public void resetProfile() {
@@ -98,7 +97,7 @@ public class ImageUtils {
                 if (imageUri != null) {
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(context.getContentResolver(), imageUri);
-                        String base64String = Utill.convertBitmapToBase64(bitmap);
+                        String base64String = AppUtils.convertBitmapToBase64(bitmap);
                         this.bitmap = bitmap;
                         this.base64String = base64String;
 

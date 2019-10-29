@@ -8,12 +8,62 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserData implements Serializable {
-
-
+    private int type;
     private String firstName;
+    private String lastName;
+    private String email;
+
+
+
+
     boolean isFavourite=false;
     private UserCameraResponse userCamera;
     private ArrayList<UserPlan> alUserPlans;
+
+
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getFirstName() {
+        if (firstName == null) {
+            return "";
+        }
+
+        return firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getLastName() {
+        if (lastName == null) {
+            return "";
+        }
+        return lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+
+
+
 
     public UserCameraResponse getUserCamera() {
         return userCamera;
@@ -31,7 +81,7 @@ public class UserData implements Serializable {
         this.alUserPlans = alUserPlans;
     }
 
-    private String lastName;
+
 
 
     private String countryCode;
@@ -56,7 +106,7 @@ public class UserData implements Serializable {
     private List<String> userInterests;
 
 
-    private int type;
+
 
 
     private String userId;
@@ -67,28 +117,7 @@ public class UserData implements Serializable {
 
     private String signupStatus;
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
-    public String getFirstName() {
-        if (firstName == null) {
-            return "";
-        }
-
-        return firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getLastName() {
-        if (lastName == null) {
-            return "";
-        }
-        return lastName;
-    }
 
     public void setCountryCode(String countryCode) {
         this.countryCode = countryCode;
@@ -136,13 +165,7 @@ public class UserData implements Serializable {
         return userInterests;
     }
 
-    public void setType(int type) {
-        this.type = type;
-    }
 
-    public int getType() {
-        return type;
-    }
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -166,23 +189,5 @@ public class UserData implements Serializable {
 
     public String getSignupStatus() {
         return signupStatus;
-    }
-
-    @Override
-    public String toString() {
-        return
-                "User{" +
-                        "firstName = '" + firstName + '\'' +
-                        ",lastName = '" + lastName + '\'' +
-                        ",countryCode = '" + countryCode + '\'' +
-                        ",pictureUrl = '" + pictureUrl + '\'' +
-                        ",bio = '" + bio + '\'' +
-                        ",bestImages = '" + bestImages + '\'' +
-                        ",userInterests = '" + userInterests + '\'' +
-                        ",type = '" + type + '\'' +
-                        ",userId = '" + userId + '\'' +
-                        ",phoneNo = '" + phoneNo + '\'' +
-                        ",signupStatus = '" + signupStatus + '\'' +
-                        "}";
     }
 }

@@ -124,7 +124,7 @@ public class EditDetailsPresenter implements EditDetailContract.Presenter, AuthL
     void updateData(Map<String, Object> map) {
         view.showLoading();
         UserData userData = DataHandler.getInstance().getCurrentUser();
-        FirebaseFirestore.getInstance().collection(AppConstants.userRef).document(userData.getUserId()).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(userData.getUserId()).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
 

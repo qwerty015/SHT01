@@ -1,7 +1,5 @@
 package com.autohubtraining.autohub.scene.editdetails;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -10,17 +8,14 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomButton;
-import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.SignupBaseActivity;
-import com.autohubtraining.autohub.util.Utill;
-import com.google.firebase.auth.FirebaseAuth;
+import com.autohubtraining.autohub.util.AppUtils;
 import com.hbb20.CountryCodePicker;
 import com.mukesh.OnOtpCompletionListener;
 import com.mukesh.OtpView;
@@ -82,7 +77,7 @@ public class EditDetailsActivity extends SignupBaseActivity implements EditDetai
 //
 //                    editDetailsPresenter.sendPhone(countryCodePicker.getFullNumberWithPlus());
 //                } else {
-//                    Utill.showToast(getString(R.string.invalid_no), EditDetailsActivity.this);
+//                    AppUtils.showToast(getString(R.string.invalid_no), EditDetailsActivity.this);
 //
 //                }
 
@@ -102,7 +97,7 @@ public class EditDetailsActivity extends SignupBaseActivity implements EditDetai
                         map.put("phoneNo", etPhoneNumber.getText().toString().replaceAll(" ", ""));
                         editDetailsPresenter.sendPhone(countryCodePicker.getFullNumberWithPlus());
                     } else {
-                        Utill.showToast(getString(R.string.invalid_no), EditDetailsActivity.this);
+                        AppUtils.showToast(getString(R.string.invalid_no), EditDetailsActivity.this);
 
                     }
 
@@ -135,7 +130,7 @@ public class EditDetailsActivity extends SignupBaseActivity implements EditDetai
 //                        if (editDetailsPresenter.isNumberValid(countryCodePicker)) {
 //                            editDetailsPresenter.sendPhone(countryCodePicker.getFullNumberWithPlus());
 //                        } else {
-//                            Utill.showToast(getString(R.string.invalid_no), EditDetailsActivity.this);
+//                            AppUtils.showToast(getString(R.string.invalid_no), EditDetailsActivity.this);
 //
 //                        }
 //

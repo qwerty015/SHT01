@@ -6,7 +6,6 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.data.model.user_cameras.UserCameraResponse;
 import com.autohubtraining.autohub.util.AppConstants;
@@ -158,7 +157,7 @@ public class EditInfoPresenter implements EditInfoContract.Presenter {
         data.put("bio", bio);
         data.put("bestImages", aldownloadFileUrl);
         /* set data into firebase database*/
-        FirebaseFirestore.getInstance().collection(AppConstants.userRef).document(user.getUserId()).update(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(user.getUserId()).update(data).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
 
@@ -193,7 +192,7 @@ public class EditInfoPresenter implements EditInfoContract.Presenter {
         map.put("cameraAccessories", alEquipments);
 
 
-        db.collection(AppConstants.cameraRef).document(userId).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection(AppConstants.ref_camera).document(userId).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
 

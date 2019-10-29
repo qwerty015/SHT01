@@ -23,6 +23,7 @@
     <string name="email_empty_error">Please enter email address</string>
     <string name="email_format_error">Please enter valid email address</string>
     <string name="password_error">Please enter password</string>
+    <string name="password_different_with_confirm">Your password and confirmation password do not match.</string>
 
     <string name="signup_letsgo_info">Perfect. Now let\'s build your profile and show the world your photographic abilities.</string>
     <string name="letsgo">LET\'S GO</string>
@@ -47,13 +48,20 @@
     <string name="yes">YES</string>
     <string name="no">NO</string>
 
+    <string name="login">LOGIN</string>
+    <string name="login_dot">login.</string>
+    <string name="login_info">welcome back.</string>
+    <string name="enter_email">enter email.</string>
+    <string name="enter_password">enter password.</string>
+    <string name="forgot_password">forgot password?</string>
 
+    <string name="logout">LOGOUT</string>
+    <string name="logout_confirmation">Do you really want to log out?</string>
 
     <string name="title_activity_login">LoginActivity</string>
 
     <string name="shoot">SHOOT</string>
     <string name="sign_up">SIGNUP</string>
-    <string name="login">LOGIN</string>
 
 
     <string name="sign_up_image_info">Let\'s start with a cool yet professional photograph of yours. Generally, photos with cameras do the magic.</string>
@@ -62,7 +70,7 @@
     <string name="remaining">240 remaining</string>
     <string name="title_activity_signup_last">SignupLastActivity</string>
     <string name="sign_up_last_info">One last step. Set your rates for your services, and make sure to set rate less or around the average rate to attract clients.\nYou can create two plans for now.</string>
-    <string name="login_dot">LOGIN.</string>
+
 
     <string name="your_number">Great, and your number?</string>
     <string name="resend_code">RESEND CODE</string>
@@ -86,12 +94,10 @@
     <string name="edit_profile">EDIT PROFILE</string>
     <string name="edit_your_details">EDIT YOUR DETAILS</string>
     <string name="create_offers">CREATE OFFERS</string>
-    <string name="home">HOME</string>
+
     <string name="my_favourites">My Favourites</string>
 
-    <string name="bookings">BOOKINGS</string>
-    <string name="explore">EXPLORE</string>
-    <string name="logout">LOGOUT</string>
+
     <string name="preview">PREVIEW</string>
     <string name="viewmore">View More</string>
     <string name="editinfo">Edit Info</string>
@@ -135,7 +141,7 @@
     <string name="invalid_no">Please enter valid number</string>
     <string name="payment_option">Payment Option</string>
     <string name="saved_profiles">Saved Profiles</string>
-    <string name="logout_confirmation">Do you really want to Logout?</string>
+
 
 
     <string-array name="CountryCodes">

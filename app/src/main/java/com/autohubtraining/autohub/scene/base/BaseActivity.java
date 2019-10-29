@@ -6,23 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.scene.onboarding.OnBoardingActivity;
+import com.autohubtraining.autohub.scene.LogoActivity;
+import com.autohubtraining.autohub.scene.main.MainActivity;
 import com.autohubtraining.autohub.util.Loading;
-import com.autohubtraining.autohub.util.Utill;
+import com.autohubtraining.autohub.util.AppUtils;
 import com.google.firebase.auth.FirebaseAuth;
-
-import butterknife.BindView;
-
-import static com.autohubtraining.autohub.util.AppConstants.MAX_SCREEN_CLIENT;
-import static com.autohubtraining.autohub.util.AppConstants.MAX_SCREEN_PHOTOGRAPHER;
-import static com.autohubtraining.autohub.util.AppConstants.PHOTOGRAPHER;
 
 public class BaseActivity  extends AppCompatActivity {
     private Loading loading;
@@ -64,7 +57,7 @@ public class BaseActivity  extends AppCompatActivity {
     }
 
     protected void showErrorToast(String errorMessage) {
-        Utill.showToast(errorMessage, this);
+        AppUtils.showToast(errorMessage, this);
     }
 
     public void logout() {
@@ -75,7 +68,7 @@ public class BaseActivity  extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     FirebaseAuth.getInstance().signOut();
 
-                    Intent intent = new Intent(getApplicationContext(), OnBoardingActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), LogoActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();

@@ -1,24 +1,16 @@
 package com.autohubtraining.autohub.scene.my_favourites;
 
-import android.util.Log;
-
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.favourite.Favourite;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.util.AppConstants;
-import com.google.common.reflect.TypeToken;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MyFavouriteContract implements FavouritePresenter.Presenter {
@@ -51,7 +43,7 @@ public class MyFavouriteContract implements FavouritePresenter.Presenter {
         UserData userData = DataHandler.getInstance().getCurrentUser();
 
 
-        CollectionReference documentReference = db.collection(AppConstants.userRef).document(userData.getUserId()).collection(AppConstants.favourite_ref);
+        CollectionReference documentReference = db.collection(AppConstants.ref_user).document(userData.getUserId()).collection(AppConstants.favourite_ref);
 
         documentReference.addSnapshotListener((documentSnapshot, e) -> {
 

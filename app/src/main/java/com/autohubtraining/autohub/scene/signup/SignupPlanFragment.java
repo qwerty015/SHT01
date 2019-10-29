@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
+import com.autohubtraining.autohub.scene.main.MainActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -30,7 +31,7 @@ public class SignupPlanFragment extends BaseFragment {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-
+                MainActivity.startActivity(activity);
                 break;
         }
     }

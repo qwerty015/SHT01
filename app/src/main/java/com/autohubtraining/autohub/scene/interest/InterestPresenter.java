@@ -6,10 +6,8 @@ import androidx.annotation.NonNull;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.util.AppConstants;
-import com.autohubtraining.autohub.util.UserHelper;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -43,7 +41,7 @@ public class InterestPresenter implements InterestContract.Presenter {
         user.setUserInterests(alUserInterest);
 
         /* set data into firebase database*/
-        //FirebaseDatabase.getInstance().getReference(AppConstants.userRef).child(user.getUserId()).setValue(user);
+        //FirebaseDatabase.getInstance().getReference(AppConstants.ref_user).child(user.getUserId()).setValue(user);
         /* save data */
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -51,7 +49,7 @@ public class InterestPresenter implements InterestContract.Presenter {
         view.showLoading();
 
 
-        db.collection(AppConstants.userRef).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection(AppConstants.ref_user).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 view.hideLoading();

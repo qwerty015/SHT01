@@ -8,6 +8,8 @@ import com.autohubtraining.autohub.data.model.user.UserData;
 public class DataHandler {
     private static DataHandler dataHandler;
     private static User user;
+
+
     public static UserData userData;
     private int userType;
 

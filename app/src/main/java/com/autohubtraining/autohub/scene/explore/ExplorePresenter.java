@@ -5,23 +5,17 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.favourite.Favourite;
-import com.autohubtraining.autohub.data.model.public_data.CameraBrand;
 import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.data.model.user_cameras.UserCameraResponse;
 import com.autohubtraining.autohub.util.AppConstants;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 
@@ -71,7 +65,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
 
 
         if (isFavourite) {
-            db.collection(AppConstants.userRef).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            db.collection(AppConstants.ref_user).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     // view.hideLoading();
@@ -88,7 +82,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
                 }
             });
         } else {
-            db.collection(AppConstants.userRef).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            db.collection(AppConstants.ref_user).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     // view.hideLoading();
@@ -114,7 +108,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-        CollectionReference documentReference = db.collection(AppConstants.userRef);
+        CollectionReference documentReference = db.collection(AppConstants.ref_user);
         Query query = documentReference.whereEqualTo("type", AppConstants.PHOTOGRAPHER);
 
 
@@ -159,7 +153,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
 
         UserData userData = DataHandler.getInstance().getCurrentUser();
 
-        CollectionReference documentReference = db.collection(AppConstants.userRef).document(userData.getUserId()).collection(AppConstants.favourite_ref);
+        CollectionReference documentReference = db.collection(AppConstants.ref_user).document(userData.getUserId()).collection(AppConstants.favourite_ref);
         documentReference.addSnapshotListener((documentSnapshot, e) -> {
 
             for (DocumentSnapshot ds : documentSnapshot.getDocuments()) {
@@ -183,7 +177,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-        CollectionReference documentReference = db.collection(AppConstants.userRef);
+        CollectionReference documentReference = db.collection(AppConstants.ref_user);
 
         Query query = documentReference.whereEqualTo("type", AppConstants.PHOTOGRAPHER).whereGreaterThan("firstName", filter);
         // query=query.whereArrayContains("firstName",filter);
@@ -216,7 +210,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-        db.collection(AppConstants.cameraRef).document(user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
+        db.collection(AppConstants.ref_camera).document(user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
 
 
             //Map<String, Object> map = documentSnapshot.getData();
@@ -236,7 +230,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection(AppConstants.service_plan).document(user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
+        db.collection(AppConstants.ref_service_plan).document(user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
 
             ArrayList<UserPlan> alBrands = new ArrayList<>();
             Map<String, Object> map = documentSnapshot.getData();

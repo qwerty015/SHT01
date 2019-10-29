@@ -6,14 +6,9 @@ import android.util.Log;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.util.AppConstants;
-import com.autohubtraining.autohub.util.UserHelper;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
 
 import androidx.annotation.NonNull;
 
@@ -48,7 +43,7 @@ public class CameraInfoPresenter implements CameraInfoContract.Presenter {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         view.showLoading();
-        db.collection(AppConstants.userRef).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+        db.collection(AppConstants.ref_user).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 view.hideLoading();

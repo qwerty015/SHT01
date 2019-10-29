@@ -220,7 +220,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_7ssp"
-                android:text="@string/home"
+                android:text="HOME"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_7ssp"
                 app:fontName="Montserrat_SemiBold" />
@@ -244,7 +244,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_7ssp"
-                android:text="@string/explore"
+                android:text="EXPLORE"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_7ssp"
                 app:fontName="Montserrat_SemiBold" />
@@ -267,7 +267,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_7ssp"
-                android:text="@string/bookings"
+                android:text="BOOKING"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_7ssp"
                 app:fontName="Montserrat_SemiBold" />

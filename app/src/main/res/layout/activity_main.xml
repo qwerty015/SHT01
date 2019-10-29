@@ -1,78 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
 
-    <RelativeLayout
+    <com.autohubtraining.autohub.util.views.CustomViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/layout_bottom">
+        android:layout_above="@id/navigation"/>
 
-        <ImageView
-            android:layout_width="@dimen/_148sdp"
-            android:layout_height="@dimen/_148sdp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/logo" />
-
-        <ImageView
-            android:layout_width="@dimen/_62sdp"
-            android:layout_height="@dimen/_8sdp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="@dimen/_16sdp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/ellipse_2"/>
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_bottom"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_270sdp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_minus28sdp"
-        android:paddingHorizontal="@dimen/_42sdp"
-        android:background="@drawable/border_image"
-        android:orientation="vertical">
-
-        <com.autohubtraining.autohub.customview.CustomTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/_35sdp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/lets_click"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/_18ssp"
-            app:fontName="Montserrat_SemiBold" />
-
-        <com.autohubtraining.autohub.customview.CustomButton
-            android:id="@+id/signup"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:background="@drawable/black_roundcorner_button"
-            android:gravity="center"
-            android:text="@string/sign_up"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_22ssp"
-            app:fontName="Montserrat_SemiBold" />
-
-        <com.autohubtraining.autohub.customview.CustomButton
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:layout_marginTop="@dimen/_26sdp"
-            android:background="@drawable/white_roundcorner_button"
-            android:gravity="center"
-            android:text="@string/login"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/_22ssp"
-            app:fontName="Montserrat_SemiBold" />
-
-    </LinearLayout>
+        android:background="@color/colorWhite"
+        app:itemIconSize="@dimen/_22sdp"
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/navigation"/>
 
 </RelativeLayout>

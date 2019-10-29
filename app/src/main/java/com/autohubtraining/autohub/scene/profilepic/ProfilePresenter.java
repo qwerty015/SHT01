@@ -11,10 +11,8 @@ import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.util.AppConstants;
-import com.autohubtraining.autohub.util.UserHelper;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -66,7 +64,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
             uploadTask.addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception exception) {
-                     Log.e("profile_url", exception.getMessage());
+                    Log.e("profile_url", exception.getMessage());
 
                     view.showError(exception.getMessage());
                     view.hideLoading();
@@ -108,7 +106,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         User user = DataHandler.getInstance().getUser();
         user.setPictureUrl(profilePicUrl);
         /* set data into firebase database*/
-        FirebaseFirestore.getInstance().collection(AppConstants.userRef).document(user.getUserId()).set(user);
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(user.getUserId()).set(user);
         /* save data */
         DataHandler.getInstance().setUser(user);
         UserData userData = new UserData();

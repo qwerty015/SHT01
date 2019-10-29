@@ -137,7 +137,7 @@ public class BestImagesPresenter implements BestImagesContract.Presenter {
         user.setBestImages(aldownloadFileUrl);
 
         /* set data into firebase database*/
-        FirebaseFirestore.getInstance().collection(AppConstants.userRef).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
 

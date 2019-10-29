@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:background="@color/colorWhite"
-    tools:context=".scene.onboarding.OnBoardingActivity">
+    android:background="@color/colorWhite">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/layout_bottom">
+
         <ImageView
-            android:layout_width="@dimen/_149sdp"
-            android:layout_height="@dimen/_149sdp"
+            android:layout_width="@dimen/_148sdp"
+            android:layout_height="@dimen/_148sdp"
             android:layout_centerInParent="true"
             android:src="@drawable/logo" />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+
+        <ImageView
+            android:layout_width="@dimen/_62sdp"
+            android:layout_height="@dimen/_8sdp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/_16sdp"
             android:layout_centerHorizontal="true"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="@dimen/_62sdp"
-                android:layout_height="@dimen/_8sdp"
-                android:src="@drawable/ellipse_2"/>
-        </LinearLayout>
+            android:src="@drawable/ellipse_2"/>
+
     </RelativeLayout>
 
     <LinearLayout
@@ -35,21 +32,20 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/_270sdp"
         android:layout_alignParentBottom="true"
-        android:layout_marginHorizontal="@dimen/margin10"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_minus28sdp"
+        android:paddingHorizontal="@dimen/_42sdp"
         android:background="@drawable/border_image"
-        android:orientation="vertical"
-        android:paddingHorizontal="@dimen/margin42">
+        android:orientation="vertical">
 
         <com.autohubtraining.autohub.customview.CustomTextView
-            android:id="@+id/lets_str"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_35sdp"
             android:layout_gravity="center_horizontal"
             android:text="@string/lets_click"
-            android:textColor="#ff000000"
+            android:textColor="@color/colorBlack"
             android:textSize="@dimen/_18ssp"
             app:fontName="Montserrat_SemiBold" />
 
@@ -61,7 +57,7 @@
             android:background="@drawable/black_roundcorner_button"
             android:gravity="center"
             android:text="@string/sign_up"
-            android:textColor="#fff"
+            android:textColor="@color/colorWhite"
             android:textSize="@dimen/_22ssp"
             app:fontName="Montserrat_SemiBold" />
 

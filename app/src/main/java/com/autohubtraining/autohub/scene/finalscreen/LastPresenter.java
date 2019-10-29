@@ -49,15 +49,15 @@ public class LastPresenter implements LastContract.Presenter {
         for (UserPlan plan : alPlans) {
 
 
-            //planId = db.collection(AppConstants.service_plan).document(user.getUserId()).collection("abcecccddd").getId();
+            //planId = db.collection(AppConstants.ref_service_plan).document(user.getUserId()).collection("abcecccddd").getId();
 
-            DocumentReference key = db.collection(AppConstants.service_plan).document();
+            DocumentReference key = db.collection(AppConstants.ref_service_plan).document();
             plan.setPlanId(key.getId());
 
 
             HashMap<String, Object> hm = new HashMap<>();
             hm.put(key.getId(), plan);
-            db.collection(AppConstants.service_plan).document(user.getUserId()).set(hm, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
+            db.collection(AppConstants.ref_service_plan).document(user.getUserId()).set(hm, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
 

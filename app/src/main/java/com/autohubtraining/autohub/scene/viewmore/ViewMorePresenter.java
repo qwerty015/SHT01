@@ -57,7 +57,7 @@ public class ViewMorePresenter implements ViewMoreContract.ViewMorePresenter {
 
 
         if (isFavourite) {
-            db.collection(AppConstants.userRef).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+            db.collection(AppConstants.ref_user).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     // view.hideLoading();
@@ -74,7 +74,7 @@ public class ViewMorePresenter implements ViewMoreContract.ViewMorePresenter {
                 }
             });
         } else {
-            db.collection(AppConstants.userRef).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            db.collection(AppConstants.ref_user).document(currentUserData.getUserId()).collection(AppConstants.favourite_ref).document(user.getUserId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     // view.hideLoading();

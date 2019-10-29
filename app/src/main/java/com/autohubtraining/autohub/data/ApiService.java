@@ -21,7 +21,7 @@ public class ApiService {
         UserData userData = DataHandler.getInstance().getCurrentUser();
 
 
-        CollectionReference documentReference = db.collection(AppConstants.userRef).document(userData.getUserId()).collection(AppConstants.favourite_ref);
+        CollectionReference documentReference = db.collection(AppConstants.ref_user).document(userData.getUserId()).collection(AppConstants.favourite_ref);
 
         documentReference.addSnapshotListener((documentSnapshot, e) -> {
 

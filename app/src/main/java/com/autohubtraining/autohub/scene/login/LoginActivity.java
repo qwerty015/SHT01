@@ -1,171 +1,218 @@
 package com.autohubtraining.autohub.scene.login;
 
-import android.content.Context;
-import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
-import android.os.Handler;
+import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import androidx.annotation.NonNull;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomButton;
 import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.user.UserData;
-import com.autohubtraining.autohub.scene.SignupBaseActivity;
-import com.autohubtraining.autohub.scene.choose.ChooseActivity;
-import com.autohubtraining.autohub.scene.deshboard.DeshboardActivity;
-import com.autohubtraining.autohub.scene.letsgo.LetsGoActivity;
-import com.autohubtraining.autohub.scene.otp.OTPPresenter;
-import com.autohubtraining.autohub.scene.profilepic.ProfileActivity;
-import com.autohubtraining.autohub.util.Utill;
-import com.hbb20.CountryCodePicker;
-import com.mukesh.OnOtpCompletionListener;
-import com.mukesh.OtpView;
+import com.autohubtraining.autohub.scene.base.BaseActivity;
+import com.autohubtraining.autohub.scene.main.MainActivity;
+import com.autohubtraining.autohub.util.AppConstants;
+import com.autohubtraining.autohub.util.AppUtils;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.autohubtraining.autohub.util.AppConstants.PHOTOGRAPHER;
+public class LoginActivity extends BaseActivity {
 
-public class LoginActivity extends SignupBaseActivity implements LoginContract.LoginView, OnOtpCompletionListener {
-
-
-    @BindView(R.id.auto_retrieve_textview)
-    TextView autoRetrieveTextView;
-    @BindView(R.id.countryCodePicker)
-    CountryCodePicker countryCodePicker;
-    @BindView(R.id.otp_view)
-    OtpView otpView;
-    @BindView(R.id.resendBtn)
-    CustomButton resendButton;
-    @BindView(R.id.mobile_no)
-    CustomEditView etMobileNum;
+    @BindView(R.id.email)
+    CustomEditView email;
+    @BindView(R.id.password)
+    CustomEditView password;
     @BindView(R.id.nextBtn)
     CustomButton nextBtn;
-    LoginPresenter presenter;
+
+    private FirebaseAuth mAuth;
+    private String emailStr, passwordStr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        setup();
+
+        mAuth = FirebaseAuth.getInstance();
+
+//        email.setText("mohamed.fouad0629@gmail.com");
+//        password.setText("123456");
     }
 
-
-    private void setup() {
-        otpView.setOtpCompletionListener(this);
-        presenter = new LoginPresenter(this);
-        initView();
-    }
-
-    private void initView() {
-        Typeface typeFace = Typeface.createFromAsset(getAssets(), "fonts/Montserrat-SemiBold.ttf");
-        countryCodePicker.setTypeFace(typeFace);
-        countryCodePicker.setDialogTypeFace(typeFace);
-        countryCodePicker.registerCarrierNumberEditText(etMobileNum);
-        otpView.setTypeface(typeFace);
-    }
-
-
-    @OnClick({R.id.nextBtn, R.id.resendBtn})
+    @OnClick({R.id.visiblePwdBtn, R.id.forgot_password, R.id.nextBtn})
     void onClickItems(View view) {
         int id = view.getId();
         switch (id) {
-            case R.id.nextBtn:
-                Log.e("countryCodeee", countryCodePicker.getSelectedCountryCodeWithPlus());
-                if (presenter.isNumberValid(countryCodePicker)) {
-                    presenter.submitPhoneNumberForVerification(countryCodePicker.getFullNumberWithPlus());
-                }
-                else
-                {
-                    Utill.showToast(getString(R.string.invalid_no), this);
-                }
-                break;
-            case R.id.resendBtn:
-                if (presenter.isNumberValid(countryCodePicker)) {
-
-
-                    presenter.submitPhoneNumberForVerification(countryCodePicker.getFullNumberWithPlus());
-
+            case R.id.visiblePwdBtn:
+                if (password.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
+                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 } else {
-                    Utill.showToast(getString(R.string.invalid_no), this);
+                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+
+                break;
+            case R.id.forgot_password:
+                if (isValidateEmail()) {
+                    sendPasswordResetEmail(emailStr);
+                }
+
+                break;
+            case R.id.nextBtn:
+                if (isValidate()) {
+                    signInWithEmailAndPassword(emailStr, passwordStr);
                 }
                 break;
         }
     }
 
-    @Override
-    public void navigateToMainScreen(UserData user) {
-        DeshboardActivity.startActivity(this);
+    /**
+     * method is used for signing user on firebase.
+     *
+     * @param email, password
+     * @return
+     */
+    private void signInWithEmailAndPassword(String email, String password) {
+        showLoading("Loading");
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(AppConstants.TAG, "signInWithEmail:success");
+
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            getUserDataFromFirestore(user);
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(AppConstants.TAG, "signInWithEmail:failure", task.getException());
+                            AppUtils.showToast(task.getException().getMessage(), LoginActivity.this);
+
+                            dismissLoading();
+                        }
+
+                        // ...
+                    }
+                });
     }
 
-    @Override
-    public Context getContext() {
-        return this;
-    }
+    /**
+     * method is used for getting user data from firebase db.
+     *
+     * @param firebaseUser
+     * @return
+     */
+    private void getUserDataFromFirestore(FirebaseUser firebaseUser) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    @Override
-    public void navigateToSignUpScreen() {
-        showErrorToast("Phone number is not regisetred");
-        startActivity(new Intent(this, ChooseActivity.class));
-
-
-    }
-
-    @Override
-    public void showError(String errorMessage) {
-        Utill.showToast(errorMessage, this);
-    }
-
-    @Override
-    public void showLoading() {
-        showLoading("");
-    }
-
-    @Override
-    public void hideLoading() {
-        dismissLoading();
-    }
-
-    @Override
-    public void showAutoRetrievingUI() {
-        this.resendButton.setVisibility(View.GONE);
-        this.autoRetrieveTextView.setVisibility(View.VISIBLE);
-        this.otpView.setVisibility(View.VISIBLE);
-        this.nextBtn.setEnabled(false);
-    }
-
-    @Override
-    public void showAutoRetrievedOTP(String otp) {
-        this.autoRetrieveTextView.setVisibility(View.GONE);
-        this.otpView.setText(otp);
-    }
-
-
-    @Override
-    public void showAutoRetrieveingFailed() {
-        this.autoRetrieveTextView.setVisibility(View.GONE);
-        this.resendButton.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void onOtpCompleted(String otp) {
-        new Handler().postDelayed(new Runnable() {
+        DocumentReference documentReference = db.collection(AppConstants.ref_user).document(firebaseUser.getUid());
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void run() {
-                presenter.submitOTP(otp, "", "");
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    dismissLoading();
+
+                    DocumentSnapshot doc = task.getResult();
+
+                    if (doc.getData() != null) {
+                        UserData user = doc.toObject(UserData.class);
+                        DataHandler.getInstance().setCurrentUser(user);
+
+                        MainActivity.startActivity(LoginActivity.this);
+                    }
+                }
             }
-        }, 200);
+        })
+        .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                dismissLoading();
+                AppUtils.showToast(e.toString(), LoginActivity.this);
+            }
+        });
+    }
+
+    /**
+     * method is used for sending email to reset password.
+     *
+     * @param email
+     * @return
+     */
+    private void sendPasswordResetEmail(String email) {
+        showLoading("Loading");
+
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        dismissLoading();
+
+                        if (task.isSuccessful()) {
+                            AppUtils.showToast("Email sent.", LoginActivity.this);
+                        }
+                    }
+                });
+    }
+
+    /**
+     * method is used for checking valid email address and password.
+     *
+     * @param
+     * @return boolean true for valid false for invalid
+     */
+    private boolean isValidate() {
+        emailStr = email.getText().toString().trim();
+        passwordStr = password.getText().toString().trim();
+
+        if (TextUtils.isEmpty(emailStr)) {
+            AppUtils.showToast(getString(R.string.email_empty_error), this);
+            return false;
+        } else if (!AppUtils.isEmailValid(emailStr)) {
+            AppUtils.showToast(getString(R.string.email_format_error), this);
+            return false;
+        } else if (TextUtils.isEmpty(passwordStr)) {
+            AppUtils.showToast(getString(R.string.password_error), this);
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * method is used for checking valid email address.
+     *
+     * @param
+     * @return boolean true for valid false for invalid
+     */
+    private boolean isValidateEmail() {
+        emailStr = email.getText().toString().trim();
+
+        if (TextUtils.isEmpty(emailStr)) {
+            AppUtils.showToast(getString(R.string.email_empty_error), this);
+            return false;
+        } else if (!AppUtils.isEmailValid(emailStr)) {
+            AppUtils.showToast(getString(R.string.email_format_error), this);
+            return false;
+        }
+
+        return true;
     }
 }
