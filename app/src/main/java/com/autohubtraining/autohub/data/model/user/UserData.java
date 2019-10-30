@@ -12,7 +12,7 @@ public class UserData implements Serializable {
     private String firstName;
     private String lastName;
     private String email;
-
+    private String avatarUrl;
 
 
 
@@ -50,6 +50,7 @@ public class UserData implements Serializable {
         if (lastName == null) {
             return "";
         }
+
         return lastName;
     }
 
@@ -59,6 +60,18 @@ public class UserData implements Serializable {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
+    }
+
+    public String getAvatarUrl() {
+        if (avatarUrl == null) {
+            return "";
+        }
+
+        return avatarUrl;
     }
 
 
@@ -87,7 +100,7 @@ public class UserData implements Serializable {
     private String countryCode;
 
 
-    private String pictureUrl;
+
 
 
     private String bio = "";
@@ -127,16 +140,7 @@ public class UserData implements Serializable {
         return countryCode;
     }
 
-    public void setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
-    }
 
-    public String getPictureUrl() {
-        if (pictureUrl != null)
-            return pictureUrl;
-        else
-            return "";
-    }
 
     public void setBio(String bio) {
         this.bio = bio;

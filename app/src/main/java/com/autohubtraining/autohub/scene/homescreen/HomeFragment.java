@@ -70,8 +70,8 @@ public class HomeFragment extends Fragment {
 
         UserData user = DataHandler.getInstance().getCurrentUser();
 
-        if (user != null && user.getPictureUrl() != null)
-            Glide.with(getActivity()).load(user.getPictureUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
+        if (user != null && user.getAvatarUrl() != null)
+            Glide.with(getActivity()).load(user.getAvatarUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
 
 
     }

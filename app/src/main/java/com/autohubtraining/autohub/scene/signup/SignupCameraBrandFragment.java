@@ -30,7 +30,7 @@ public class SignupCameraBrandFragment extends BaseFragment {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-                activity.setViewPager(new SignupInterestFragment());
+                activity.setViewPager(activity.nCurrentPageIndex + 1);
                 break;
         }
     }

@@ -125,7 +125,7 @@ public class ViewMoreActivity extends AppCompatActivity implements ViewMoreContr
         }
 
 
-        Glide.with(this).load(userData.getPictureUrl()).placeholder(R.mipmap.profile_image_icon).into(profile_image);
+        Glide.with(this).load(userData.getAvatarUrl()).placeholder(R.mipmap.profile_image_icon).into(profile_image);
         btnViewMore.setText(userData.getBio());
 
 

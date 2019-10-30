@@ -25,7 +25,7 @@
         android:background="@drawable/white_roundcorner_button">
 
         <EditText
-            android:id="@+id/etBio"
+            android:id="@+id/editBio"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/transparent"

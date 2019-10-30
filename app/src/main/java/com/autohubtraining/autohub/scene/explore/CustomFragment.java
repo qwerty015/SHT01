@@ -63,7 +63,7 @@ public class CustomFragment extends Fragment {
         }
 
 
-        Glide.with(getContext()).load(userData.getPictureUrl()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
+        Glide.with(getContext()).load(userData.getAvatarUrl()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
 
         Button btnViewMore = linearLayout.findViewById(R.id.btnViewMore);
 

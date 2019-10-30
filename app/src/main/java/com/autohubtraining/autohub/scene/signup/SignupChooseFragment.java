@@ -32,11 +32,11 @@ public class SignupChooseFragment extends BaseFragment {
         switch (id) {
             case R.id.client:
                 DataHandler.getInstance().setUserType(GlobalConstants.USER_CLIENT);
-                activity.setViewPager(new SignupNameFragment());
+                activity.initViewPager();
                 break;
             case R.id.photographer:
                 DataHandler.getInstance().setUserType(GlobalConstants.USER_PHOTOGRAPHER);
-                activity.setViewPager(new SignupNameFragment());
+                activity.initViewPager();
                 break;
         }
     }

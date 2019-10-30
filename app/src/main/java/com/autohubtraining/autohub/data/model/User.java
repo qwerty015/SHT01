@@ -10,11 +10,12 @@ public class User implements Serializable{
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String avatarUrl;
 
 
 
 	private String countryCode;
-	private String pictureUrl;
+
 	private String bio;
 	private List<String> bestImages;
 	private List<String> userInterests;
@@ -55,24 +56,21 @@ public class User implements Serializable{
 		return email;
 	}
 
-
-
-
-	public void setCountryCode(String countryCode){
-		this.countryCode = countryCode;
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
 	}
+
+	public String getAvatarUrl() {
+		return avatarUrl;
+	}
+
+
+
 
 	public String getCountryCode(){
 		return countryCode;
 	}
 
-	public void setPictureUrl(String pictureUrl){
-		this.pictureUrl = pictureUrl;
-	}
-
-	public String getPictureUrl(){
-		return pictureUrl;
-	}
 
 	public void setBio(String bio){
 		this.bio = bio;
@@ -108,13 +106,6 @@ public class User implements Serializable{
 		return userId;
 	}
 
-	public void setPhoneNo(String phoneNo){
-		this.phoneNo = phoneNo;
-	}
-
-	public String getPhoneNo(){
-		return phoneNo;
-	}
 
 	public void setSignupStatus(String signupStatus){
 		this.signupStatus = signupStatus;

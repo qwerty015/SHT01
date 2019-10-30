@@ -106,7 +106,7 @@ public class SettingsActivity extends SignupBaseActivity {
 
         tvName.setText(user.getFirstName() + " " + user.getLastName());
 
-        Glide.with(SettingsActivity.this).load(user.getPictureUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
+        Glide.with(SettingsActivity.this).load(user.getAvatarUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
 
 
     }

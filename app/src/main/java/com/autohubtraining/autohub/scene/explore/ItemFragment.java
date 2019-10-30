@@ -106,7 +106,7 @@ public class ItemFragment extends Fragment {
         }
 
 
-        Glide.with(this).load(userData.getPictureUrl()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
+        Glide.with(this).load(userData.getAvatarUrl()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
 
 
         Button btnViewMore = linearLayout.findViewById(R.id.btnViewMore);

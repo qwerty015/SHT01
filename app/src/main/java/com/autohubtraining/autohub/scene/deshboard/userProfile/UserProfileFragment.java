@@ -106,7 +106,7 @@ public class UserProfileFragment extends BaseFragment {
         tvUserFirstName.setText(user.getFirstName() + " " + user.getLastName());
 
 
-        Glide.with(getActivity()).load(user.getPictureUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
+        Glide.with(getActivity()).load(user.getAvatarUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
 
 
     }

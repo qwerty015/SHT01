@@ -51,7 +51,7 @@ public class MyFavourites extends BaseActivity implements FavouritePresenter.Vie
     void setDataIntoViews() {
         UserData userData = DataHandler.getInstance().getCurrentUser();
 
-        Glide.with(this).load(userData.getPictureUrl()).into(ivPic);
+        Glide.with(this).load(userData.getAvatarUrl()).into(ivPic);
 
 
     }

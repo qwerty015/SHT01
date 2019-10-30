@@ -31,7 +31,7 @@ public class SignupLetsGoFragment extends BaseFragment {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-                activity.setViewPager(new SignupAvatarFragment());
+                activity.setViewPager(activity.nCurrentPageIndex + 1);
                 break;
         }
     }

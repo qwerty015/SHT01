@@ -73,7 +73,7 @@ public class ExploreItem extends RecyclerView.Adapter<ExploreItem.ViewHolder> {
         }
 
 
-        Glide.with(context).load(userData.getPictureUrl()).placeholder(R.mipmap.profile_image_icon).into(holder.ivPic);
+        Glide.with(context).load(userData.getAvatarUrl()).placeholder(R.mipmap.profile_image_icon).into(holder.ivPic);
 
 
         holder.btnViewMore.setOnClickListener(new View.OnClickListener() {

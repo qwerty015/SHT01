@@ -66,8 +66,8 @@ public class HomeScreenPhotographers extends BaseFragment {
 
 
         UserData user = DataHandler.getInstance().getCurrentUser();
-        if (user != null && user.getPictureUrl() != null)
-            Glide.with(getActivity()).load(user.getPictureUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
+        if (user != null && user.getAvatarUrl() != null)
+            Glide.with(getActivity()).load(user.getAvatarUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
 
         Spannable wordtoSpan = new SpannableString(tvPrice.getText().toString());
         ColorStateList greenColor = new ColorStateList(new int[][]{new int[]{}}, new int[]{0xff60E01A});

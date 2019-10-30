@@ -140,7 +140,7 @@ public class EditProfileActivity extends BaseActivity {
         }
 
 
-        Glide.with(this).load(userData.getPictureUrl()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
+        Glide.with(this).load(userData.getAvatarUrl()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
 
         MyViewPagerAdapter adapter = new MyViewPagerAdapter(this, userData.getBestImages());
         vpPager.setAdapter(adapter);

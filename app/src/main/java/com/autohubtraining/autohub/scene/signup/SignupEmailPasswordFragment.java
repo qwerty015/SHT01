@@ -95,9 +95,9 @@ public class SignupEmailPasswordFragment extends BaseFragment {
             public void afterTextChanged(Editable editable) { }
         });
 
-//        email.setText("mohamed.fouad0629@gmail.com");
-//        password.setText("123456");
-//        confirm_password.setText("123456");
+        email.setText("mohamed.fouad0629@gmail.com");
+        password.setText("123456");
+        confirm_password.setText("123456");
 
         return retView;
     }
@@ -180,11 +180,7 @@ public class SignupEmailPasswordFragment extends BaseFragment {
                     userData.setEmail(user.getEmail());
                     DataHandler.getInstance().setCurrentUser(userData);
 
-                    if (DataHandler.getInstance().getUserType() == AppConstants.CLIENT) {
-                        activity.setViewPager(new SignupAvatarFragment());
-                    } else {
-                        activity.setViewPager(new SignupLetsGoFragment());
-                    }
+                    activity.setViewPager(activity.nCurrentPageIndex + 1);
                 }
 
                 dismissLoading();

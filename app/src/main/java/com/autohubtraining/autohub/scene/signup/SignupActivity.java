@@ -1,5 +1,7 @@
 package com.autohubtraining.autohub.scene.signup;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -9,12 +11,17 @@ import androidx.fragment.app.Fragment;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
+import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.GlobalConstants;
+import com.autohubtraining.autohub.util.ImageUtils;
 import com.autohubtraining.autohub.util.ProgressBarAnimation;
 import com.autohubtraining.autohub.util.views.CustomViewPager;
 import com.autohubtraining.autohub.util.views.ViewPagerAdapter;
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,12 +33,24 @@ public class SignupActivity extends BaseActivity {
     @BindView(R.id.view_pager)
     CustomViewPager viewPager;
 
+    private SignupChooseFragment fragmentChoose = new SignupChooseFragment();
+    private SignupNameFragment fragmentName = new SignupNameFragment();
+    private SignupEmailPasswordFragment fragmentEmailPassword = new SignupEmailPasswordFragment();
+    private SignupLetsGoFragment fragmentLetsGo = new SignupLetsGoFragment();
+    private SignupAvatarFragment fragmentAvatar = new SignupAvatarFragment();
+    private SignupCameraBrandFragment fragmentCameraBrand = new SignupCameraBrandFragment();
+    private SignupCameraInfoFragment fragmentCameraInfo = new SignupCameraInfoFragment();
+    private SignupInterestFragment fragmentInterest = new SignupInterestFragment();
+    private SignupBestPhotoFragment fragmentBestPhoto = new SignupBestPhotoFragment();
+    private SignupPlanFragment fragmentPlan = new SignupPlanFragment();
+
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private ViewPagerAdapter viewPagerAdapter;
 
     String str_firstname = "";
     String str_lastname = "";
+    int nCurrentPageIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,23 +60,45 @@ public class SignupActivity extends BaseActivity {
         ButterKnife.bind(this);
 
         viewPager.setPagingEnabled(false);
+
         viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
-        setViewPager(new SignupChooseFragment());
+
+        viewPagerAdapter.addFragment(fragmentChoose, "title");
+        viewPager.setAdapter(viewPagerAdapter);
+        viewPager.setCurrentItem(0);
     }
 
     @Override
     public void onBackPressed() {
-        if (viewPagerAdapter.getCount() <= 1) {
+        if (nCurrentPageIndex == 0) {
             finish();
-        } else if (viewPagerAdapter.getCount() == 4) {
+        } else if (nCurrentPageIndex == 1) {
+            for (int i = 1; i < viewPagerAdapter.getCount(); i++) {
+                viewPagerAdapter.removeFragment(i);
+            }
+            viewPager.setAdapter(viewPagerAdapter);
+            setViewPager(0);
+        } else if (nCurrentPageIndex == 3) {
             return;
         } else {
-            viewPagerAdapter.removeFragment(viewPagerAdapter.getCount() - 1);
-            viewPager.setAdapter(viewPagerAdapter);
-            viewPager.setCurrentItem(viewPagerAdapter.getCount() - 1);
+            setViewPager(nCurrentPageIndex - 1);
         }
+    }
 
-        setProgressBar(viewPagerAdapter.getCount() - 1);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == ImageUtils.REQUEST_LOAD_IMAGE && null != data) {
+                if (DataHandler.getInstance().getUserType() == AppConstants.CLIENT) {
+                    if (nCurrentPageIndex == 3)
+                        fragmentAvatar.setAvatarPath(data.getData());
+                } else {
+                    if (nCurrentPageIndex == 4)
+                        fragmentAvatar.setAvatarPath(data.getData());
+                }
+            }
+        }
     }
 
     public FirebaseAuth getFirebaseAuthInstance() {
@@ -76,12 +117,31 @@ public class SignupActivity extends BaseActivity {
         return db;
     }
 
-    public void setViewPager(Fragment fragment) {
-        viewPagerAdapter.addFragment(fragment, "title");
-        viewPager.setAdapter(viewPagerAdapter);
-        viewPager.setCurrentItem(viewPagerAdapter.getCount() - 1);
+    public void setViewPager(int pageIndex) {
+        nCurrentPageIndex = pageIndex;
+        viewPager.setCurrentItem(pageIndex);
+        setProgressBar(pageIndex);
+    }
 
-        setProgressBar(viewPagerAdapter.getCount() - 1);
+    public void initViewPager() {
+        if (DataHandler.getInstance().getUserType() == AppConstants.CLIENT) {
+            viewPagerAdapter.addFragment(fragmentName, "title");
+            viewPagerAdapter.addFragment(fragmentEmailPassword, "title");
+            viewPagerAdapter.addFragment(fragmentAvatar, "title");
+        } else {
+            viewPagerAdapter.addFragment(fragmentName, "title");
+            viewPagerAdapter.addFragment(fragmentEmailPassword, "title");
+            viewPagerAdapter.addFragment(fragmentLetsGo, "title");
+            viewPagerAdapter.addFragment(fragmentAvatar, "title");
+            viewPagerAdapter.addFragment(fragmentCameraInfo, "title");
+            viewPagerAdapter.addFragment(fragmentCameraBrand, "title");
+            viewPagerAdapter.addFragment(fragmentInterest, "title");
+            viewPagerAdapter.addFragment(fragmentBestPhoto, "title");
+            viewPagerAdapter.addFragment(fragmentPlan, "title");
+        }
+
+        viewPager.setAdapter(viewPagerAdapter);
+        setViewPager(1);
     }
 
     /**

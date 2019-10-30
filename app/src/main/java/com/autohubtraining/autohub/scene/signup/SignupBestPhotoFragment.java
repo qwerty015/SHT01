@@ -30,7 +30,7 @@ public class SignupBestPhotoFragment extends BaseFragment {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-                activity.setViewPager(new SignupPlanFragment());
+                activity.setViewPager(activity.nCurrentPageIndex + 1);
                 break;
         }
     }
