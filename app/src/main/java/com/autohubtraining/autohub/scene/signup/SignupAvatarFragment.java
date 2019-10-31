@@ -170,26 +170,41 @@ public class SignupAvatarFragment extends BaseFragment {
     void saveDataIntoFireStore(String avatarUrl) {
         dismissLoading();
 
-        User user = DataHandler.getInstance().getUser();
-        user.setAvatarUrl(avatarUrl);
-
-        /* set data into firebase database*/
-        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(user.getUserId()).set(user);
-
-        /* save data */
-        DataHandler.getInstance().setUser(user);
-
-        UserData userData = new UserData();
-        userData.setType(user.getType());
-        userData.setFirstName(user.getFirstName());
-        userData.setLastName(user.getLastName());
-        userData.setEmail(user.getEmail());
-        userData.setAvatarUrl(user.getAvatarUrl());
-        DataHandler.getInstance().setCurrentUser(userData);
-
         if (DataHandler.getInstance().getUserType() == AppConstants.CLIENT) {
-            MainActivity.startActivity(activity);
+            User user = DataHandler.getInstance().getUser();
+            user.setAvatarUrl(avatarUrl);
+
+            /* set data into firebase database*/
+            FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    dismissLoading();
+
+                    /* save data */
+                    DataHandler.getInstance().setUser(user);
+
+                    UserData userData = new UserData();
+                    userData.setType(user.getType());
+                    userData.setFirstName(user.getFirstName());
+                    userData.setLastName(user.getLastName());
+                    userData.setEmail(user.getEmail());
+                    userData.setAvatarUrl(user.getAvatarUrl());
+                    DataHandler.getInstance().setCurrentUser(userData);
+
+                    MainActivity.startActivity(activity);
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    dismissLoading();
+                    showErrorToast(e.toString());
+                    Log.e("firestore", "data failed with an exception" + e.toString());
+                }
+            });
         } else {
+            User user = DataHandler.getInstance().getUser();
+            user.setAvatarUrl(avatarUrl);
+
             activity.setViewPager(activity.nCurrentPageIndex + 1);
         }
     }

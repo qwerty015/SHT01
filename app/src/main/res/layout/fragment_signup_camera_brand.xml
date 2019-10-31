@@ -38,18 +38,13 @@
                 <Spinner
                     android:id="@+id/spBrand"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                </Spinner>
+                    android:layout_height="wrap_content"/>
 
                 <Spinner
                     android:id="@+id/spModel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_20sdp">
-
-                </Spinner>
-
+                    android:layout_marginTop="@dimen/_20sdp"/>
 
             </LinearLayout>
 
@@ -67,9 +62,7 @@
                     android:textSize="@dimen/_12ssp"
                     app:fontName="Montserrat_SemiBold" />
 
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -81,7 +74,6 @@
                 android:orientation="vertical">
 
                 <com.autohubtraining.autohub.customview.CustomEditView
-                    android:id="@+id/edt_eg_tripod"
                     android:layout_width="@dimen/_220sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:background="@mipmap/rectangle_edt_background"

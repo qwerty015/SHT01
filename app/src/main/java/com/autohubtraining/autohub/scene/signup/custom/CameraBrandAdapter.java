@@ -1,4 +1,4 @@
-package com.autohubtraining.autohub.scene.camerabrand;
+package com.autohubtraining.autohub.scene.signup.custom;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,23 +8,19 @@ import android.widget.BaseAdapter;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomTextView;
-import com.autohubtraining.autohub.data.model.public_data.CameraModel;
+import com.autohubtraining.autohub.data.model.public_data.CameraBrand;
 
 import java.util.ArrayList;
 
-/**
- * Created by binod on 25/6/19.
- */
-
-public class CustomModelItem extends BaseAdapter {
+public class CameraBrandAdapter extends BaseAdapter {
     Context context;
-    ArrayList<CameraModel> alList = new ArrayList<>();
-    LayoutInflater inflter;
+    ArrayList<CameraBrand> alList = new ArrayList<>();
+    LayoutInflater inflater;
 
-    public CustomModelItem(Context applicationContext, ArrayList<CameraModel> alList) {
+    public CameraBrandAdapter(Context applicationContext, ArrayList<CameraBrand> alList) {
         this.context = applicationContext;
         this.alList = alList;
-        inflter = (LayoutInflater.from(applicationContext));
+        inflater = (LayoutInflater.from(applicationContext));
     }
 
     @Override
@@ -44,11 +40,11 @@ public class CustomModelItem extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflter.inflate(R.layout.item_camera_brand, null);
-        // ImageView icon = (ImageView) view.findViewById(R.id.tvBrandName);
+        view = inflater.inflate(R.layout.item_camera_brand, null);
+
         CustomTextView tvName = view.findViewById(R.id.tvBrandName);
-        //icon.setImageResource(flags[i]);
-        tvName.setText(alList.get(i).getModelName());
+        tvName.setText(alList.get(i).getBrandName());
+
         return view;
     }
 }

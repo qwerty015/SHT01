@@ -1,4 +1,4 @@
-package com.autohubtraining.autohub.scene.camerabrand.EquipmentAdapter;
+package com.autohubtraining.autohub.scene.signup.custom;
 
 import android.content.Context;
 import android.text.Editable;
@@ -9,33 +9,22 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.autohubtraining.autohub.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by binod on 25/6/19.
- */
-
 public class EquipmentAdapter extends BaseAdapter {
-
-
     ArrayList<String> alEquipments = new ArrayList<>();
     boolean isMinusButtonHide = true;
-    ItemClick itemClick;
+    EquipmentAdapter.ItemClick itemClick;
 
-    public EquipmentAdapter(Context context, ArrayList<String> alEquipments, boolean isHide) {
+    public EquipmentAdapter(Context context, ArrayList<String> alEquipments, boolean isHidden) {
         this.alEquipments = alEquipments;
+        this.isMinusButtonHide = isHidden;
 
-        this.isMinusButtonHide = isHide;
-
-
-        itemClick = (ItemClick) context;
-
+        itemClick = (EquipmentAdapter.ItemClick) context;
     }
-
 
     @Override
     public int getCount() {
@@ -52,38 +41,33 @@ public class EquipmentAdapter extends BaseAdapter {
         return 0;
     }
 
-
     private static class ViewHolder {
         EditText etName;
         ImageView ivMinus;
-
-
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-
-        ViewHolder viewHolder; // view lookup cache stored in tag
+        EquipmentAdapter.ViewHolder viewHolder; // view lookup cache stored in tag
 
         final View result;
 
         if (convertView == null) {
+            viewHolder = new EquipmentAdapter.ViewHolder();
 
-            viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(parent.getContext());
             convertView = inflater.inflate(R.layout.item_equipment, parent, false);
+
             viewHolder.etName = convertView.findViewById(R.id.etName);
             viewHolder.ivMinus = convertView.findViewById(R.id.ivMinus);
-
 
             result = convertView;
 
             convertView.setTag(viewHolder);
         } else {
-            viewHolder = (ViewHolder) convertView.getTag();
+            viewHolder = (EquipmentAdapter.ViewHolder) convertView.getTag();
             result = convertView;
         }
-
 
         viewHolder.etName.addTextChangedListener(new TextWatcher() {
             @Override
@@ -98,7 +82,6 @@ public class EquipmentAdapter extends BaseAdapter {
 
             @Override
             public void afterTextChanged(Editable s) {
-
                 try {
                     if (position >= 0)
                         alEquipments.set(position, s.toString());
@@ -110,6 +93,7 @@ public class EquipmentAdapter extends BaseAdapter {
 
             }
         });
+
         if (alEquipments.get(position) != null)
             viewHolder.etName.setText(alEquipments.get(position));
 
@@ -122,24 +106,15 @@ public class EquipmentAdapter extends BaseAdapter {
         viewHolder.ivMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 itemClick.removeItem(position);
-//                alEquipments.remove(position);
-//                notifyDataSetChanged();
-
-
             }
         });
-
 
         return result;
     }
 
     public ArrayList<String> getEquipment() {
-
-
         return alEquipments;
-
     }
 
     public interface ItemClick {

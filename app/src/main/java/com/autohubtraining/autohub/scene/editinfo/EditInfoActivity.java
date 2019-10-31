@@ -29,7 +29,7 @@ import com.autohubtraining.autohub.data.model.user_cameras.UserCameraResponse;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.scene.bestimages.BestImagesActivity;
 import com.autohubtraining.autohub.scene.bestimages.BestImagesPresenter;
-import com.autohubtraining.autohub.scene.camerabrand.EquipmentAdapter.EquipmentAdapter;
+import com.autohubtraining.autohub.scene.signup.custom.EquipmentAdapter;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.ImageUtils;
 import com.bumptech.glide.Glide;

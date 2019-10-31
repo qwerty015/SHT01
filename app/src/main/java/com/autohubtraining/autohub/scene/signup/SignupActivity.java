@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ProgressBar;
 
 import androidx.fragment.app.Fragment;
@@ -17,11 +18,8 @@ import com.autohubtraining.autohub.util.ImageUtils;
 import com.autohubtraining.autohub.util.ProgressBarAnimation;
 import com.autohubtraining.autohub.util.views.CustomViewPager;
 import com.autohubtraining.autohub.util.views.ViewPagerAdapter;
-import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,8 +36,8 @@ public class SignupActivity extends BaseActivity {
     private SignupEmailPasswordFragment fragmentEmailPassword = new SignupEmailPasswordFragment();
     private SignupLetsGoFragment fragmentLetsGo = new SignupLetsGoFragment();
     private SignupAvatarFragment fragmentAvatar = new SignupAvatarFragment();
-    private SignupCameraBrandFragment fragmentCameraBrand = new SignupCameraBrandFragment();
     private SignupCameraInfoFragment fragmentCameraInfo = new SignupCameraInfoFragment();
+    private SignupCameraBrandFragment fragmentCameraBrand = new SignupCameraBrandFragment();
     private SignupInterestFragment fragmentInterest = new SignupInterestFragment();
     private SignupBestPhotoFragment fragmentBestPhoto = new SignupBestPhotoFragment();
     private SignupPlanFragment fragmentPlan = new SignupPlanFragment();

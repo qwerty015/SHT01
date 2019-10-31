@@ -9,11 +9,10 @@
         android:id="@+id/tvBrandName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:minWidth="200dp"
-        android:text="@string/mention_other_gear_one_equipment_per_field_optional"
-        android:textColor="#ff000000"
-        android:textSize="@dimen/_9ssp"
+        android:text="select camera brand."
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_15ssp"
         app:fontName="Montserrat_SemiBold" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,25 +8,13 @@ import java.util.List;
  * Awesome Pojo Generator
  */
 public class UserCameraResponse implements Serializable {
-
+    private String cameraBrandId;
     private String cameraBrand;
 
-    private String cameraBrandId;
-
     private String cameraModelId;
-
-    private List<String> cameraAccessories;
-
-
     private String cameraModel;
 
-    public void setCameraBrand(String cameraBrand) {
-        this.cameraBrand = cameraBrand;
-    }
-
-    public String getCameraBrand() {
-        return cameraBrand;
-    }
+    private List<String> cameraAccessories;
 
     public void setCameraBrandId(String cameraBrandId) {
         this.cameraBrandId = cameraBrandId;
@@ -34,6 +22,14 @@ public class UserCameraResponse implements Serializable {
 
     public String getCameraBrandId() {
         return cameraBrandId;
+    }
+
+    public void setCameraBrand(String cameraBrand) {
+        this.cameraBrand = cameraBrand;
+    }
+
+    public String getCameraBrand() {
+        return cameraBrand;
     }
 
     public void setCameraModelId(String cameraModelId) {
@@ -44,19 +40,19 @@ public class UserCameraResponse implements Serializable {
         return cameraModelId;
     }
 
-    public void setCameraAccessories(List<String> cameraAccessories) {
-        this.cameraAccessories = cameraAccessories;
-    }
-
-    public List<String> getCameraAccessories() {
-        return cameraAccessories;
-    }
-
     public void setCameraModel(String cameraModel) {
         this.cameraModel = cameraModel;
     }
 
     public String getCameraModel() {
         return cameraModel;
+    }
+
+    public void setCameraAccessories(List<String> cameraAccessories) {
+        this.cameraAccessories = cameraAccessories;
+    }
+
+    public List<String> getCameraAccessories() {
+        return cameraAccessories;
     }
 }

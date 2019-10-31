@@ -22,7 +22,7 @@ public interface AppConstants {
 
     String ref_user = "user";
     String ref_camera = "user_cameras";
-    String ref_public_data = "ref_public_data";
+    String ref_public_data = "public_data";
     String ref_service_plan = "service_plans";
 
 

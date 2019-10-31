@@ -34,7 +34,7 @@
     <string name="signup_camerabrand_info">Awesome. Now tell us about your camera and gear, which is the heart and soul of a photographer.</string>
     <string name="signup_camerabrand_info1">mention other gear, one equipment\nper field. (optional)</string>
     <string name="e_g_tripod">E.g - Tripod</string>
-    <string name="e_g_50_mm_nikkor_prime_lens">E.g - 50 mm Nikkor </string>
+    <string name="e_g_50_mm_nikkor_prime_lens">E.g - 50 mm Nikkor Prime Lens</string>
 
     <string name="signup_interest_info">Superrrb! You\'re closer to becoming a pro-grapher. Tell us about your interest areas, so we get more clients to you!</string>
     <string name="signup_bestphoto_info">Let your pictures do the talking,\nit\'s time to show your remarkable work for everyone to see, upload your 4 best photographs. You can always edit it later.</string>
@@ -80,12 +80,6 @@
 
 
     <string name="perfect_text">Perfect. Now let\'s build your profile and show the world your photographic abilities.</string>
-
-
-
-
-
-    <string name="mention_other_gear_one_equipment_per_field_optional">mention other gear, one equipment per field. (optional)</string>
 
     <string name="superrb">Superrrb! You\'re closer to becoming a pro-grapher. Tell us about your interest areas, so we get more clients to you!</string>
     <string name="best_images">Let your pictures do the talking,\nit\'s time to show your remarkable work for everyone to see, upload your 4 best photographs. You can always edit it later.</string>

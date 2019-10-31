@@ -57,29 +57,9 @@ public class SignupCameraInfoFragment extends BaseFragment {
      * @return
      */
     private void addBioToFirestore(String bio) {
-        showLoading("Loading");
-
         User user = DataHandler.getInstance().getUser();
         user.setBio(bio);
 
-        /* set data into firebase database*/
-        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                dismissLoading();
-
-                DataHandler.getInstance().setUser(user);
-                activity.setViewPager(activity.nCurrentPageIndex + 1);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                dismissLoading();
-                showErrorToast(e.toString());
-                Log.e("firestore", "data failed with an exception" + e.toString());
-            }
-        });
-
-
+        activity.setViewPager(activity.nCurrentPageIndex + 1);
     }
 }
