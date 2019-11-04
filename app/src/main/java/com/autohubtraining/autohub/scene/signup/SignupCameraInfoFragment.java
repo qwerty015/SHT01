@@ -45,18 +45,18 @@ public class SignupCameraInfoFragment extends BaseFragment {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-                addBioToFirestore(editBio.getText().toString());
+                addBioToUserdata(editBio.getText().toString());
                 break;
         }
     }
 
     /**
-     * method is used for adding bio to Firestore.
+     * method is used for adding bio to User data.
      *
      * @param bio
      * @return
      */
-    private void addBioToFirestore(String bio) {
+    private void addBioToUserdata(String bio) {
         User user = DataHandler.getInstance().getUser();
         user.setBio(bio);
 

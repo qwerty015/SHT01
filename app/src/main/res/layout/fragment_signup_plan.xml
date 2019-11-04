@@ -54,7 +54,6 @@
                     android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_18sdp"
                     android:background="@null"
-                    android:drawableRight="@drawable/edit"
                     android:hint="@string/set_plan_name"
                     android:padding="@dimen/_1sdp"
                     android:textColorHint="@color/colorBlack"
@@ -72,68 +71,27 @@
 
                 <include layout="@layout/dummy_border" />
 
-                <LinearLayout
+                <com.autohubtraining.autohub.customview.CustomEditView
+                    android:id="@+id/etNumberOfPics"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    android:background="@null"
+                    android:hint="@string/enter_number_of_pictures"
+                    android:padding="@dimen/_1sdp"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="@dimen/_16ssp"
+                    android:ems="5"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    app:fontName="Montserrat_SemiBold" />
 
-                    <com.autohubtraining.autohub.customview.CustomTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/rs"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/_16ssp"
-                        app:fontName="Montserrat_SemiBold" />
-
-                    <com.autohubtraining.autohub.customview.CustomEditView
-                        android:id="@+id/etPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="5"
-                        android:fontFamily="@string/Montserrat_SemiBold"
-                        android:inputType="number"
-                        android:singleLine="true"
-                        android:textSize="@dimen/_16ssp"
-                        app:fontName="Montserrat_SemiBold" />
-
-                </LinearLayout>
+                <include layout="@layout/dummy_border" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <com.autohubtraining.autohub.customview.CustomTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:text="@string/no_of_pictures"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/_16ssp"
-                        app:fontName="Montserrat_SemiBold" />
-
-                    <com.autohubtraining.autohub.customview.CustomEditView
-                        android:id="@+id/etNumberOfPics"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="5"
-                        android:fontFamily="@string/Montserrat_SemiBold"
-                        android:inputType="number"
-                        android:singleLine="true"
-                        android:textSize="@dimen/_16ssp" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
                     android:layout_marginLeft="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:gravity="center_vertical"
@@ -148,50 +106,52 @@
                         android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_marginLeft="@dimen/_10sdp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <com.autohubtraining.autohub.customview.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@string/Montserrat_SemiBold"
-                            android:text="@string/yes"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/_7ssp"
-                            app:fontName="Montserrat_SemiBold" />
-
-                        <ToggleButton
-                            android:id="@+id/toggle"
-                            android:layout_width="@dimen/_30sdp"
-                            android:layout_height="@dimen/_30sdp"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/toggle_selector"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"
-                            android:textOff=""
-                            android:textOn="" />
-
-
-                        <com.autohubtraining.autohub.customview.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin20"
-                            android:fontFamily="@string/Montserrat_SemiBold"
-                            android:text="@string/no"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/_7ssp"
-                            app:fontName="Montserrat_SemiBold" />
-
-                    </LinearLayout>
-
+                    <ToggleButton
+                        android:id="@+id/toggle_first"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/toggle_selector"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:textOff=""
+                        android:textOn="" />
 
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginVertical="@dimen/_16sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.autohubtraining.autohub.customview.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@string/Montserrat_SemiBold"
+                        android:text="@string/enter_price"
+                        android:textColor="#ff000000"
+                        android:textSize="@dimen/_16ssp"
+                        app:fontName="Montserrat_SemiBold" />
+
+                    <com.autohubtraining.autohub.customview.CustomEditView
+                        android:id="@+id/etPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:ems="5"
+                        android:fontFamily="@string/Montserrat_SemiBold"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_16ssp"
+                        android:background="@drawable/black_border"
+                        app:fontName="Montserrat_SemiBold" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -199,23 +159,21 @@
                 android:id="@+id/container_lower"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginRight="@dimen/_8sdp"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginVertical="@dimen/_15sdp"
                 android:background="@drawable/black_border"
                 android:orientation="vertical">
 
                 <com.autohubtraining.autohub.customview.CustomEditView
                     android:id="@+id/etPlanName1"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_25sdp"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
                     android:background="@null"
-                    android:drawableRight="@drawable/edit"
-                    android:hint="SET PLAN NAME"
-                    android:textColorHint="#ff000000"
+                    android:hint="@string/set_plan_name"
+                    android:padding="@dimen/_1sdp"
+                    android:textColorHint="@color/colorBlack"
                     android:textSize="@dimen/_16ssp"
                     app:fontName="Montserrat_SemiBold" />
 
@@ -226,15 +184,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_marginTop="@dimen/_16sdp"
-                    android:layout_marginLeft="@dimen/_20sdp"
-                    android:layout_marginRight="@dimen/_20sdp"/>
+                    android:layout_marginHorizontal="@dimen/_20sdp"/>
 
                 <include layout="@layout/dummy_border" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginLeft="@dimen/_20sdp"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
@@ -243,81 +200,55 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@string/Montserrat_SemiBold"
-                        android:text="@string/rs"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/_16ssp"
-                        app:fontName="Montserrat_SemiBold" />
-
-                    <com.autohubtraining.autohub.customview.CustomEditView
-                        android:id="@+id/etPrice1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="5"
-                        android:fontFamily="@string/Montserrat_SemiBold"
-                        android:inputType="number"
-                        android:singleLine="true"
-                        android:textSize="@dimen/_16ssp"
-                        app:fontName="Montserrat_SemiBold" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:orientation="horizontal">
-
-                    <com.autohubtraining.autohub.customview.CustomTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@string/Montserrat_SemiBold"
                         android:text="@string/editing_included"
                         android:textColor="#ff000000"
                         android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />
 
-                    <LinearLayout
+                    <ToggleButton
+                        android:id="@+id/toggle_second"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginHorizontal="10dp"
+                        android:background="@drawable/toggle_selector"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:textOff=""
+                        android:textOn="" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_20sdp"
+                    android:layout_marginVertical="@dimen/_16sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.autohubtraining.autohub.customview.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@string/Montserrat_SemiBold"
+                        android:text="@string/enter_price"
+                        android:textColor="#ff000000"
+                        android:textSize="@dimen/_16ssp"
+                        app:fontName="Montserrat_SemiBold" />
+
+                    <com.autohubtraining.autohub.customview.CustomEditView
+                        android:id="@+id/etPrice1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_10sdp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <com.autohubtraining.autohub.customview.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@string/Montserrat_SemiBold"
-                            android:text="@string/yes"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/_7ssp"
-                            app:fontName="Montserrat_SemiBold" />
-
-                        <ToggleButton
-                            android:id="@+id/toggle_second"
-                            android:layout_width="@dimen/_30sdp"
-                            android:layout_height="@dimen/_30sdp"
-                            android:layout_centerVertical="true"
-                            android:layout_margin="10dp"
-                            android:background="@drawable/toggle_selector"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"
-                            android:textOff=""
-                            android:textOn="" />
-
-                        <com.autohubtraining.autohub.customview.CustomTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin10"
-                            android:fontFamily="@string/Montserrat_SemiBold"
-                            android:text="@string/no"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/_7ssp"
-                            app:fontName="Montserrat_SemiBold" />
-
-                    </LinearLayout>
+                        android:layout_marginRight="@dimen/_20sdp"
+                        android:ems="5"
+                        android:fontFamily="@string/Montserrat_SemiBold"
+                        android:inputType="number"
+                        android:singleLine="true"
+                        android:textSize="@dimen/_16ssp"
+                        android:background="@drawable/black_border"
+                        app:fontName="Montserrat_SemiBold" />
                 </LinearLayout>
 
             </LinearLayout>

@@ -17,6 +17,8 @@ import butterknife.OnClick;
 
 public class SignupPlanFragment extends BaseFragment {
 
+    SignupActivity activity = (SignupActivity) getActivity();
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View retView = inflater.inflate(R.layout.fragment_signup_plan, container, false);
@@ -27,7 +29,6 @@ public class SignupPlanFragment extends BaseFragment {
 
     @OnClick({R.id.nextBtn})
     void onClickItems(View view) {
-        SignupActivity activity = (SignupActivity) getActivity();
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:

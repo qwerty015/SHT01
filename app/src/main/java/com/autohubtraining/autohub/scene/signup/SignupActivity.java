@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
+import com.autohubtraining.autohub.scene.signup.custom.EquipmentAdapter;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.GlobalConstants;
 import com.autohubtraining.autohub.util.ImageUtils;
@@ -24,7 +25,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SignupActivity extends BaseActivity {
+public class SignupActivity extends BaseActivity implements EquipmentAdapter.ItemClick {
 
     @BindView(R.id.activity_progress)
     ProgressBar progressBar;
@@ -94,10 +95,15 @@ public class SignupActivity extends BaseActivity {
                 } else {
                     if (nCurrentPageIndex == 4)
                         fragmentAvatar.setAvatarPath(data.getData());
+                    else if (nCurrentPageIndex == 8)
+                        fragmentBestPhoto.setImagePath(data.getData());
                 }
             }
         }
     }
+
+    @Override
+    public void removeItem(int pos) { }
 
     public FirebaseAuth getFirebaseAuthInstance() {
         if (mAuth == null) {

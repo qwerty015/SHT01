@@ -50,7 +50,7 @@ public class SignupAvatarFragment extends BaseFragment {
     private ImageUtils imageUtils;
 
     private FirebaseStorage storage = FirebaseStorage.getInstance();
-    private StorageReference storageRef;
+    private StorageReference storageRef = storage.getReference();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -59,7 +59,6 @@ public class SignupAvatarFragment extends BaseFragment {
 
         activity = (SignupActivity) getActivity();
         imageUtils = new ImageUtils(activity, null);
-        storageRef = storage.getReference();
 
         return retView;
     }
@@ -168,8 +167,6 @@ public class SignupAvatarFragment extends BaseFragment {
      * @return
      */
     void saveDataIntoFireStore(String avatarUrl) {
-        dismissLoading();
-
         if (DataHandler.getInstance().getUserType() == AppConstants.CLIENT) {
             User user = DataHandler.getInstance().getUser();
             user.setAvatarUrl(avatarUrl);
@@ -202,6 +199,8 @@ public class SignupAvatarFragment extends BaseFragment {
                 }
             });
         } else {
+            dismissLoading();
+
             User user = DataHandler.getInstance().getUser();
             user.setAvatarUrl(avatarUrl);
 

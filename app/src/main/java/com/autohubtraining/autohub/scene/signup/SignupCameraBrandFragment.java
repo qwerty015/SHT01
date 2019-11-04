@@ -66,16 +66,16 @@ public class SignupCameraBrandFragment extends BaseFragment {
         activity = (SignupActivity) getActivity();
 
         /* setting adapter of equipments*/
-//        alEquipments.add("");
-//        equipmentAdapter = new EquipmentAdapter(activity, alEquipments,true);
-//        lvEquipment.setAdapter(equipmentAdapter);
+        alEquipments.add("");
+        equipmentAdapter = new EquipmentAdapter(activity, alEquipments,true);
+        lvEquipment.setAdapter(equipmentAdapter);
 
         getCameraBrands();
 
         return retView;
     }
 
-    @OnClick({R.id.nextBtn})
+    @OnClick({R.id.nextBtn, R.id.ivAdd})
     void onClickItems(View view) {
         int id = view.getId();
         switch (id) {
@@ -90,34 +90,6 @@ public class SignupCameraBrandFragment extends BaseFragment {
 
                 break;
         }
-    }
-
-    /**
-     * method is used for resizing of list-view.
-     *
-     * @param listView
-     * @return
-     */
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
-        ListAdapter listAdapter = listView.getAdapter();
-
-        if (listAdapter == null) {
-            return;
-        }
-
-        int totalHeight = 0;
-        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(), View.MeasureSpec.AT_MOST);
-
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            View listItem = listAdapter.getView(i, null, listView);
-            listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-            totalHeight += listItem.getMeasuredHeight();
-        }
-
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
-        listView.requestLayout();
     }
 
     /**

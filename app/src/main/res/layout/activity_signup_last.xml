@@ -140,7 +140,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center_vertical"
-                        android:text="@string/no_of_pictures"
+                        android:text="@string/enter_number_of_pictures"
                         android:textColor="#ff000000"
                         android:textSize="@dimen/_16ssp"
                         app:fontName="Montserrat_SemiBold" />

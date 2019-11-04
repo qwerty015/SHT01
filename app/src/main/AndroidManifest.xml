@@ -69,23 +69,11 @@
 
 
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".scene.camerabrand.CameraBrandActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <activity
             android:name=".scene.finalscreen.LastActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".scene.interest.InterestActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".scene.bestimages.BestImagesActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".scene.editdetails.EditDetailsActivity"
             android:label="@string/app_name"

@@ -11,14 +11,19 @@ public class User implements Serializable{
 	private String lastName;
 	private String email;
 	private String avatarUrl;
+	private String bio;
+	private List<String> userInterests;
+	private List<String> bestImages;
+
+
+
+
+
 
 
 
 	private String countryCode;
 
-	private String bio;
-	private List<String> bestImages;
-	private List<String> userInterests;
 
 	private String userId;
 	private String phoneNo;
@@ -64,20 +69,20 @@ public class User implements Serializable{
 		return avatarUrl;
 	}
 
-
-
-
-	public String getCountryCode(){
-		return countryCode;
-	}
-
-
 	public void setBio(String bio){
 		this.bio = bio;
 	}
 
 	public String getBio(){
 		return bio;
+	}
+
+	public void setUserInterests(List<String> userInterests){
+		this.userInterests = userInterests;
+	}
+
+	public List<String> getUserInterests(){
+		return userInterests;
 	}
 
 	public void setBestImages(List<String> bestImages){
@@ -88,12 +93,13 @@ public class User implements Serializable{
 		return bestImages;
 	}
 
-	public void setUserInterests(List<String> userInterests){
-		this.userInterests = userInterests;
-	}
 
-	public List<String> getUserInterests(){
-		return userInterests;
+
+
+
+
+	public String getCountryCode(){
+		return countryCode;
 	}
 
 
