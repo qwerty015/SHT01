@@ -79,7 +79,7 @@ public class LogoActivity extends BaseActivity {
 
                         if (doc.getData() != null) {
                             UserData user = doc.toObject(UserData.class);
-                            DataHandler.getInstance().setCurrentUser(user);
+                            DataHandler.getInstance().setUserData(user);
 
                             MainActivity.startActivity(LogoActivity.this);
                         }

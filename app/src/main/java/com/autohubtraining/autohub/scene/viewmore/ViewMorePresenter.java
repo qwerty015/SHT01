@@ -44,7 +44,7 @@ public class ViewMorePresenter implements ViewMoreContract.ViewMorePresenter {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-        UserData currentUserData = DataHandler.getInstance().getCurrentUser();
+        UserData currentUserData = DataHandler.getInstance().getUserData();
         Map<String, Object> map = new HashMap<>();
         Map<String, Object> likeMap = new HashMap<>();
 

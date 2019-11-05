@@ -178,7 +178,7 @@ public class ViewMoreActivity extends AppCompatActivity implements ViewMoreContr
                 if (i < 2) {
                     UserPlan plan = userData.getAlUserPlans().get(i);
 
-                    tabLayout1.addTab(tabLayout1.newTab().setText("RS. " + plan.getAmount().toString()));
+                    tabLayout1.addTab(tabLayout1.newTab().setText("RS. " + plan.getPrice().toString()));
                 }
 
             }

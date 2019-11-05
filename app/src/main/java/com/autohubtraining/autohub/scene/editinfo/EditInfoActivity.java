@@ -1,6 +1,5 @@
 package com.autohubtraining.autohub.scene.editinfo;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -12,7 +11,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.InputFilter;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
@@ -187,7 +185,7 @@ public class EditInfoActivity extends BaseActivity implements EditInfoContract.V
 
     void setDataIntoViews() {
 
-        userData = DataHandler.getInstance().getCurrentUser();
+        userData = DataHandler.getInstance().getUserData();
         etBio.setText(userData.getBio());
         setRemainingText(userData.getBio().toString());
 

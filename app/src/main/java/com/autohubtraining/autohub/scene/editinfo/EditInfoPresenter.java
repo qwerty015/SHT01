@@ -137,7 +137,7 @@ public class EditInfoPresenter implements EditInfoContract.Presenter {
     void saveDataIntoFireStore(String bio) {
 
         /* update Bio and best images */
-        UserData user = DataHandler.getInstance().getCurrentUser();
+        UserData user = DataHandler.getInstance().getUserData();
         //user.setBestImages(aldownloadFileUrl);
 
         if (user.getBestImages() != null) {
@@ -163,7 +163,7 @@ public class EditInfoPresenter implements EditInfoContract.Presenter {
 
                 user.setBio(bio);
                 user.setBestImages(aldownloadFileUrl);
-                DataHandler.getInstance().setCurrentUser(user);
+                DataHandler.getInstance().setUserData(user);
 
 
                 updateUserEquipments(user.getUserId());
@@ -197,7 +197,7 @@ public class EditInfoPresenter implements EditInfoContract.Presenter {
             public void onSuccess(Void aVoid) {
 
 
-                UserData user = DataHandler.getInstance().getCurrentUser();
+                UserData user = DataHandler.getInstance().getUserData();
 
 
                 UserCameraResponse response = user.getUserCamera();
@@ -209,7 +209,7 @@ public class EditInfoPresenter implements EditInfoContract.Presenter {
                 user.setUserCamera(response);
 
 
-                DataHandler.getInstance().setCurrentUser(user);
+                DataHandler.getInstance().setUserData(user);
 
                 view.hideLoading();
 

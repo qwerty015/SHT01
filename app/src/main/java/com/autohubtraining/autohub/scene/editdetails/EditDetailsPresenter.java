@@ -123,17 +123,17 @@ public class EditDetailsPresenter implements EditDetailContract.Presenter, AuthL
 
     void updateData(Map<String, Object> map) {
         view.showLoading();
-        UserData userData = DataHandler.getInstance().getCurrentUser();
+        UserData userData = DataHandler.getInstance().getUserData();
         FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(userData.getUserId()).update(map).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
 
                 if (map.get("phoneNo") != null)
-                    userData.setPhoneNo(map.get("phoneNo").toString());
+                    //userData.setPhoneNo(map.get("phoneNo").toString());
                 userData.setFirstName(map.get("firstName").toString());
-                userData.setCountryCode(map.get("countryCode").toString());
+                //userData.setCountryCode(map.get("countryCode").toString());
                 userData.setLastName(map.get("lastName").toString());
-                DataHandler.getInstance().setCurrentUser(userData);
+                DataHandler.getInstance().setUserData(userData);
 
                 view.hideLoading();
                 view.navigateToNextScreen();

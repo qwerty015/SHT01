@@ -65,7 +65,7 @@ public class HomeScreenPhotographers extends BaseFragment {
     void setDataIntoViews() {
 
 
-        UserData user = DataHandler.getInstance().getCurrentUser();
+        UserData user = DataHandler.getInstance().getUserData();
         if (user != null && user.getAvatarUrl() != null)
             Glide.with(getActivity()).load(user.getAvatarUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);
 

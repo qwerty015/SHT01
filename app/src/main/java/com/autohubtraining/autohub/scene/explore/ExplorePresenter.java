@@ -54,7 +54,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-        UserData currentUserData = DataHandler.getInstance().getCurrentUser();
+        UserData currentUserData = DataHandler.getInstance().getUserData();
         Map<String, Object> map = new HashMap<>();
         Map<String, Object> likeMap = new HashMap<>();
 
@@ -124,7 +124,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
                 index = documentSnapshot.getDocuments().size();
 
 
-                UserData currentUser = DataHandler.getInstance().getCurrentUser();
+                UserData currentUser = DataHandler.getInstance().getUserData();
                 List<DocumentSnapshot> alDocuments = documentSnapshot.getDocuments();
 
                 for (DocumentSnapshot snapshot : alDocuments) {
@@ -151,7 +151,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        UserData userData = DataHandler.getInstance().getCurrentUser();
+        UserData userData = DataHandler.getInstance().getUserData();
 
         CollectionReference documentReference = db.collection(AppConstants.ref_user).document(userData.getUserId()).collection(AppConstants.favourite_ref);
         documentReference.addSnapshotListener((documentSnapshot, e) -> {
@@ -248,16 +248,14 @@ public class ExplorePresenter implements ExploreContract.Presenter {
 
 
                     UserPlan userPlan = new UserPlan();
-                    if (brand.get("planId") != null)
-                        userPlan.setPlanId(brand.get("planId").toString());
                     if (brand.get("planName") != null)
                         userPlan.setPlanName(brand.get("planName").toString());
                     if (brand.get("numberOfPictures") != null)
                         userPlan.setNumberOfPictures(brand.get("numberOfPictures").toString());
                     if (brand.get("shootType") != null)
                         userPlan.setShootType(brand.get("shootType").toString());
-                    if (brand.get("amount") != null)
-                        userPlan.setAmount(brand.get("amount").toString());
+                    if (brand.get("price") != null)
+                        userPlan.setPrice(brand.get("amount").toString());
                     if (brand.get("editingIncluded") != null)
                         userPlan.setEditingIncluded(brand.get("editingIncluded").toString());
                     alBrands.add(userPlan);

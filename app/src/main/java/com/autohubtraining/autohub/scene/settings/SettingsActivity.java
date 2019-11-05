@@ -102,7 +102,7 @@ public class SettingsActivity extends SignupBaseActivity {
     void setDataIntoViews() {
         Log.e("usreee", "settingsss");
 
-        UserData user = DataHandler.getInstance().getCurrentUser();
+        UserData user = DataHandler.getInstance().getUserData();
 
         tvName.setText(user.getFirstName() + " " + user.getLastName());
 

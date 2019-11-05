@@ -43,7 +43,7 @@ public class DeshboardActivity extends AppCompatActivity implements BottomNaviga
         viewPager = (CustomViewPager) findViewById(R.id.viewpager1);
         viewPager.setPagingEnabled(false);
 
-        UserData userData = DataHandler.getInstance().getCurrentUser();
+        UserData userData = DataHandler.getInstance().getUserData();
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(this.getSupportFragmentManager());
 

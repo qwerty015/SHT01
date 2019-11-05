@@ -90,20 +90,20 @@ public class EditDetailsActivity extends SignupBaseActivity implements EditDetai
                 String phoneText = etPhoneNumber.getText().toString().replaceAll("\\s+", "");
                 //Log.e("phoneText", phoneText.toString() + "  " + userData.getPhoneNo());
 
-                if (!(phoneText.equals(userData.getPhoneNo()))) {
-
-
-                    if (editDetailsPresenter.isNumberValid(countryCodePicker)) {
-                        map.put("phoneNo", etPhoneNumber.getText().toString().replaceAll(" ", ""));
-                        editDetailsPresenter.sendPhone(countryCodePicker.getFullNumberWithPlus());
-                    } else {
-                        AppUtils.showToast(getString(R.string.invalid_no), EditDetailsActivity.this);
-
-                    }
-
-                } else {
-                    editDetailsPresenter.updateData(map);
-                }
+//                if (!(phoneText.equals(userData.getPhoneNo()))) {
+//
+//
+//                    if (editDetailsPresenter.isNumberValid(countryCodePicker)) {
+//                        map.put("phoneNo", etPhoneNumber.getText().toString().replaceAll(" ", ""));
+//                        editDetailsPresenter.sendPhone(countryCodePicker.getFullNumberWithPlus());
+//                    } else {
+//                        AppUtils.showToast(getString(R.string.invalid_no), EditDetailsActivity.this);
+//
+//                    }
+//
+//                } else {
+//                    editDetailsPresenter.updateData(map);
+//                }
 
 
             }
@@ -154,12 +154,12 @@ public class EditDetailsActivity extends SignupBaseActivity implements EditDetai
         countryCodePicker.setDialogTypeFace(typeFace);
 
 
-        userData = DataHandler.getInstance().getCurrentUser();
+        userData = DataHandler.getInstance().getUserData();
         etName.setText(userData.getFirstName());
         etLastName.setText(userData.getLastName().toString());
 
 
-        etPhoneNumber.setText(userData.getPhoneNo());
+        //etPhoneNumber.setText(userData.getPhoneNo());
 
 
         countryCodePicker.registerCarrierNumberEditText(etPhoneNumber);

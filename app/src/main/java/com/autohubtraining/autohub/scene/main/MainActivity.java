@@ -8,14 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +34,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         ButterKnife.bind(this);
 
         navigation.setOnNavigationItemSelectedListener(this);
-        userData = DataHandler.getInstance().getCurrentUser();
+        userData = DataHandler.getInstance().getUserData();
     }
 
     @OnClick({})

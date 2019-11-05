@@ -79,7 +79,7 @@ public class SignupBestPhotoFragment extends BaseFragment {
         int id = view.getId();
         switch (id) {
             case R.id.nextBtn:
-                activity.setViewPager(activity.nCurrentPageIndex + 1);
+                onNextBtnClicked();
 
                 break;
             case R.id.image1:
@@ -241,6 +241,9 @@ public class SignupBestPhotoFragment extends BaseFragment {
 
         User user = DataHandler.getInstance().getUser();
         user.setBestImages(aldownloadFileUrl);
+
+        UserData userData = DataHandler.getInstance().getUserData();
+        userData.setBestImages(aldownloadFileUrl);
 
         activity.setViewPager(activity.nCurrentPageIndex + 1);
     }

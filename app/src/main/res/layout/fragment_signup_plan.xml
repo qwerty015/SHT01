@@ -188,6 +188,24 @@
 
                 <include layout="@layout/dummy_border" />
 
+                <com.autohubtraining.autohub.customview.CustomEditView
+                    android:id="@+id/etNumberOfPics1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@null"
+                    android:hint="@string/enter_number_of_pictures"
+                    android:padding="@dimen/_1sdp"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="@dimen/_16ssp"
+                    android:ems="5"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    app:fontName="Montserrat_SemiBold" />
+
+                <include layout="@layout/dummy_border" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

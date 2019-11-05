@@ -1,6 +1,5 @@
 package com.autohubtraining.autohub.scene.my_favourites;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,7 +48,7 @@ public class MyFavourites extends BaseActivity implements FavouritePresenter.Vie
     }
 
     void setDataIntoViews() {
-        UserData userData = DataHandler.getInstance().getCurrentUser();
+        UserData userData = DataHandler.getInstance().getUserData();
 
         Glide.with(this).load(userData.getAvatarUrl()).into(ivPic);
 

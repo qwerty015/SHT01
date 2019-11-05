@@ -8,8 +8,6 @@ import com.autohubtraining.autohub.data.model.user.UserData;
 public class DataHandler {
     private static DataHandler dataHandler;
     private static User user;
-
-
     public static UserData userData;
     private int userType;
 
@@ -39,11 +37,11 @@ public class DataHandler {
         return user;
     }
 
-    public void setCurrentUser(UserData adminUser) {
+    public void setUserData(UserData adminUser) {
         this.userData = adminUser;
     }
 
-    public UserData getCurrentUser() {
+    public UserData getUserData() {
         return userData;
     }
 

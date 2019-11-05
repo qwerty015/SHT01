@@ -8,19 +8,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserData implements Serializable {
+    private String userId;
     private int type;
     private String firstName;
     private String lastName;
     private String email;
     private String avatarUrl;
-
-
-
-    boolean isFavourite=false;
+    private String bio = "";
+    private List<String> userInterests;
+    private List<String> bestImages;
     private UserCameraResponse userCamera;
     private ArrayList<UserPlan> alUserPlans;
 
+    private boolean isFavourite=false;
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
 
     public void setType(int type) {
         this.type = type;
@@ -74,74 +82,6 @@ public class UserData implements Serializable {
         return avatarUrl;
     }
 
-
-
-
-
-    public UserCameraResponse getUserCamera() {
-        return userCamera;
-    }
-
-    public void setUserCamera(UserCameraResponse userCamera) {
-        this.userCamera = userCamera;
-    }
-
-    public ArrayList<UserPlan> getAlUserPlans() {
-        return alUserPlans;
-    }
-
-    public void setAlUserPlans(ArrayList<UserPlan> alUserPlans) {
-        this.alUserPlans = alUserPlans;
-    }
-
-
-
-
-    private String countryCode;
-
-
-
-
-
-    private String bio = "";
-
-
-    private List<String> bestImages;
-
-    public boolean isFavourite() {
-        return isFavourite;
-    }
-
-    public void setFavourite(boolean favourite) {
-        isFavourite = favourite;
-    }
-
-    private List<String> userInterests;
-
-
-
-
-
-    private String userId;
-
-
-    private String phoneNo;
-
-
-    private String signupStatus;
-
-
-
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    public String getCountryCode() {
-        return countryCode;
-    }
-
-
-
     public void setBio(String bio) {
         this.bio = bio;
     }
@@ -153,14 +93,6 @@ public class UserData implements Serializable {
         return bio;
     }
 
-    public void setBestImages(List<String> bestImages) {
-        this.bestImages = bestImages;
-    }
-
-    public List<String> getBestImages() {
-        return bestImages;
-    }
-
     public void setUserInterests(List<String> userInterests) {
         this.userInterests = userInterests;
     }
@@ -169,29 +101,35 @@ public class UserData implements Serializable {
         return userInterests;
     }
 
-
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setBestImages(List<String> bestImages) {
+        this.bestImages = bestImages;
     }
 
-    public String getUserId() {
-        return userId;
+    public List<String> getBestImages() {
+        return bestImages;
     }
 
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
+    public void setUserCamera(UserCameraResponse userCamera) {
+        this.userCamera = userCamera;
     }
 
-    public String getPhoneNo() {
-        return phoneNo;
+    public UserCameraResponse getUserCamera() {
+        return userCamera;
     }
 
-    public void setSignupStatus(String signupStatus) {
-        this.signupStatus = signupStatus;
+    public void setAlUserPlans(ArrayList<UserPlan> alUserPlans) {
+        this.alUserPlans = alUserPlans;
     }
 
-    public String getSignupStatus() {
-        return signupStatus;
+    public ArrayList<UserPlan> getAlUserPlans() {
+        return alUserPlans;
+    }
+
+    public boolean isFavourite() {
+        return isFavourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        isFavourite = favourite;
     }
 }

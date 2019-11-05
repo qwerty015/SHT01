@@ -19,15 +19,12 @@ import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.Nullable;
 import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.autohubtraining.autohub.R;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -81,7 +78,7 @@ public class EditProfileActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EditProfileActivity.this, ViewMoreActivity.class);
-                intent.putExtra(AppConstants.USERDATA, DataHandler.getInstance().getCurrentUser());
+                intent.putExtra(AppConstants.USERDATA, DataHandler.getInstance().getUserData());
                 startActivity(intent);
 
             }
@@ -131,7 +128,7 @@ public class EditProfileActivity extends BaseActivity {
     void setDataIntoViews() {
 
 
-        UserData userData = DataHandler.getInstance().getCurrentUser();
+        UserData userData = DataHandler.getInstance().getUserData();
         tvName.setText(userData.getFirstName().toUpperCase());
 
 

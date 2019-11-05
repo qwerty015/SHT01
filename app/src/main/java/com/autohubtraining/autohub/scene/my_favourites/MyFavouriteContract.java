@@ -40,7 +40,7 @@ public class MyFavouriteContract implements FavouritePresenter.Presenter {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        UserData userData = DataHandler.getInstance().getCurrentUser();
+        UserData userData = DataHandler.getInstance().getUserData();
 
 
         CollectionReference documentReference = db.collection(AppConstants.ref_user).document(userData.getUserId()).collection(AppConstants.favourite_ref);

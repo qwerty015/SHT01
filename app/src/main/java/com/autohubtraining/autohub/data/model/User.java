@@ -6,6 +6,7 @@ import java.util.List;
 
 
 public class User implements Serializable{
+	private String userId;
 	private int type;
 	private String firstName;
 	private String lastName;
@@ -15,19 +16,13 @@ public class User implements Serializable{
 	private List<String> userInterests;
 	private List<String> bestImages;
 
+	public void setUserId(String userId){
+		this.userId = userId;
+	}
 
-
-
-
-
-
-
-	private String countryCode;
-
-
-	private String userId;
-	private String phoneNo;
-	private String signupStatus;
+	public String getUserId(){
+		return userId;
+	}
 
 	public void setType(int type){
 		this.type = type;
@@ -91,33 +86,5 @@ public class User implements Serializable{
 
 	public List<String> getBestImages(){
 		return bestImages;
-	}
-
-
-
-
-
-
-	public String getCountryCode(){
-		return countryCode;
-	}
-
-
-
-	public void setUserId(String userId){
-		this.userId = userId;
-	}
-
-	public String getUserId(){
-		return userId;
-	}
-
-
-	public void setSignupStatus(String signupStatus){
-		this.signupStatus = signupStatus;
-	}
-
-	public String getSignupStatus(){
-		return signupStatus;
 	}
 }

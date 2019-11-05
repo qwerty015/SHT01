@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -124,10 +123,8 @@ public class SignupCameraBrandFragment extends BaseFragment {
 
                 DataHandler.getInstance().setUser(user);
 
-                UserData userData = DataHandler.getInstance().getCurrentUser();
+                UserData userData = DataHandler.getInstance().getUserData();
                 userData.setUserCamera(userCameraResponse);
-
-                DataHandler.getInstance().setCurrentUser(userData);
 
                 activity.setViewPager(activity.nCurrentPageIndex + 1);
             }

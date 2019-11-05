@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,7 +67,7 @@ public class HomeFragment extends Fragment {
     void setDataIntoViews() {
 
 
-        UserData user = DataHandler.getInstance().getCurrentUser();
+        UserData user = DataHandler.getInstance().getUserData();
 
         if (user != null && user.getAvatarUrl() != null)
             Glide.with(getActivity()).load(user.getAvatarUrl()).transform(new CircleCrop()).placeholder(R.mipmap.profile_image_icon).into(ivPic);

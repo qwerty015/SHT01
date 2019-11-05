@@ -71,10 +71,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".scene.finalscreen.LastActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".scene.editdetails.EditDetailsActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />

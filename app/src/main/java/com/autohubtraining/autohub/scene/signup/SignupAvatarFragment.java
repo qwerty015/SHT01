@@ -177,16 +177,8 @@ public class SignupAvatarFragment extends BaseFragment {
                 public void onSuccess(Void aVoid) {
                     dismissLoading();
 
-                    /* save data */
-                    DataHandler.getInstance().setUser(user);
-
-                    UserData userData = new UserData();
-                    userData.setType(user.getType());
-                    userData.setFirstName(user.getFirstName());
-                    userData.setLastName(user.getLastName());
-                    userData.setEmail(user.getEmail());
+                    UserData userData = DataHandler.getInstance().getUserData();
                     userData.setAvatarUrl(user.getAvatarUrl());
-                    DataHandler.getInstance().setCurrentUser(userData);
 
                     MainActivity.startActivity(activity);
                 }
@@ -203,6 +195,9 @@ public class SignupAvatarFragment extends BaseFragment {
 
             User user = DataHandler.getInstance().getUser();
             user.setAvatarUrl(avatarUrl);
+
+            UserData userData = DataHandler.getInstance().getUserData();
+            userData.setAvatarUrl(avatarUrl);
 
             activity.setViewPager(activity.nCurrentPageIndex + 1);
         }

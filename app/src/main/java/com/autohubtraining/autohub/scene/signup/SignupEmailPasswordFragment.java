@@ -174,11 +174,12 @@ public class SignupEmailPasswordFragment extends BaseFragment {
                     DataHandler.getInstance().setUser(user);
 
                     UserData userData = new UserData();
+                    userData.setUserId(user.getUserId());
                     userData.setType(user.getType());
                     userData.setFirstName(user.getFirstName());
                     userData.setLastName(user.getLastName());
                     userData.setEmail(user.getEmail());
-                    DataHandler.getInstance().setCurrentUser(userData);
+                    DataHandler.getInstance().setUserData(userData);
 
                     activity.setViewPager(activity.nCurrentPageIndex + 1);
                 }
