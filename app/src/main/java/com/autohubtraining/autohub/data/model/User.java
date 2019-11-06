@@ -1,6 +1,19 @@
 package com.autohubtraining.autohub.data.model;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
+import com.autohubtraining.autohub.data.model.user_cameras.UserCameraResponse;
+import com.autohubtraining.autohub.scene.main.MainActivity;
+import com.autohubtraining.autohub.util.AppConstants;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -15,6 +28,10 @@ public class User implements Serializable{
 	private String bio;
 	private List<String> userInterests;
 	private List<String> bestImages;
+	private String cameraBrand;
+	private String cameraModel;
+	private List<String> cameraAccessories;
+	private ArrayList<UserPlan> arrayPlan;
 
 	public void setUserId(String userId){
 		this.userId = userId;
@@ -86,5 +103,37 @@ public class User implements Serializable{
 
 	public List<String> getBestImages(){
 		return bestImages;
+	}
+
+	public void setCameraBrand(String cameraBrand) {
+		this.cameraBrand = cameraBrand;
+	}
+
+	public String getCameraBrand() {
+		return cameraBrand;
+	}
+
+	public void setCameraModel(String cameraModel) {
+		this.cameraModel = cameraModel;
+	}
+
+	public String getCameraModel() {
+		return cameraModel;
+	}
+
+	public void setCameraAccessories(List<String> cameraAccessories){
+		this.cameraAccessories = cameraAccessories;
+	}
+
+	public List<String> getCameraAccessories(){
+		return cameraAccessories;
+	}
+
+	public void setArrayPlan(ArrayList<UserPlan> arrayPlan) {
+		this.arrayPlan = arrayPlan;
+	}
+
+	public ArrayList<UserPlan> getArrayPlan() {
+		return arrayPlan;
 	}
 }

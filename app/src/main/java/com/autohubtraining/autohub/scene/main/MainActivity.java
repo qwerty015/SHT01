@@ -8,11 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.viewpager.widget.ViewPager;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
+import com.autohubtraining.autohub.util.views.CustomViewPager;
+import com.autohubtraining.autohub.util.views.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;
@@ -21,10 +22,10 @@ import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+    @BindView(R.id.view_pager)
+    CustomViewPager view_pager;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-
-    private UserData userData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,15 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         ButterKnife.bind(this);
 
         navigation.setOnNavigationItemSelectedListener(this);
-        userData = DataHandler.getInstance().getUserData();
+        view_pager.setPagingEnabled(false);
+
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
+
+        viewPagerAdapter.addFragment(new HomePhotographerFragment(), "title");
+        viewPagerAdapter.addFragment(new ExploreFragment(), "title");
+
+        view_pager.setAdapter(viewPagerAdapter);
+        view_pager.setCurrentItem(1);
     }
 
     @OnClick({})
@@ -49,14 +58,14 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.navigation_home:
-//                if (viewPager != null)
-//                    viewPager.setCurrentItem(0);
+                if (view_pager != null)
+                    view_pager.setCurrentItem(0);
 
                 break;
 
             case R.id.navigation_explore:
-//                if (viewPager != null)
-//                    viewPager.setCurrentItem(1);
+                if (view_pager != null)
+                    view_pager.setCurrentItem(1);
 
                 break;
 
@@ -78,13 +87,5 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
         ((Activity) context).finish();
-    }
-
-    public UserData getUserData() {
-        return userData;
-    }
-
-    public void setUserData(UserData userData) {
-        this.userData = userData;
     }
 }

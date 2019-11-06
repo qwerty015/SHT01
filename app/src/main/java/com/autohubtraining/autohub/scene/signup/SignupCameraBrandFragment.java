@@ -1,6 +1,7 @@
 package com.autohubtraining.autohub.scene.signup;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +18,11 @@ import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.public_data.CameraBrand;
 import com.autohubtraining.autohub.data.model.public_data.CameraModel;
-import com.autohubtraining.autohub.data.model.user.UserData;
-import com.autohubtraining.autohub.data.model.user_cameras.UserCameraResponse;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
 import com.autohubtraining.autohub.scene.signup.custom.EquipmentAdapter;
 import com.autohubtraining.autohub.scene.signup.custom.CameraModelAdapter;
 import com.autohubtraining.autohub.scene.signup.custom.CameraBrandAdapter;
 import com.autohubtraining.autohub.util.AppConstants;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -92,49 +89,18 @@ public class SignupCameraBrandFragment extends BaseFragment {
     }
 
     /**
-     * method is used for uploading camera datas to FirebaseFirestore.
+     * method is used for saving camera datas.
      *
      * @param
      * @return
      */
     public void saveCameraData() {
-        showLoading("");
-
         User user = DataHandler.getInstance().getUser();
+        user.setCameraBrand(selectedCameraBrand.getBrandName());
+        user.setCameraModel(selectedCameraModel.getModelName());
+        user.setCameraAccessories(equipmentAdapter.getEquipment());
 
-        UserCameraResponse userCameraResponse = new UserCameraResponse();
-
-        if (selectedCameraBrand != null) {
-            userCameraResponse.setCameraBrandId(selectedCameraBrand.getBrandId());
-            userCameraResponse.setCameraBrand(selectedCameraBrand.getBrandName());
-        }
-
-        if (selectedCameraModel != null) {
-            userCameraResponse.setCameraModelId(selectedCameraModel.getModelId());
-            userCameraResponse.setCameraModel(selectedCameraModel.getModelName());
-        }
-
-        userCameraResponse.setCameraAccessories(equipmentAdapter.getEquipment());
-
-        FirebaseFirestore.getInstance().collection(AppConstants.ref_camera).document(user.getUserId()).set(userCameraResponse).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                dismissLoading();
-
-                DataHandler.getInstance().setUser(user);
-
-                UserData userData = DataHandler.getInstance().getUserData();
-                userData.setUserCamera(userCameraResponse);
-
-                activity.setViewPager(activity.nCurrentPageIndex + 1);
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                dismissLoading();
-                showErrorToast(e.toString());
-            }
-        });
+        activity.setViewPager(activity.nCurrentPageIndex + 1);
     }
 
     /**

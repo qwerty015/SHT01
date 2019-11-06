@@ -18,15 +18,12 @@ import androidx.core.content.ContextCompat;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
-import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
-import com.autohubtraining.autohub.scene.main.MainActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.ImageUtils;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -241,9 +238,6 @@ public class SignupBestPhotoFragment extends BaseFragment {
 
         User user = DataHandler.getInstance().getUser();
         user.setBestImages(aldownloadFileUrl);
-
-        UserData userData = DataHandler.getInstance().getUserData();
-        userData.setBestImages(aldownloadFileUrl);
 
         activity.setViewPager(activity.nCurrentPageIndex + 1);
     }

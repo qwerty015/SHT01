@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:src="@drawable/search"/>
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="explore."
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_20ssp"
+            app:fontName="Montserrat_Bold"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:src="@drawable/ic_profile" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="4th Avenue, Los Angeles"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_12ssp"
+            app:fontName="Montserrat_SemiBold"/>
+
+        <com.autohubtraining.autohub.customview.CustomButton
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:text="change"
+            android:textColor="@color/colorGreen"
+            android:textSize="@dimen/_10ssp"
+            android:background="@android:color/transparent"
+            app:fontName="Montserrat_Bold"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_photographers"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"/>
+
+</LinearLayout>

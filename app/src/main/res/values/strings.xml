@@ -65,13 +65,11 @@
     <string name="sign_up">SIGNUP</string>
 
 
-    <string name="sign_up_image_info">Let\'s start with a cool yet professional photograph of yours. Generally, photos with cameras do the magic.</string>
+    
 
-    <string name="camera_info">Cool. Now let\'s get your bio done. Write something about your gear, lenses etc. , and make it interesting. You can always edit it later.</string>
+
     <string name="remaining">240 remaining</string>
     <string name="title_activity_signup_last">SignupLastActivity</string>
-    <string name="sign_up_last_info">One last step. Set your rates for your services, and make sure to set rate less or around the average rate to attract clients.\nYou can create two plans for now.</string>
-
 
     <string name="your_number">Great, and your number?</string>
     <string name="resend_code">RESEND CODE</string>
@@ -79,11 +77,8 @@
     <string name="otp_hint">OTP</string>
     <string name="set_password">Set a password.</string>
 
-
     <string name="perfect_text">Perfect. Now let\'s build your profile and show the world your photographic abilities.</string>
 
-    <string name="superrb">Superrrb! You\'re closer to becoming a pro-grapher. Tell us about your interest areas, so we get more clients to you!</string>
-    <string name="best_images">Let your pictures do the talking,\nit\'s time to show your remarkable work for everyone to see, upload your 4 best photographs. You can always edit it later.</string>
     <string name="profile">PROFILE</string>
     <string name="alex_r">Alex R.</string>
     <string name="edit_profile">EDIT PROFILE</string>

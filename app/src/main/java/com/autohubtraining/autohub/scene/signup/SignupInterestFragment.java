@@ -12,7 +12,6 @@ import androidx.annotation.Nullable;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
-import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
 
 import java.util.ArrayList;
@@ -72,9 +71,6 @@ public class SignupInterestFragment extends BaseFragment {
     private void addInterestToUserdata() {
         User user = DataHandler.getInstance().getUser();
         user.setUserInterests(alUserInterest);
-
-        UserData userData = DataHandler.getInstance().getUserData();
-        userData.setUserInterests(alUserInterest);
 
         activity.setViewPager(activity.nCurrentPageIndex + 1);
     }

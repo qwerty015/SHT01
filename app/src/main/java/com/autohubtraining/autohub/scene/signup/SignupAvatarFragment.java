@@ -17,7 +17,6 @@ import androidx.core.content.ContextCompat;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
-import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
 import com.autohubtraining.autohub.scene.main.MainActivity;
 import com.autohubtraining.autohub.util.AppConstants;
@@ -63,7 +62,7 @@ public class SignupAvatarFragment extends BaseFragment {
         return retView;
     }
 
-    @OnClick({R.id.nextBtn})
+    @OnClick({R.id.nextBtn, R.id.profilePic, R.id.icAdd})
     void onClickItems(View view) {
         int id = view.getId();
         switch (id) {
@@ -177,9 +176,6 @@ public class SignupAvatarFragment extends BaseFragment {
                 public void onSuccess(Void aVoid) {
                     dismissLoading();
 
-                    UserData userData = DataHandler.getInstance().getUserData();
-                    userData.setAvatarUrl(user.getAvatarUrl());
-
                     MainActivity.startActivity(activity);
                 }
             }).addOnFailureListener(new OnFailureListener() {
@@ -195,9 +191,6 @@ public class SignupAvatarFragment extends BaseFragment {
 
             User user = DataHandler.getInstance().getUser();
             user.setAvatarUrl(avatarUrl);
-
-            UserData userData = DataHandler.getInstance().getUserData();
-            userData.setAvatarUrl(avatarUrl);
 
             activity.setViewPager(activity.nCurrentPageIndex + 1);
         }

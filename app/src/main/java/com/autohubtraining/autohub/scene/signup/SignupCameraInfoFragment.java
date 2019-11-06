@@ -13,12 +13,7 @@ import androidx.annotation.Nullable;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
-import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
-import com.autohubtraining.autohub.util.AppConstants;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +32,8 @@ public class SignupCameraInfoFragment extends BaseFragment {
         ButterKnife.bind(this, retView);
 
         activity = (SignupActivity) getActivity();
+
+        editBio.setText("Very fantastic!");
 
         return retView;
     }
@@ -60,9 +57,6 @@ public class SignupCameraInfoFragment extends BaseFragment {
     private void addBioToUserdata(String bio) {
         User user = DataHandler.getInstance().getUser();
         user.setBio(bio);
-
-        UserData userData = DataHandler.getInstance().getUserData();
-        userData.setBio(bio);
 
         activity.setViewPager(activity.nCurrentPageIndex + 1);
     }

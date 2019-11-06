@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="@dimen/_10sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:gravity="center_vertical">
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="algtest."
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_20ssp"
+            app:fontName="Montserrat_Bold"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_avatar"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_profile" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/round_layout"
+        android:backgroundTint="@color/colorPink">
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:text="earnings this month."
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_15ssp"
+            app:fontName="Montserrat_Bold"/>
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:text="$ 0"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_35ssp"
+            app:fontName="Montserrat_Bold"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/round_layout"
+        android:backgroundTint="@color/colorPurple">
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:text="alg rank."
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_15ssp"
+            app:fontName="Montserrat_Bold"/>
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:text="new."
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_35ssp"
+            app:fontName="Montserrat_Bold"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:background="@drawable/round_layout"
+        android:backgroundTint="@color/colorBlue">
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:text="upcoming shoots."
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_15ssp"
+            app:fontName="Montserrat_Bold"/>
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:text="0"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_35ssp"
+            app:fontName="Montserrat_Bold"/>
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:background="@drawable/ic_arrow_black"
+            android:backgroundTint="@color/colorWhite"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

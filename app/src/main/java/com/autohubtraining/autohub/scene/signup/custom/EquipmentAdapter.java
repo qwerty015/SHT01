@@ -3,6 +3,7 @@ package com.autohubtraining.autohub.scene.signup.custom;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,16 +39,17 @@ public class EquipmentAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     private static class ViewHolder {
+        int position;
         EditText etName;
         ImageView ivMinus;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         EquipmentAdapter.ViewHolder viewHolder; // view lookup cache stored in tag
 
         final View result;
@@ -69,6 +71,8 @@ public class EquipmentAdapter extends BaseAdapter {
             result = convertView;
         }
 
+        viewHolder.position = position;
+
         viewHolder.etName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -83,8 +87,9 @@ public class EquipmentAdapter extends BaseAdapter {
             @Override
             public void afterTextChanged(Editable s) {
                 try {
-                    if (position >= 0)
-                        alEquipments.set(position, s.toString());
+                    if (viewHolder.position >= 0) {
+                        alEquipments.set(viewHolder.position, s.toString());
+                    }
                 }
                 catch (Exception e)
                 {
@@ -94,8 +99,8 @@ public class EquipmentAdapter extends BaseAdapter {
             }
         });
 
-        if (alEquipments.get(position) != null)
-            viewHolder.etName.setText(alEquipments.get(position));
+//        if (alEquipments.get(position) != null)
+//            viewHolder.etName.setText(alEquipments.get(position));
 
         if (isMinusButtonHide) {
             viewHolder.ivMinus.setVisibility(View.INVISIBLE);

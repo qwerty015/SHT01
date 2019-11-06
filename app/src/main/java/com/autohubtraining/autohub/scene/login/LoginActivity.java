@@ -13,7 +13,7 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomButton;
 import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.data.model.user.UserData;
+import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.scene.main.MainActivity;
 import com.autohubtraining.autohub.util.AppConstants;
@@ -52,8 +52,8 @@ public class LoginActivity extends BaseActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-//        email.setText("mohamed.fouad0629@gmail.com");
-//        password.setText("123456");
+        email.setText("mohamed.fouad0629@gmail.com");
+        password.setText("123456");
     }
 
     @OnClick({R.id.visiblePwdBtn, R.id.forgot_password, R.id.nextBtn})
@@ -133,8 +133,8 @@ public class LoginActivity extends BaseActivity {
                     DocumentSnapshot doc = task.getResult();
 
                     if (doc.getData() != null) {
-                        UserData user = doc.toObject(UserData.class);
-                        DataHandler.getInstance().setUserData(user);
+                        User user = doc.toObject(User.class);
+                        DataHandler.getInstance().setUser(user);
 
                         MainActivity.startActivity(LoginActivity.this);
                     }

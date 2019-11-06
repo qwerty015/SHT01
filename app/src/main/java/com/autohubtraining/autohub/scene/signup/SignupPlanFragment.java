@@ -18,7 +18,6 @@ import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
-import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
 import com.autohubtraining.autohub.scene.main.MainActivity;
 import com.autohubtraining.autohub.util.AppConstants;
@@ -73,7 +72,6 @@ public class SignupPlanFragment extends BaseFragment {
     ArrayList<UserPlan> alPlans = new ArrayList<>();
 
     SignupActivity activity;
-    int uploadCount = 0;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -81,6 +79,13 @@ public class SignupPlanFragment extends BaseFragment {
         ButterKnife.bind(this, retView);
 
         activity = (SignupActivity) getActivity();
+
+        etPlanName.setText("plan1");
+        etNumberOfPics.setText("3");
+        etPrice.setText("3.5");
+        etPlanName1.setText("plan2");
+        etNumberOfPics1.setText("4");
+        etPrice1.setText("4.5");
 
         alShootType.add("PHOTO SHOOT");
         alShootType.add("VIDEOGRAPHY");
@@ -154,48 +159,7 @@ public class SignupPlanFragment extends BaseFragment {
         plan1.setPrice(etPrice1.getText().toString());
         alPlans.add(plan1);
 
-        savePlanDataToFirestore();
-    }
-
-    /**
-     * method is used for uplaoding plan data to firestore.
-     *
-     * @param
-     * @return
-     */
-    private void savePlanDataToFirestore() {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        User user = DataHandler.getInstance().getUser();
-
-        showLoading("");
-        uploadCount = 0;
-
-        for (UserPlan plan : alPlans) {
-            DocumentReference key = db.collection(AppConstants.ref_service_plan).document();
-            HashMap<String, Object> hm = new HashMap<>();
-            hm.put(key.getId(), plan);
-
-            db.collection(AppConstants.ref_service_plan).document(user.getUserId()).set(hm, SetOptions.merge()).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    uploadCount++;
-
-                    if (alPlans.size() == uploadCount) {
-                        UserData userData = DataHandler.getInstance().getUserData();
-                        userData.setAlUserPlans(alPlans);
-
-                        saveUserDataToFireStore();
-                    }
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.e(AppConstants.TAG, e.toString());
-                    showErrorToast(e.toString());
-                    dismissLoading();
-                }
-            });
-        }
+        saveUserDataToFireStore();
     }
 
     /**
@@ -205,7 +169,11 @@ public class SignupPlanFragment extends BaseFragment {
      * @return
      */
     private void saveUserDataToFireStore() {
+        showLoading("");
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
         User user = DataHandler.getInstance().getUser();
+        user.setArrayPlan(alPlans);
 
         /* set data into firebase database*/
         FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {

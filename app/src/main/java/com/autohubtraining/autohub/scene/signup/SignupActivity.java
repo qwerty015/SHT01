@@ -1,13 +1,9 @@
 package com.autohubtraining.autohub.scene.signup;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ProgressBar;
-
-import androidx.fragment.app.Fragment;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.data.model.user.UserData;
+import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.scene.login.LoginActivity;
 import com.autohubtraining.autohub.scene.main.MainActivity;
@@ -78,8 +78,8 @@ public class LogoActivity extends BaseActivity {
                         DocumentSnapshot doc = task.getResult();
 
                         if (doc.getData() != null) {
-                            UserData user = doc.toObject(UserData.class);
-                            DataHandler.getInstance().setUserData(user);
+                            User user = doc.toObject(User.class);
+                            DataHandler.getInstance().setUser(user);
 
                             MainActivity.startActivity(LogoActivity.this);
                         }
