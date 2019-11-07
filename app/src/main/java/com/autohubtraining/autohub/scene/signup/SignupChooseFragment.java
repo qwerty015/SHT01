@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
+import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.GlobalConstants;
 
 import butterknife.ButterKnife;
@@ -31,11 +32,11 @@ public class SignupChooseFragment extends BaseFragment {
         int id = view.getId();
         switch (id) {
             case R.id.client:
-                DataHandler.getInstance().setUserType(GlobalConstants.USER_CLIENT);
+                activity.userType = AppConstants.CLIENT;
                 activity.initViewPager();
                 break;
             case R.id.photographer:
-                DataHandler.getInstance().setUserType(GlobalConstants.USER_PHOTOGRAPHER);
+                activity.userType = AppConstants.PHOTOGRAPHER;
                 activity.initViewPager();
                 break;
         }

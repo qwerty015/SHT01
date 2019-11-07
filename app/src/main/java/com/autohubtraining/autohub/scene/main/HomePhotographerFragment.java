@@ -33,7 +33,7 @@ public class HomePhotographerFragment extends BaseFragment {
         mainActivity = (MainActivity) getActivity();
         User user = DataHandler.getInstance().getUser();
 
-        Glide.with(this).load(user.getAvatarUrl()).into(iv_avatar);
+        Glide.with(this).load(user.getAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
 
         return retView;
     }

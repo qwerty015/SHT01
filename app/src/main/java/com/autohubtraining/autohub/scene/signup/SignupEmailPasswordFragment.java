@@ -158,7 +158,7 @@ public class SignupEmailPasswordFragment extends BaseFragment {
     private void addUserToFirestore(FirebaseUser firebaseUser) {
         User user = new User();
         user.setUserId(firebaseUser.getUid());
-        user.setType(DataHandler.getInstance().getUserType());
+        user.setType(activity.userType);
         user.setFirstName(activity.str_firstname);
         user.setLastName(activity.str_lastname);
         user.setEmail(firebaseUser.getEmail());

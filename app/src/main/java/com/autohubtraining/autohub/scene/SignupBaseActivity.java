@@ -30,11 +30,11 @@ public class SignupBaseActivity extends AppCompatActivity {
     ProgressBar progressBar;
 
     protected void setProgressBar(int progress) {
-        if (DataHandler.getInstance().getUserType() == PHOTOGRAPHER) {
-            progressBar.setMax(MAX_SCREEN_PHOTOGRAPHER);
-        } else {
-            progressBar.setMax(MAX_SCREEN_CLIENT);
-        }
+//        if (DataHandler.getInstance().getUserType() == PHOTOGRAPHER) {
+//            progressBar.setMax(MAX_SCREEN_PHOTOGRAPHER);
+//        } else {
+//            progressBar.setMax(MAX_SCREEN_CLIENT);
+//        }
         progressBar.setProgress(progress);
     }
 

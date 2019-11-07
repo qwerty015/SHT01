@@ -2,18 +2,20 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorLime">#E9F50E</color>
-    <color name="colorYellow">#FFEB3B</color>
-    <color name="colorGreen">#ff18d29f</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#000000</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBlack80">#80000000</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorWhite80">#10ff0000</color>
+    <color name="colorYellow">#ffee00</color>
+    <color name="colorGreen">#51df4c</color>
+    <color name="colorRed">#f10333</color>
     <color name="colorPink">#fc85dc</color>
     <color name="colorPinkOpac">#10ff0000</color>
     <color name="colorPurple">#924eec</color>
     <color name="colorBlue">#80a1fb</color>
+    <color name="colorGray">#c6ccd1</color>
     <array name="in_step_colors">
         <item>@color/colorPrimary</item>
         <item>@color/colorAccent</item>

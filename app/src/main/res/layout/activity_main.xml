@@ -19,6 +19,7 @@
         android:background="@color/colorWhite"
         app:itemIconSize="@dimen/_22sdp"
         app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/navigation"/>
+        app:menu="@menu/navigation"
+        app:itemIconTint="@color/bottom_navigation_color"/>
 
 </RelativeLayout>

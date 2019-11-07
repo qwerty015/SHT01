@@ -166,7 +166,7 @@ public class SignupAvatarFragment extends BaseFragment {
      * @return
      */
     void saveDataIntoFireStore(String avatarUrl) {
-        if (DataHandler.getInstance().getUserType() == AppConstants.CLIENT) {
+        if (activity.userType == AppConstants.CLIENT) {
             User user = DataHandler.getInstance().getUser();
             user.setAvatarUrl(avatarUrl);
 

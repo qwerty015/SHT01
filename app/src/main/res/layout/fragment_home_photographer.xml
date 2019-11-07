@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:text="algtest."
             android:textColor="@color/colorBlack"
-            android:textSize="@dimen/_20ssp"
+            android:textSize="@dimen/_24ssp"
             app:fontName="Montserrat_Bold"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -41,7 +41,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:text="earnings this month."
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_16ssp"
             app:fontName="Montserrat_Bold"/>
 
         <com.autohubtraining.autohub.customview.CustomTextView
@@ -51,7 +51,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:text="$ 0"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_35ssp"
+            android:textSize="@dimen/_38ssp"
             app:fontName="Montserrat_Bold"/>
 
     </RelativeLayout>
@@ -70,7 +70,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:text="alg rank."
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_16ssp"
             app:fontName="Montserrat_Bold"/>
 
         <com.autohubtraining.autohub.customview.CustomTextView
@@ -80,8 +80,16 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:text="new."
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_35ssp"
+            android:textSize="@dimen/_38ssp"
             app:fontName="Montserrat_Bold"/>
+
+        <ImageView
+            android:layout_width="@dimen/_58sdp"
+            android:layout_height="@dimen/_58sdp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_16sdp"
+            android:src="@drawable/rank_tint"/>
 
     </RelativeLayout>
 
@@ -99,7 +107,7 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:text="upcoming shoots."
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_15ssp"
+            android:textSize="@dimen/_16ssp"
             app:fontName="Montserrat_Bold"/>
 
         <com.autohubtraining.autohub.customview.CustomTextView
@@ -109,17 +117,16 @@
             android:layout_marginLeft="@dimen/_15sdp"
             android:text="0"
             android:textColor="@color/colorWhite"
-            android:textSize="@dimen/_35ssp"
+            android:textSize="@dimen/_38ssp"
             app:fontName="Montserrat_Bold"/>
 
         <ImageView
-            android:layout_width="@dimen/_20sdp"
+            android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/_10sdp"
-            android:background="@drawable/ic_arrow_black"
-            android:backgroundTint="@color/colorWhite"/>
+            android:layout_marginRight="@dimen/_8sdp"
+            android:src="@drawable/ic_arrow_right"/>
 
     </RelativeLayout>
 

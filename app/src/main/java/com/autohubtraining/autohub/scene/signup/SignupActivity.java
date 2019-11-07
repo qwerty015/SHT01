@@ -45,6 +45,7 @@ public class SignupActivity extends BaseActivity implements EquipmentAdapter.Ite
 
     String str_firstname = "";
     String str_lastname = "";
+    int userType = AppConstants.CLIENT;
     int nCurrentPageIndex = 0;
 
     @Override
@@ -85,7 +86,7 @@ public class SignupActivity extends BaseActivity implements EquipmentAdapter.Ite
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == ImageUtils.REQUEST_LOAD_IMAGE && null != data) {
-                if (DataHandler.getInstance().getUserType() == AppConstants.CLIENT) {
+                if (userType == AppConstants.CLIENT) {
                     if (nCurrentPageIndex == 3)
                         fragmentAvatar.setAvatarPath(data.getData());
                 } else {
@@ -124,7 +125,7 @@ public class SignupActivity extends BaseActivity implements EquipmentAdapter.Ite
     }
 
     public void initViewPager() {
-        if (DataHandler.getInstance().getUserType() == AppConstants.CLIENT) {
+        if (userType == AppConstants.CLIENT) {
             viewPagerAdapter.addFragment(fragmentName, "title");
             viewPagerAdapter.addFragment(fragmentEmailPassword, "title");
             viewPagerAdapter.addFragment(fragmentAvatar, "title");
@@ -154,7 +155,7 @@ public class SignupActivity extends BaseActivity implements EquipmentAdapter.Ite
         float toValue = 0;
 
         progressBar.setMax(1000);
-        if (DataHandler.getInstance().getUserType() == GlobalConstants.USER_CLIENT) {
+        if (userType == GlobalConstants.USER_CLIENT) {
             toValue = progress / (float)GlobalConstants.SIGNUP_SCREEN_COUNTS_CLIENT * 1000f;
         } else {
             toValue = progress / (float)GlobalConstants.SIGNUP_SCREEN_COUNTS_PHOTOGRAPHER * 1000f;
