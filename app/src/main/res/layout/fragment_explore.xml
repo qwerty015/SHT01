@@ -40,6 +40,7 @@
                 android:layout_height="match_parent"
                 android:background="@mipmap/rectangle_edt_background"
                 android:paddingLeft="@dimen/_30sdp"
+                android:hint="@string/enter_name_of_photographers"
                 android:textSize="@dimen/_12ssp"
                 app:fontName="Montserrat_SemiBold" />
 

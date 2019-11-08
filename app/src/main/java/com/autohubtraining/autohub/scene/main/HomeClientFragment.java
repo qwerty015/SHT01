@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class HomePhotographerFragment extends BaseFragment {
+public class HomeClientFragment extends BaseFragment {
 
     @BindView(R.id.iv_avatar)
     CircleImageView iv_avatar;
@@ -30,7 +30,7 @@ public class HomePhotographerFragment extends BaseFragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View retView = inflater.inflate(R.layout.fragment_home_photographer, container, false);
+        View retView = inflater.inflate(R.layout.fragment_home_client, container, false);
         ButterKnife.bind(this, retView);
 
         mainActivity = (MainActivity) getActivity();
@@ -41,13 +41,17 @@ public class HomePhotographerFragment extends BaseFragment {
         return retView;
     }
 
-    @OnClick({R.id.iv_avatar})
+    @OnClick({R.id.iv_avatar, R.id.b_find})
     void onClickItems(View view) {
         int id = view.getId();
         switch (id) {
             case R.id.iv_avatar:
                 Intent intent = new Intent(mainActivity, ProfileActivity.class);
                 startActivity(intent);
+
+                break;
+            case R.id.b_find:
+                mainActivity.setViewPager(1);
                 break;
         }
     }

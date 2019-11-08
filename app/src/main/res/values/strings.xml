@@ -56,6 +56,12 @@
     <string name="enter_password">enter password.</string>
     <string name="forgot_password">forgot password?</string>
 
+    <string name="profile">PROFILE</string>
+    <string name="edit_profile">EDIT PROFILE</string>
+    <string name="edit_your_details">EDIT YOUR DETAILS</string>
+    <string name="manage_packages">MANAGE PACKAGES</string>
+    <string name="saved_profiles">SAVED PROFILES</string>
+
     <string name="logout">LOGOUT</string>
     <string name="logout_confirmation">Do you really want to log out?</string>
 
@@ -63,6 +69,16 @@
 
     <string name="shoot">SHOOT</string>
     <string name="sign_up">SIGNUP</string>
+
+    <string name="new_bookings">NEW BOOKINGS</string>
+    <string name="previous_bookings">PREVIOUS BOOKINGS</string>
+
+    <string name="find_your_perfect_photographer">Find your\nperfect\nphotographer.</string>
+    <string name="shoot_for_every_occasion">shoot. for every occasion.</string>
+    <string name="enter_name_of_photographers">enter name of photographers.</string>
+
+
+
 
 
     
@@ -79,10 +95,8 @@
 
     <string name="perfect_text">Perfect. Now let\'s build your profile and show the world your photographic abilities.</string>
 
-    <string name="profile">PROFILE</string>
-    <string name="alex_r">Alex R.</string>
-    <string name="edit_profile">EDIT PROFILE</string>
-    <string name="edit_your_details">EDIT YOUR DETAILS</string>
+
+
     <string name="create_offers">CREATE OFFERS</string>
 
     <string name="my_favourites">My Favourites</string>
@@ -96,7 +110,7 @@
     <string name="nikond5300">Nikon D5300</string>
     <string name="neww">New</string>
     <string name="rank">Rank</string>
-    <string name="find_your_perfect_photographer">Find your Perfect Photographer.</string>
+
     <string name="photogenic_locations_nearby">Photogenic Locations Nearby.</string>
     <string name="find">Find</string>
     <string name="edit_details">Edit Details</string>
@@ -130,7 +144,6 @@
     <string name="auto_detect_otp">Please wait while we auto detect the verification code.</string>
     <string name="invalid_no">Please enter valid number</string>
     <string name="payment_option">Payment Option</string>
-    <string name="saved_profiles">Saved Profiles</string>
 
 
 

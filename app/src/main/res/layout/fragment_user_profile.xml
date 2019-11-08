@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_148sdp"
-            android:background="@mipmap/rectangle_profile_background"
+            android:background="@drawable/profile_top_back"
             android:orientation="vertical">
 
             <com.autohubtraining.autohub.customview.CustomTextView
@@ -46,27 +46,6 @@
                         android:layout_centerInParent="true"
                         android:layout_marginLeft="@dimen/_22sdp"
                         android:src="@mipmap/profile_image_icon" />
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_40sdp"
-                        android:layout_marginTop="@dimen/_35sdp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:src="@mipmap/profile_pic_edit_circle" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:src="@mipmap/profile_pic_edit_pen" />
-
-
-                    </RelativeLayout>
 
 
                 </RelativeLayout>
@@ -157,7 +136,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/profile_logout_icon" />
+            android:src="@drawable/ic_logout" />
 
         <com.autohubtraining.autohub.customview.CustomTextView
             android:layout_width="wrap_content"

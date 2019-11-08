@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,20 +18,20 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
-public class ExplorePhotographerListAdapter extends BaseAdapter {
+public class ExplorePhotographerListAdapter extends BaseAdapter implements Filterable {
 
-    private ArrayList<User> listPhotographers;
+    private ArrayList<User> listFilter;
+    private final ArrayList<User> listPhotographers = new ArrayList<>();
 
     public ExplorePhotographerListAdapter(Context context, ArrayList<User> list) {
-        this.listPhotographers = list;
+        this.listFilter = list;
+        this.listPhotographers.addAll(list);
     }
 
     @Override
     public int getCount() {
-        return listPhotographers.size();
+        return listFilter.size();
     }
 
     @Override
@@ -75,7 +77,7 @@ public class ExplorePhotographerListAdapter extends BaseAdapter {
 
         viewHolder.position = position;
 
-        final User photographer = listPhotographers.get(viewHolder.position);
+        final User photographer = listFilter.get(viewHolder.position);
 
         if (photographer.getBestImages().size() > 0) {
             Glide.with(parent.getContext()).load(photographer.getBestImages().get(0)).apply(RequestOptions.bitmapTransform(new RoundedCorners(20))).placeholder(R.drawable.black_bg).into(viewHolder.iv_photo);
@@ -85,18 +87,48 @@ public class ExplorePhotographerListAdapter extends BaseAdapter {
         viewHolder.tv_name.setText(photographer.getFirstName());
         viewHolder.tv_camerainfo.setText(photographer.getCameraBrand() + " " + photographer.getCameraModel());
 
-        UserPlan plan = Collections.min(photographer.getArrayPlan(), new PlanComp());
-
+        UserPlan plan = photographer.getArrayPlan().get(0);
         viewHolder.tv_price.setText("$ " + plan.getPrice() + " /");
         viewHolder.tv_numpictures.setText(plan.getNumberOfPictures() + " PICTURES");
 
         return convertView;
     }
-}
 
-class PlanComp implements Comparator<UserPlan>{
     @Override
-    public int compare(UserPlan p1, UserPlan p2) {
-        return Float.compare(Float.parseFloat(p1.getPrice()), Float.parseFloat(p2.getPrice()));
+    public Filter getFilter() {
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                FilterResults results = new FilterResults();
+
+                if (constraint == null || constraint.length() == 0) { // if your editText field is empty, return full list of FriendItem
+                    results.count = listPhotographers.size();
+                    results.values = listPhotographers;
+                } else {
+                    ArrayList<User> filteredList = new ArrayList<>();
+
+                    constraint = constraint.toString().toLowerCase(); // if we ignore case
+                    for (User item : listPhotographers) {
+                        String firstName = item.getFirstName().toLowerCase(); // if we ignore case
+                        String lastName = item.getLastName().toLowerCase(); // if we ignore case
+                        if (firstName.contains(constraint.toString()) || lastName.contains(constraint.toString())) {
+                            filteredList.add(item); // added item witch contains our text in EditText
+                        }
+                    }
+
+                    results.count = filteredList.size(); // set count of filtered list
+                    results.values = filteredList; // set filtered list
+                }
+                return results; // return our filtered list
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                listFilter = (ArrayList<User>) results.values; // replace list to filtered list
+                notifyDataSetChanged(); // refresh adapter
+            }
+        };
+
+        return filter;
     }
 }

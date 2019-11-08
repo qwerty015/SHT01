@@ -12,10 +12,13 @@
     <color name="colorGreen">#51df4c</color>
     <color name="colorRed">#f10333</color>
     <color name="colorPink">#fc85dc</color>
+    <color name="colorPink1">#ffb4b5</color>
+    <color name="colorPink2">#ffa8dc</color>
     <color name="colorPinkOpac">#10ff0000</color>
     <color name="colorPurple">#924eec</color>
     <color name="colorBlue">#80a1fb</color>
     <color name="colorGray">#c6ccd1</color>
+    <color name="colorGray1">#707070</color>
     <array name="in_step_colors">
         <item>@color/colorPrimary</item>
         <item>@color/colorAccent</item>

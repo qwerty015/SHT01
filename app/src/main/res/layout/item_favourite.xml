@@ -75,7 +75,7 @@
             android:id="@+id/tvDistance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/alex_r"
+            android:text="alex_r"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_14sdp"
             android:textStyle="bold"

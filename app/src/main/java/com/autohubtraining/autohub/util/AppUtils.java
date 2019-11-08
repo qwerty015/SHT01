@@ -9,6 +9,9 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.util.Base64;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
@@ -37,6 +40,29 @@ public class AppUtils {
         return matcher.matches();
     }
 
+    /**
+     * method is used for hiding keyboard from activity.
+     *
+     * @param activity
+     * @return boolean true for valid false for invalid
+     */
+    public static void hideKeyboard(Activity activity, EditText editText) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+    }
+
+    /**
+     * method is used for showing keyboard in activity.
+     *
+     * @param activity
+     * @return boolean true for valid false for invalid
+     */
+    public static void showKeyboard(Activity activity, EditText editText) {
+        editText.requestFocus();
+
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT);
+    }
 
     public static void openGallery(Context context, int requestCode) {
         Intent intent = new Intent();
@@ -55,7 +81,7 @@ public class AppUtils {
         return encoded;
     }
 
-    public   static Bitmap addBorder(Bitmap resource, Context context) {
+    public static Bitmap addBorder(Bitmap resource, Context context) {
         int w = resource.getWidth();
         int h = resource.getHeight();
         int radius = Math.min(h / 2, w / 2);

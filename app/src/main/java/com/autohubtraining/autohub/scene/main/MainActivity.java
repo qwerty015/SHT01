@@ -8,10 +8,12 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
-import androidx.viewpager.widget.ViewPager;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.data.DataHandler;
+import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
+import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.views.CustomViewPager;
 import com.autohubtraining.autohub.util.views.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -34,14 +36,17 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        User user = DataHandler.getInstance().getUser();
+
         navigation.setOnNavigationItemSelectedListener(this);
         navigation.setSelectedItemId(R.id.navigation_explore);
         view_pager.setPagingEnabled(false);
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
 
-        viewPagerAdapter.addFragment(new HomePhotographerFragment(), "title");
+        viewPagerAdapter.addFragment(user.getType() == AppConstants.CLIENT ? new HomeClientFragment() : new HomePhotographerFragment(), "title");
         viewPagerAdapter.addFragment(new ExploreFragment(), "title");
+        viewPagerAdapter.addFragment(new BookingsFragment(), "title");
 
         view_pager.setAdapter(viewPagerAdapter);
         view_pager.setCurrentItem(1);
@@ -71,9 +76,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 break;
 
             case R.id.navigation_booking:
-                logout();
-//                if (viewPager != null)
-//                    viewPager.setCurrentItem(2);
+                if (view_pager != null)
+                    view_pager.setCurrentItem(2);
 
                 break;
         }
@@ -88,5 +92,19 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
         ((Activity) context).finish();
+    }
+
+    public void setViewPager(int pageIndex) {
+        if (view_pager != null) {
+            view_pager.setCurrentItem(pageIndex);
+
+            if (pageIndex == 0) {
+                navigation.setSelectedItemId(R.id.navigation_home);
+            } else if (pageIndex == 1) {
+                navigation.setSelectedItemId(R.id.navigation_explore);
+            } else {
+                navigation.setSelectedItemId(R.id.navigation_booking);
+            }
+        }
     }
 }
