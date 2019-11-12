@@ -12,7 +12,6 @@ import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.scene.editinfo.EditInfoActivity;
-import com.autohubtraining.autohub.scene.viewmore.ViewMoreActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
@@ -77,9 +76,9 @@ public class EditProfileActivity extends BaseActivity {
         btnViewMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditProfileActivity.this, ViewMoreActivity.class);
-                intent.putExtra(AppConstants.USERDATA, DataHandler.getInstance().getUserData());
-                startActivity(intent);
+//                Intent intent = new Intent(EditProfileActivity.this, ViewMoreActivity.class);
+//                intent.putExtra(AppConstants.USERDATA, DataHandler.getInstance().getUserData());
+//                startActivity(intent);
 
             }
         });

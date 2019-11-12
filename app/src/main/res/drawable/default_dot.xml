@@ -4,11 +4,11 @@
         <shape
             android:innerRadius="0dp"
             android:shape="ring"
-            android:thickness="4dp"
+            android:thickness="@dimen/_4sdp"
             android:useLevel="false">
 
             <stroke
-                android:width="1dp"
+                android:width="@dimen/_1sdp"
                 android:color="@color/colorBlack" />
         </shape>
     </item>

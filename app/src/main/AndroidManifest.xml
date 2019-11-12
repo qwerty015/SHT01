@@ -52,21 +52,14 @@
             android:name=".scene.profile.ProfileActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
 
+        <activity
+            android:name=".scene.photographer_detail.PhotographerDetail"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
 
 
         <activity android:name=".scene.my_favourites.MyFavourites"
-            android:theme="@style/AppTheme.NoActionBar"
-            ></activity>
-        <activity
-            android:name=".scene.viewmore1.ViewMore1Activity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".scene.viewmore.ViewMoreActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
-
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".scene.editdetails.EditDetailsActivity"
             android:label="@string/app_name"

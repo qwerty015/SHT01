@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -21,6 +22,7 @@ import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
 import com.autohubtraining.autohub.scene.main.custom.ExplorePhotographerListAdapter;
+import com.autohubtraining.autohub.scene.photographer_detail.PhotographerDetail;
 import com.autohubtraining.autohub.scene.profile.ProfileActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.AppUtils;
@@ -77,6 +79,17 @@ public class ExploreFragment extends BaseFragment {
 
             @Override
             public void afterTextChanged(Editable editable) { }
+        });
+
+        lv_photographers.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                User photographer = al_photographers.get(i);
+
+                Intent intent = new Intent(mainActivity, PhotographerDetail.class);
+                intent.putExtra(AppConstants.key_photographer, photographer);
+                startActivity(intent);
+            }
         });
 
         return retView;

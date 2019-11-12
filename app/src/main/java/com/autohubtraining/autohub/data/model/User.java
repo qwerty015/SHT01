@@ -32,6 +32,7 @@ public class User implements Serializable{
 	private String cameraModel;
 	private List<String> cameraAccessories;
 	private ArrayList<UserPlan> arrayPlan;
+	private List<String> favourites;
 
 	public void setUserId(String userId){
 		this.userId = userId;
@@ -135,5 +136,13 @@ public class User implements Serializable{
 
 	public ArrayList<UserPlan> getArrayPlan() {
 		return arrayPlan;
+	}
+
+	public void setFavourites(List<String> favourites) {
+		this.favourites = favourites;
+	}
+
+	public List<String> getFavourites() {
+		return favourites;
 	}
 }

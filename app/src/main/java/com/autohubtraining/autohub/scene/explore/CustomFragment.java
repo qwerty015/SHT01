@@ -18,7 +18,6 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomTextView;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.editprofile.MyViewPagerAdapter;
-import com.autohubtraining.autohub.scene.viewmore.ViewMoreActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.views.CustomLinearLayout;
 import com.bumptech.glide.Glide;
@@ -70,9 +69,9 @@ public class CustomFragment extends Fragment {
         btnViewMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ViewMoreActivity.class);
-                intent.putExtra(AppConstants.USERDATA, userData);
-                getContext().startActivity(intent);
+//                Intent intent = new Intent(getContext(), ViewMoreActivity.class);
+//                intent.putExtra(AppConstants.USERDATA, userData);
+//                getContext().startActivity(intent);
 
             }
         });

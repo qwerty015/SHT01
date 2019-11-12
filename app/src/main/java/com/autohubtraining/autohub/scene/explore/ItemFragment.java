@@ -29,7 +29,6 @@ import android.widget.TextView;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.scene.editprofile.MyViewPagerAdapter;
-import com.autohubtraining.autohub.scene.viewmore.ViewMoreActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -114,9 +113,9 @@ public class ItemFragment extends Fragment {
         btnViewMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ViewMoreActivity.class);
-                intent.putExtra(AppConstants.USERDATA, userData);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), ViewMoreActivity.class);
+//                intent.putExtra(AppConstants.USERDATA, userData);
+//                startActivity(intent);
 
             }
         });

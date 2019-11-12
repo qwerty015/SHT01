@@ -25,7 +25,7 @@ public interface AppConstants {
     String ref_public_data = "public_data";
     String ref_service_plan = "service_plans";
 
-
+    String key_photographer = "photographer";
 
 
     int DESCRIPTIION_LENGTH=240;

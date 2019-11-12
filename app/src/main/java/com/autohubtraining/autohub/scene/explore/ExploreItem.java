@@ -20,8 +20,6 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomTextView;
 import com.autohubtraining.autohub.data.model.user.UserData;
 import com.autohubtraining.autohub.scene.editprofile.MyViewPagerAdapter;
-import com.autohubtraining.autohub.scene.viewmore.ViewMoreActivity;
-import com.autohubtraining.autohub.util.AppConstants;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 
@@ -79,9 +77,6 @@ public class ExploreItem extends RecyclerView.Adapter<ExploreItem.ViewHolder> {
         holder.btnViewMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, ViewMoreActivity.class);
-                intent.putExtra(AppConstants.USERDATA, userData);
-                context.startActivity(intent);
 
             }
         });

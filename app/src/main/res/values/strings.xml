@@ -77,10 +77,13 @@
     <string name="shoot_for_every_occasion">shoot. for every occasion.</string>
     <string name="enter_name_of_photographers">enter name of photographers.</string>
 
-
-
-
-
+    <string name="photographer_detail_bio">I\'m a free spirited photographer and click good pictures, and have a good knack for photography and use 20mm lens and 45 mm lens for the same, and click good pictures. I\'m talented too and hard working.</string>
+    <string name="read_more">...read more</string>
+    <string name="model_pack">MODEL PACK</string>
+    <string name="no_of_photographs">NO.OF PHOTOGRAPHS</string>
+    <string name="editing_included_upper">EDITING INCLUDED?</string>
+    <string name="book_this_package">Book THIS PACKAGE</string>
+    <string name="redeem_offer">REDEEM OFFER</string>
     
 
 
@@ -124,9 +127,9 @@
     <string name="tripod">Tripod</string>
     <string name="external_flash">External Flash</string>
     <string name="model">Model</string>
-    <string name="book_this_package">Book this package</string>
-    <string name="redeem_offer">Redeem Offer</string>
-    <string name="read_more">Read More</string>
+
+
+
     <string name="view_more1_desc">I\'m a free spirited photographer and click good pictures, and have a good knack for photography and use 20mm lens and 45 mm lens for the same, and click good pictures.</string>
     <string name="photos">Photos</string>
     <string name="bio">Bio</string>

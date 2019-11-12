@@ -137,4 +137,14 @@
         <item name="cpd_maxSweepAngle">300</item>
     </style>
 
+    <style name="PlanTabLayout" parent="Base.Widget.Design.TabLayout">
+        <item name="tabTextAppearance">@style/PlanTabTextAppearance</item>
+    </style>
+
+    <style name="PlanTabTextAppearance" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="textAllCaps">true</item>
+    </style>
+
 </resources>
