@@ -219,8 +219,6 @@ public class SignupBestPhotoFragment extends BaseFragment {
                         if (aldownloadFileUrl.size() == al.size()) {
                             saveDataIntoFireStore();
                         }
-
-                        Log.d("downloadUrl", "onSuccess: uri= " + uri.toString());
                     }
                 });
             }

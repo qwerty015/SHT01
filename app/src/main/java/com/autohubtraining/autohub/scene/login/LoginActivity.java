@@ -89,7 +89,7 @@ public class LoginActivity extends BaseActivity {
      * @return
      */
     private void signInWithEmailAndPassword(String email, String password) {
-        showLoading("Loading");
+        showLoading("");
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -157,7 +157,7 @@ public class LoginActivity extends BaseActivity {
      * @return
      */
     private void sendPasswordResetEmail(String email) {
-        showLoading("Loading");
+        showLoading("");
 
         mAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

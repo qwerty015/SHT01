@@ -23,7 +23,8 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="@dimen/_16sdp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/ellipse_2"/>
+            android:src="@drawable/ellipse_2"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 

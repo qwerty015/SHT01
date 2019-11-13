@@ -129,7 +129,7 @@ public class SignupEmailPasswordFragment extends BaseFragment {
      * @return
      */
     private void createUserWithEmailAndPassword(String email, String password) {
-        showLoading("Loading");
+        showLoading("");
         activity.getFirebaseAuthInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override

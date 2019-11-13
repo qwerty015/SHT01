@@ -11,12 +11,17 @@ import androidx.annotation.NonNull;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
+import com.autohubtraining.autohub.data.events.CustomEvent;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.views.CustomViewPager;
 import com.autohubtraining.autohub.util.views.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,6 +33,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     CustomViewPager view_pager;
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
+
+    ViewPagerAdapter viewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +49,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         navigation.setSelectedItemId(R.id.navigation_explore);
         view_pager.setPagingEnabled(false);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
+        viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
 
         viewPagerAdapter.addFragment(user.getType() == AppConstants.CLIENT ? new HomeClientFragment() : new HomePhotographerFragment(), "title");
         viewPagerAdapter.addFragment(new ExploreFragment(), "title");
@@ -57,6 +64,37 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         int id = view.getId();
         switch (id) {
 
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+
+    @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+    public void onCustomEvent(CustomEvent event) {
+        if (event.data == "Updated Profile") {
+            if (DataHandler.getInstance().getUser().getType() == AppConstants.CLIENT) {
+                HomeClientFragment homeClientFragment = (HomeClientFragment) viewPagerAdapter.getItem(0);
+                homeClientFragment.updateAvatar();
+            } else {
+                HomePhotographerFragment homePhotographerFragment = (HomePhotographerFragment) viewPagerAdapter.getItem(0);
+                homePhotographerFragment.updateAvatar();
+            }
+
+            ExploreFragment exploreFragment = (ExploreFragment) viewPagerAdapter.getItem(1);
+            exploreFragment.updateAvatar();
+
+            BookingsFragment bookingsFragment = (BookingsFragment) viewPagerAdapter.getItem(2);
+            bookingsFragment.updateAvatar();
         }
     }
 

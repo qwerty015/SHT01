@@ -23,17 +23,17 @@ public interface AppConstants {
     String ref_user = "user";
     String ref_camera = "user_cameras";
     String ref_public_data = "public_data";
-    String ref_service_plan = "service_plans";
 
     String key_photographer = "photographer";
 
+    int DESCRIPTIION_LENGTH = 240;
 
-    int DESCRIPTIION_LENGTH=240;
+
+
+
+
     int OTP_TIME_OUT = 60;
 
-    String USERDATA = "uer_data";
-
     String favourite_ref="my_favourite";
-    String liked_by="liked_by";
 
 }

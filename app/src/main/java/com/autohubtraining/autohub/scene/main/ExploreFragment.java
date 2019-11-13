@@ -63,9 +63,7 @@ public class ExploreFragment extends BaseFragment {
         mainActivity = (MainActivity) getActivity();
         adapter_photographers = new ExplorePhotographerListAdapter(mainActivity, al_photographers);
 
-        User user = DataHandler.getInstance().getUser();
-        Glide.with(this).load(user.getAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
-
+        updateAvatar();
         getPhotographers();
 
         ev_search.addTextChangedListener(new TextWatcher() {
@@ -116,6 +114,17 @@ public class ExploreFragment extends BaseFragment {
 
                 break;
         }
+    }
+
+    /**
+     * method is used for updating user's photo.
+     *
+     * @param
+     * @return
+     */
+    public void updateAvatar() {
+        User user = DataHandler.getInstance().getUser();
+        Glide.with(this).load(user.getAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
     }
 
     /**

@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import com.autohubtraining.autohub.customview.CustomTextView;
 import com.autohubtraining.autohub.data.events.UserFavorites;
 import com.autohubtraining.autohub.data.model.user.UserData;
+import com.autohubtraining.autohub.scene.photographer_detail.custom.PhotoViewPagerAdapter;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
@@ -28,7 +29,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.scene.editprofile.MyViewPagerAdapter;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -122,7 +122,7 @@ public class ItemFragment extends Fragment {
         TabLayout tabLayout = (TabLayout) linearLayout.findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(vpPager, true);
         CarouselLinearLayout root = (CarouselLinearLayout) linearLayout.findViewById(R.id.root_container);
-        MyViewPagerAdapter adapter = new MyViewPagerAdapter(container.getContext(), userData.getBestImages());
+        PhotoViewPagerAdapter adapter = new PhotoViewPagerAdapter(container.getContext(), userData.getBestImages());
         vpPager.setAdapter(adapter);
 
 

@@ -45,8 +45,7 @@ public class BookingsFragment extends BaseFragment {
 
         mainActivity = (MainActivity) getActivity();
 
-        User user = DataHandler.getInstance().getUser();
-        Glide.with(this).load(user.getAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
+        updateAvatar();
 
         return retView;
     }
@@ -78,5 +77,16 @@ public class BookingsFragment extends BaseFragment {
                 }
                 break;
         }
+    }
+
+    /**
+     * method is used for updating user's photo.
+     *
+     * @param
+     * @return
+     */
+    public void updateAvatar() {
+        User user = DataHandler.getInstance().getUser();
+        Glide.with(this).load(user.getAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
     }
 }

@@ -19,7 +19,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomTextView;
 import com.autohubtraining.autohub.data.model.user.UserData;
-import com.autohubtraining.autohub.scene.editprofile.MyViewPagerAdapter;
+import com.autohubtraining.autohub.scene.photographer_detail.custom.PhotoViewPagerAdapter;
 import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 
@@ -82,7 +82,7 @@ public class ExploreItem extends RecyclerView.Adapter<ExploreItem.ViewHolder> {
         });
 
         holder.tabLayout.setupWithViewPager(holder.vpPager, true);
-        MyViewPagerAdapter adapter = new MyViewPagerAdapter(context, userData.getBestImages());
+        PhotoViewPagerAdapter adapter = new PhotoViewPagerAdapter(context, userData.getBestImages());
         holder.vpPager.setAdapter(adapter);
         holder.vpPager.setOnTouchListener(new View.OnTouchListener() {
             @Override

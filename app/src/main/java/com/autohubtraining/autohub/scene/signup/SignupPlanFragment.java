@@ -171,7 +171,6 @@ public class SignupPlanFragment extends BaseFragment {
     private void saveUserDataToFireStore() {
         showLoading("");
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
         User user = DataHandler.getInstance().getUser();
         user.setArrayPlan(alPlans);
 

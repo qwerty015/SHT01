@@ -125,7 +125,7 @@ public class SignupAvatarFragment extends BaseFragment {
      * @return
      */
     public void uploadAvatarPhoto(File file) {
-        showLoading("Loading");
+        showLoading("");
 
         if (file.length() > 0) {
             Uri uri = Uri.fromFile(file);

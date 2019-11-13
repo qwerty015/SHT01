@@ -64,7 +64,7 @@ public class LogoActivity extends BaseActivity {
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         if (firebaseUser != null) {
-            this.showLoading("Loading");
+            this.showLoading("");
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 

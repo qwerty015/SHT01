@@ -230,7 +230,7 @@ public class ExplorePresenter implements ExploreContract.Presenter {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection(AppConstants.ref_service_plan).document(user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
+        db.collection("service_plan").document(user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
 
             ArrayList<UserPlan> alBrands = new ArrayList<>();
             Map<String, Object> map = documentSnapshot.getData();

@@ -34,9 +34,8 @@ public class HomeClientFragment extends BaseFragment {
         ButterKnife.bind(this, retView);
 
         mainActivity = (MainActivity) getActivity();
-        User user = DataHandler.getInstance().getUser();
 
-        Glide.with(this).load(user.getAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
+        updateAvatar();
 
         return retView;
     }
@@ -54,5 +53,16 @@ public class HomeClientFragment extends BaseFragment {
                 mainActivity.setViewPager(1);
                 break;
         }
+    }
+
+    /**
+     * method is used for updating user's photo.
+     *
+     * @param
+     * @return
+     */
+    public void updateAvatar() {
+        User user = DataHandler.getInstance().getUser();
+        Glide.with(this).load(user.getAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
     }
 }

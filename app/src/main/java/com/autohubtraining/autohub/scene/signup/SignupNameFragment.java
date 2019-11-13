@@ -49,6 +49,12 @@ public class SignupNameFragment extends BaseFragment {
         }
     }
 
+    /**
+     * method is used for checking validation of first name and last name.
+     *
+     * @param
+     * @return boolean true for valid or false or invalid
+     */
     private boolean isValidate() {
         SignupActivity activity = (SignupActivity) getActivity();
 

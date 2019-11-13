@@ -61,6 +61,8 @@
     <string name="edit_your_details">EDIT YOUR DETAILS</string>
     <string name="manage_packages">MANAGE PACKAGES</string>
     <string name="saved_profiles">SAVED PROFILES</string>
+    <string name="save_changes">SAVE CHANGES</string>
+    <string name="edit_details">EDIT DETAILS</string>
 
     <string name="logout">LOGOUT</string>
     <string name="logout_confirmation">Do you really want to log out?</string>
@@ -85,6 +87,10 @@
     <string name="book_this_package">Book THIS PACKAGE</string>
     <string name="redeem_offer">REDEEM OFFER</string>
     
+
+
+
+
 
 
     <string name="remaining">240 remaining</string>
@@ -116,7 +122,7 @@
 
     <string name="photogenic_locations_nearby">Photogenic Locations Nearby.</string>
     <string name="find">Find</string>
-    <string name="edit_details">Edit Details</string>
+
     <string name="name">Name</string>
     <string name="contact_number">Contact Number</string>
     <string name="john_dalton">John Dalton</string>
