@@ -39,7 +39,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_5sdp"
-            android:text="@string/remaining"
+            android:text="240 remaining"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_10ssp"
             app:fontName="Montserrat_SemiBold" />

@@ -12,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
+import com.autohubtraining.autohub.data.events.CustomEvent;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
@@ -22,6 +23,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 
@@ -199,8 +202,8 @@ public class PhotographerDetail extends BaseActivity {
     private Boolean isFavouritePhotographer() {
         User user = DataHandler.getInstance().getUser();
 
-        if (user.getFavourites() != null) {
-            if (user.getFavourites().contains(photographer.getUserId())) {
+        if (photographer.getFollowings() != null) {
+            if (photographer.getFollowings().contains(user.getUserId())) {
                 return true;
             } else {
                 return false;
@@ -220,24 +223,24 @@ public class PhotographerDetail extends BaseActivity {
         User user = DataHandler.getInstance().getUser();
 
         if (isAdd) {
-            if (user.getFavourites() != null) {
-                user.getFavourites().add(photographer.getUserId());
+            if (photographer.getFollowings() != null) {
+                photographer.getFollowings().add(user.getUserId());
             } else {
-                ArrayList<String> alFavourites = new ArrayList<>();
-                alFavourites.add(photographer.getUserId());
-                user.setFavourites(alFavourites);
+                ArrayList<String> alFollowings = new ArrayList<>();
+                alFollowings.add(user.getUserId());
+                photographer.setFollowings(alFollowings);
             }
         } else {
-            if (user.getFavourites() != null) {
-                user.getFavourites().remove(photographer.getUserId());
+            if (photographer.getFollowings() != null) {
+                photographer.getFollowings().remove(user.getUserId());
             } else {
-                ArrayList<String> alFavourites = new ArrayList<>();
-                user.setFavourites(alFavourites);
+                ArrayList<String> alFollowings = new ArrayList<>();
+                photographer.setFollowings(alFollowings);
             }
         }
 
         /* set data into firebase database*/
-        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(user.getUserId()).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(photographer.getUserId()).set(photographer).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 Log.d(AppConstants.TAG, "Success: favourite");

@@ -81,6 +81,9 @@ public class ProfileActivity extends BaseActivity {
             case R.id.tv_manage_packages:
                 break;
             case R.id.tv_saved_profiles:
+                Intent intent = new Intent(this, FavouriteActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.layout_logout:
                 logout();

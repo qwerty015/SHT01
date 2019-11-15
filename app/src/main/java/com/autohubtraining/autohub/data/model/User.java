@@ -1,22 +1,10 @@
 package com.autohubtraining.autohub.data.model;
 
-import android.util.Log;
-
-import androidx.annotation.NonNull;
-
 import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
-import com.autohubtraining.autohub.data.model.user_cameras.UserCameraResponse;
-import com.autohubtraining.autohub.scene.main.MainActivity;
-import com.autohubtraining.autohub.util.AppConstants;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 public class User implements Serializable{
 	private String userId;
@@ -32,7 +20,7 @@ public class User implements Serializable{
 	private String cameraModel;
 	private List<String> cameraAccessories;
 	private ArrayList<UserPlan> arrayPlan;
-	private List<String> favourites;
+	private List<String> followings;
 
 	public void setUserId(String userId){
 		this.userId = userId;
@@ -138,11 +126,11 @@ public class User implements Serializable{
 		return arrayPlan;
 	}
 
-	public void setFavourites(List<String> favourites) {
-		this.favourites = favourites;
+	public void setFollowings(List<String> followings) {
+		this.followings = followings;
 	}
 
-	public List<String> getFavourites() {
-		return favourites;
+	public List<String> getFollowings() {
+		return followings;
 	}
 }

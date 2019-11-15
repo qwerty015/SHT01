@@ -9,10 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
 import com.autohubtraining.autohub.util.AppConstants;
-import com.autohubtraining.autohub.util.GlobalConstants;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;

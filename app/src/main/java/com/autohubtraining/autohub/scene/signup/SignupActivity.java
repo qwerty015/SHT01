@@ -6,11 +6,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.scene.signup.custom.EquipmentAdapter;
 import com.autohubtraining.autohub.util.AppConstants;
-import com.autohubtraining.autohub.util.GlobalConstants;
 import com.autohubtraining.autohub.util.ImageUtils;
 import com.autohubtraining.autohub.util.ProgressBarAnimation;
 import com.autohubtraining.autohub.util.views.CustomViewPager;
@@ -155,10 +153,10 @@ public class SignupActivity extends BaseActivity implements EquipmentAdapter.Ite
         float toValue = 0;
 
         progressBar.setMax(1000);
-        if (userType == GlobalConstants.USER_CLIENT) {
-            toValue = progress / (float)GlobalConstants.SIGNUP_SCREEN_COUNTS_CLIENT * 1000f;
+        if (userType == AppConstants.CLIENT) {
+            toValue = progress / (float)AppConstants.MAX_SIGNUP_SCREEN_CLIENT * 1000f;
         } else {
-            toValue = progress / (float)GlobalConstants.SIGNUP_SCREEN_COUNTS_PHOTOGRAPHER * 1000f;
+            toValue = progress / (float)AppConstants.MAX_SIGNUP_SCREEN_PHOTOGRAPHER * 1000f;
         }
 
         if (progress <= 0) {
