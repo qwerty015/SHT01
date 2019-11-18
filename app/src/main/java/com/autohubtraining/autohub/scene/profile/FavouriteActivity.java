@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
+
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.events.CustomEvent;
@@ -16,9 +18,13 @@ import com.autohubtraining.autohub.scene.photographer_detail.PhotographerDetail;
 import com.autohubtraining.autohub.scene.profile.custom.FavouriteAdapter;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -50,8 +56,6 @@ public class FavouriteActivity extends BaseActivity {
 
         Glide.with(this).load(user.getAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
 
-        getFavouritePhotographers();
-
         lv_favourites.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -66,8 +70,9 @@ public class FavouriteActivity extends BaseActivity {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onResume() {
+        super.onResume();
+
         getFavouritePhotographers();
     }
 
@@ -82,23 +87,23 @@ public class FavouriteActivity extends BaseActivity {
 
         User user = DataHandler.getInstance().getUser();
 
-        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).whereArrayContains("followings", user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
-            dismissLoading();
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).whereArrayContains("followings", user.getUserId()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                dismissLoading();
 
-            if (e != null) {
-                Log.d(AppConstants.TAG, "Failed: " + e.getMessage());
-            } else {
-                Log.d(AppConstants.TAG, "Success:");
-                if (documentSnapshot.getDocuments() != null) {
+                if (task.isSuccessful()) {
                     al_favourites = new ArrayList<User>();
 
-                    for (DocumentSnapshot snapshot : documentSnapshot.getDocuments()) {
-                        User photographer = snapshot.toObject(User.class);
+                    for (QueryDocumentSnapshot documentSnapshot: task.getResult()) {
+                        User photographer = documentSnapshot.toObject(User.class);
                         al_favourites.add(photographer);
                     }
 
-                    FavouriteAdapter adapter_favourites = new FavouriteAdapter(this, al_favourites);
+                    FavouriteAdapter adapter_favourites = new FavouriteAdapter(FavouriteActivity.this, al_favourites);
                     lv_favourites.setAdapter(adapter_favourites);
+                } else {
+                    Log.d(AppConstants.TAG, "Failed: " + task.getException());
                 }
             }
         });

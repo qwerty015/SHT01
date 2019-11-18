@@ -10,6 +10,7 @@
     <color name="colorWhite80">#10ff0000</color>
     <color name="colorYellow">#ffee00</color>
     <color name="colorYellow1">#ffdd00</color>
+    <color name="colorYellow2">#d8a706</color>
     <color name="colorGreen">#51df4c</color>
     <color name="colorRed">#f10333</color>
     <color name="colorPink">#fc85dc</color>
@@ -19,8 +20,10 @@
     <color name="colorPurple">#924eec</color>
     <color name="colorBlue">#80a1fb</color>
     <color name="colorBlue1">#1414ff</color>
+    <color name="colorBlue2">#3672ff</color>
     <color name="colorGray">#c6ccd1</color>
     <color name="colorGray1">#707070</color>
+    <color name="colorOrange">#ffc1a3</color>
     <array name="in_step_colors">
         <item>@color/colorPrimary</item>
         <item>@color/colorAccent</item>

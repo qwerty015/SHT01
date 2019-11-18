@@ -15,4 +15,8 @@ public interface AppConstants {
     String key_photographer = "photographer";
 
     int DESCRIPTIION_LENGTH = 240;
+
+    int BOKKING_NEW         = 0;
+    int BOOKING_CANCELED    = 1;
+    int BOOKING_COMPLETED   = 2;
 }

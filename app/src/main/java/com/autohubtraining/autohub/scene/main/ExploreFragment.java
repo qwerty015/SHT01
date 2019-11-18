@@ -19,7 +19,7 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.customview.CustomEditView;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
-import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
+import com.autohubtraining.autohub.data.model.user_plan.UserPlan;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
 import com.autohubtraining.autohub.scene.main.custom.ExplorePhotographerListAdapter;
 import com.autohubtraining.autohub.scene.photographer_detail.PhotographerDetail;

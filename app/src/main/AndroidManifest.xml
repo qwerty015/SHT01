@@ -71,16 +71,24 @@
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
+            android:name=".scene.profile.ManagePackageActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
             android:name=".scene.photographer_detail.PhotographerDetail"
             android:theme="@style/AppTheme.NoActionBar"/>
 
-
-
+        <activity
+            android:name=".scene.booking.GiveReviewActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".scene.explore.ExploreActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".scene.booking.BookingDoneActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
+        <activity
+            android:name=".scene.booking.BookingReceivedActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
 
         <provider

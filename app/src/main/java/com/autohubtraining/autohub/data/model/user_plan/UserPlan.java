@@ -1,7 +1,6 @@
-package com.autohubtraining.autohub.data.model.public_data.user_plan;
+package com.autohubtraining.autohub.data.model.user_plan;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class UserPlan implements Serializable {
     private String planName;

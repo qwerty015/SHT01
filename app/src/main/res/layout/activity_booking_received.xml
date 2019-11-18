@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/profile_top_back">
+
+            <ImageView
+                android:layout_width="@dimen/_26sdp"
+                android:layout_height="@dimen/_47sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:src="@drawable/flash"/>
+
+            <com.autohubtraining.autohub.customview.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:text="@string/booking_received"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_11ssp"
+                app:fontName="Montserrat_SemiBold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_17sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:background="@drawable/round_layout"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_48sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/iv_avatar"
+                        android:layout_width="@dimen/_31sdp"
+                        android:layout_height="@dimen/_31sdp"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        app:civ_border_color="@color/colorBlack"
+                        app:civ_border_width="0dp"
+                        android:src="@drawable/ic_profile" />
+
+                    <com.autohubtraining.autohub.customview.CustomTextView
+                        android:id="@+id/tv_photographername"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        android:text="John Fills"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_11ssp"
+                        app:fontName="Montserrat_SemiBold" />
+
+                    <com.autohubtraining.autohub.customview.CustomTextView
+                        android:id="@+id/tv_distance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="4 KMS AWAY"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10ssp"
+                        app:fontName="Montserrat_SemiBold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/colorGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_28sdp"
+                    android:orientation="horizontal"
+                    android:weightSum="1.0">
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5">
+
+                        <com.autohubtraining.autohub.customview.CustomTextView
+                            android:id="@+id/tv_camerainfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="NIKON D5300"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_11ssp"
+                            app:fontName="Montserrat_SemiBold" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="@dimen/_1sdp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorBlack"/>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5">
+
+                        <com.autohubtraining.autohub.customview.CustomTextView
+                            android:id="@+id/tv_bookingname"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="MODEL PACK"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="@dimen/_11ssp"
+                            app:fontName="Montserrat_SemiBold" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/colorGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_28sdp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <com.autohubtraining.autohub.customview.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/amount_payable"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_11ssp"
+                        app:fontName="Montserrat_SemiBold" />
+
+                    <com.autohubtraining.autohub.customview.CustomTextView
+                        android:id="@+id/tv_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:text="$150"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_11ssp"
+                        app:fontName="Montserrat_SemiBold" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:background="@color/colorGray"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_28sdp"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <com.autohubtraining.autohub.customview.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/payment_method"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_11ssp"
+                        app:fontName="Montserrat_SemiBold" />
+
+                    <com.autohubtraining.autohub.customview.CustomTextView
+                        android:id="@+id/tv_method"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_3sdp"
+                        android:text="CASH"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_11ssp"
+                        app:fontName="Montserrat_SemiBold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.autohubtraining.autohub.customview.CustomButton
+                android:id="@+id/b_contact_client"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_marginHorizontal="@dimen/_32sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/contact_client"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_11sdp"
+                android:background="@drawable/white_round_button"
+                android:backgroundTint="@color/colorWhite"
+                app:fontName="Montserrat_SemiBold"/>
+
+            <com.autohubtraining.autohub.customview.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/booking_contact_info2"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_11ssp"
+                app:fontName="Montserrat_SemiBold" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_qrcode"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_11sdp"
+            android:layout_gravity="center_horizontal"/>
+
+        <com.autohubtraining.autohub.customview.CustomButton
+            android:id="@+id/b_scan_code"
+            android:layout_width="@dimen/_163sdp"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:text="@string/scan_code"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_11sdp"
+            android:background="@drawable/white_round_button"
+            android:backgroundTint="@color/colorBlue2"
+            app:fontName="Montserrat_SemiBold"/>
+
+        <com.autohubtraining.autohub.customview.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/_11sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:gravity="center"
+            android:text="@string/booking_qrcode_info2"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_11ssp"
+            app:fontName="Montserrat_SemiBold" />
+
+
+
+    </LinearLayout>
+
+</ScrollView>

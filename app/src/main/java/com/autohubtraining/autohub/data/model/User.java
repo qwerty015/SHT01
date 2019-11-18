@@ -1,6 +1,6 @@
 package com.autohubtraining.autohub.data.model;
 
-import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
+import com.autohubtraining.autohub.data.model.user_plan.UserPlan;
 
 import java.io.Serializable;
 import java.util.ArrayList;

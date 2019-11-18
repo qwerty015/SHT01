@@ -63,6 +63,10 @@ public class EquipmentAdapter extends BaseAdapter {
             viewHolder.etName = convertView.findViewById(R.id.etName);
             viewHolder.ivMinus = convertView.findViewById(R.id.ivMinus);
 
+            if (alEquipments.get(position) != null) {
+                viewHolder.etName.setText(alEquipments.get(position));
+            }
+
             result = convertView;
 
             convertView.setTag(viewHolder);

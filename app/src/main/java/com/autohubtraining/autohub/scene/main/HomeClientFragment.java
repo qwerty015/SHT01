@@ -13,6 +13,7 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.scene.base.BaseFragment;
+import com.autohubtraining.autohub.scene.booking.GiveReviewActivity;
 import com.autohubtraining.autohub.scene.profile.ProfileActivity;
 import com.bumptech.glide.Glide;
 

@@ -60,29 +60,23 @@ public class ProfileActivity extends BaseActivity {
         int id = view.getId();
         switch (id) {
             case R.id.tv_edit_profile:
-                if (DataHandler.getInstance().getUser().getType() == AppConstants.CLIENT) {
-                    Intent intent = new Intent(this, EditDetailsActivity.class);
-                    startActivity(intent);
-                } else {
-                    Intent intent = new Intent(this, EditInfoActivity.class);
-                    startActivity(intent);
-                }
+                Intent intent1 = new Intent(this, EditDetailsActivity.class);
+                startActivity(intent1);
 
                 break;
             case R.id.tv_edit_your_details:
-                if (DataHandler.getInstance().getUser().getType() == AppConstants.CLIENT) {
-
-                } else {
-                    Intent intent = new Intent(this, EditDetailsActivity.class);
-                    startActivity(intent);
-                }
+                Intent intent2 = new Intent(this, EditInfoActivity.class);
+                startActivity(intent2);
 
                 break;
             case R.id.tv_manage_packages:
+                Intent intent3 = new Intent(this, ManagePackageActivity.class);
+                startActivity(intent3);
+
                 break;
             case R.id.tv_saved_profiles:
-                Intent intent = new Intent(this, FavouriteActivity.class);
-                startActivity(intent);
+                Intent intent4 = new Intent(this, FavouriteActivity.class);
+                startActivity(intent4);
 
                 break;
             case R.id.layout_logout:

@@ -14,7 +14,7 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.events.CustomEvent;
 import com.autohubtraining.autohub.data.model.User;
-import com.autohubtraining.autohub.data.model.public_data.user_plan.UserPlan;
+import com.autohubtraining.autohub.data.model.user_plan.UserPlan;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.scene.photographer_detail.custom.PhotoViewPagerAdapter;
 import com.autohubtraining.autohub.util.AppConstants;
