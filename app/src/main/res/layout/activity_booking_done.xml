@@ -216,7 +216,8 @@
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_90sdp"
             android:layout_marginTop="@dimen/_18sdp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/qrcode"/>
 
         <com.autohubtraining.autohub.customview.CustomTextView
             android:layout_width="wrap_content"

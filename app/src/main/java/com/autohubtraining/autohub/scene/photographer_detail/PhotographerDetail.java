@@ -1,5 +1,6 @@
 package com.autohubtraining.autohub.scene.photographer_detail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,21 +13,25 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
-import com.autohubtraining.autohub.data.events.CustomEvent;
 import com.autohubtraining.autohub.data.model.User;
+import com.autohubtraining.autohub.data.model.booking.Booking;
 import com.autohubtraining.autohub.data.model.user_plan.UserPlan;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
+import com.autohubtraining.autohub.scene.booking.BookingDoneActivity;
 import com.autohubtraining.autohub.scene.photographer_detail.custom.PhotoViewPagerAdapter;
 import com.autohubtraining.autohub.util.AppConstants;
+import com.autohubtraining.autohub.util.AppUtils;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import org.greenrobot.eventbus.EventBus;
-
 import java.util.ArrayList;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -77,9 +82,10 @@ public class PhotographerDetail extends BaseActivity {
         setContentView(R.layout.activity_photographer_detail);
         ButterKnife.bind(this);
 
-        if (getIntent().getExtras().containsKey(AppConstants.key_photographer)) {
-            photographer = (User) getIntent().getSerializableExtra(AppConstants.key_photographer);
-            showPhotographerData();
+        if (getIntent().getExtras().containsKey(AppConstants.key_photographer_id)) {
+            String id = getIntent().getStringExtra(AppConstants.key_photographer_id);
+
+            getPhotographer(id);
         }
     }
 
@@ -102,8 +108,38 @@ public class PhotographerDetail extends BaseActivity {
                 tv_equipment.setVisibility(View.VISIBLE);
                 break;
             case R.id.b_book_package:
+                if (DataHandler.getInstance().getUser().getType() == AppConstants.CLIENT && tab_plan.getSelectedTabPosition() < 2) {
+                    createNewBooking();
+                }
+
                 break;
         }
+    }
+
+    /**
+     * method is used for getting photographer from FirebaseFirestore.
+     *
+     * @param id documentId of photographer
+     * @return
+     */
+    public void getPhotographer(String id) {
+        showLoading("");
+
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                dismissLoading();
+
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    photographer = document.toObject(User.class);
+
+                    showPhotographerData();
+                } else {
+                    Log.d(AppConstants.TAG, "Failed: " + task.getException());
+                }
+            }
+        });
     }
 
     /**
@@ -249,6 +285,56 @@ public class PhotographerDetail extends BaseActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 Log.d(AppConstants.TAG, "data failed with an exception" + e.toString());
+            }
+        });
+    }
+
+    /**
+     * method is used for creating new booing to firestore.
+     *
+     * @param
+     * @return
+     */
+    private void createNewBooking() {
+        showLoading("");
+
+        User user = DataHandler.getInstance().getUser();
+        UserPlan userPlan = photographer.getArrayPlan().get(tab_plan.getSelectedTabPosition());
+
+        Booking booking = new Booking();
+        booking.setStatus(AppConstants.BOKKING_NEW);
+        booking.setTimestamp(new Date());
+        booking.setName(userPlan.getPlanName());
+        booking.setPrice(userPlan.getPrice());
+        booking.setDistance(String.format("%.1f" ,AppUtils.getDistance(photographer.getLocation(), user.getLocation())));
+        booking.setPhotographerId(photographer.getUserId());
+        booking.setPhotographerName(photographer.getFirstName() + " " + photographer.getLastName());
+        booking.setPhotographerAvatarUrl(photographer.getAvatarUrl());
+        booking.setCameraInfo(photographer.getCameraBrand() + " " + photographer.getCameraModel());
+        booking.setClientId(user.getUserId());
+        booking.setClientName(user.getFirstName() + " " + user.getLastName());
+        booking.setClientAvatarUrl(user.getAvatarUrl());
+
+        String documentId = FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).document().getId();
+        booking.setBookingId(documentId);
+
+        /* set data into firebase database*/
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).document(documentId).set(booking).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                dismissLoading();
+
+                Intent intent = new Intent(PhotographerDetail.this, BookingDoneActivity.class);
+                intent.putExtra(AppConstants.key_booking, booking);
+                startActivity(intent);
+                finish();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                dismissLoading();
+                showErrorToast(e.toString());
+                Log.e("firestore", "data failed with an exception" + e.toString());
             }
         });
     }

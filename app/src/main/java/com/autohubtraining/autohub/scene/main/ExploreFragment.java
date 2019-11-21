@@ -1,6 +1,9 @@
 package com.autohubtraining.autohub.scene.main;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -11,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,6 +37,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -47,6 +53,8 @@ public class ExploreFragment extends BaseFragment {
     RelativeLayout layout_search;
     @BindView(R.id.ev_search)
     CustomEditView ev_search;
+    @BindView(R.id.tv_location)
+    TextView tv_location;
     @BindView(R.id.lv_photographers)
     ListView lv_photographers;
 
@@ -64,7 +72,13 @@ public class ExploreFragment extends BaseFragment {
         adapter_photographers = new ExplorePhotographerListAdapter(mainActivity, al_photographers);
 
         updateAvatar();
-        getPhotographers();
+        setLocation();
+
+        if (DataHandler.getInstance().getUser().getLocation() == null) {
+            mainActivity.requestLocation();
+        } else {
+            getPhotographers();
+        }
 
         ev_search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -85,7 +99,7 @@ public class ExploreFragment extends BaseFragment {
                 User photographer = al_photographers.get(i);
 
                 Intent intent = new Intent(mainActivity, PhotographerDetail.class);
-                intent.putExtra(AppConstants.key_photographer, photographer);
+                intent.putExtra(AppConstants.key_photographer_id, photographer.getUserId());
                 startActivity(intent);
             }
         });
@@ -128,12 +142,44 @@ public class ExploreFragment extends BaseFragment {
     }
 
     /**
+     * method is used for setting user's location.
+     *
+     * @param
+     * @return
+     */
+    public void setLocation() {
+        User user = DataHandler.getInstance().getUser();
+
+        if (user.getLocation() == null) {
+            return;
+        }
+
+        Geocoder geocoder;
+        List<Address> addresses;
+        geocoder = new Geocoder(mainActivity, Locale.getDefault());
+
+        try {
+            addresses = geocoder.getFromLocation(user.getLocation().getLatitude(), user.getLocation().getLongitude(), 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
+            String address;
+
+            if (addresses.get(0).getSubLocality() == null) {
+                address = addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
+            } else {
+                address = addresses.get(0).getSubLocality() + ", " + addresses.get(0).getAdminArea();
+            }
+
+            tv_location.setText(address);
+        } catch (Exception e) {
+        }
+    }
+
+    /**
      * method is used for getting photographers from FirebaseFirestore.
      *
      * @param
      * @return
      */
-    private void getPhotographers() {
+    public void getPhotographers() {
         showLoading("");
 
         FirebaseFirestore.getInstance().collection(AppConstants.ref_user).whereEqualTo("type", AppConstants.PHOTOGRAPHER).addSnapshotListener((documentSnapshot, e) -> {

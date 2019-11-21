@@ -15,6 +15,7 @@ import com.autohubtraining.autohub.scene.main.MainActivity;
 import com.autohubtraining.autohub.scene.signup.SignupActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.AppUtils;
+import com.crashlytics.android.Crashlytics;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -26,6 +27,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.fabric.sdk.android.Fabric;
 
 public class LogoActivity extends BaseActivity {
 
@@ -35,6 +37,8 @@ public class LogoActivity extends BaseActivity {
 
         setContentView(R.layout.activity_logo);
         ButterKnife.bind(this);
+
+        Fabric.with(this, new Crashlytics());
 
         checkUserIsLogin();
     }

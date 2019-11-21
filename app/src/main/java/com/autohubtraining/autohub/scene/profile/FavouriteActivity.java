@@ -62,7 +62,7 @@ public class FavouriteActivity extends BaseActivity {
                 User photographer = al_favourites.get(i);
 
                 Intent intent = new Intent(FavouriteActivity.this, PhotographerDetail.class);
-                intent.putExtra(AppConstants.key_photographer, photographer);
+                intent.putExtra(AppConstants.key_photographer_id, photographer.getUserId());
                 startActivity(intent);
             }
         });

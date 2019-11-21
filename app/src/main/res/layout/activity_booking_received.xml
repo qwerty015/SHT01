@@ -57,7 +57,7 @@
                         android:src="@drawable/ic_profile" />
 
                     <com.autohubtraining.autohub.customview.CustomTextView
-                        android:id="@+id/tv_photographername"
+                        android:id="@+id/tv_clientname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_10sdp"
@@ -226,7 +226,8 @@
             android:layout_width="@dimen/_90sdp"
             android:layout_height="@dimen/_90sdp"
             android:layout_marginTop="@dimen/_11sdp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/qrcode"/>
 
         <com.autohubtraining.autohub.customview.CustomButton
             android:id="@+id/b_scan_code"

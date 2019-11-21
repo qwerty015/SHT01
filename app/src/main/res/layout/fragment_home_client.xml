@@ -39,10 +39,11 @@
             android:src="@drawable/compass"/>
 
         <com.autohubtraining.autohub.customview.CustomTextView
+            android:id="@+id/tv_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_8sdp"
-            android:text="4th Avenue, Los Angeles"
+            android:text=""
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/_10ssp"
             app:fontName="Montserrat_SemiBold"/>

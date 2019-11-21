@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="@dimen/_50sdp"
+    android:gravity="center_vertical">
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_12sdp"
+        android:text="PETER WOOD"
+        android:textColor="@color/colorBlack"
+        android:textAllCaps="true"
+        android:textSize="@dimen/_11ssp"
+        app:fontName="Montserrat_SemiBold" />
+
+    <ImageView
+        android:id="@+id/iv_next"
+        android:layout_width="@dimen/_18sdp"
+        android:layout_height="@dimen/_14sdp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_18sdp"
+        android:background="@drawable/ic_arrow_right"
+        android:backgroundTint="@color/colorBlack" />
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/tv_status_completed"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:layout_toLeftOf="@id/iv_next"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:text="COMPLETED"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_7ssp"
+        android:gravity="center"
+        android:background="@drawable/black_roundcorner_button"
+        android:backgroundTint="@color/colorGreen1"
+        android:visibility="visible"
+        app:fontName="Montserrat_SemiBold"/>
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/tv_status_cancelled"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:layout_toLeftOf="@id/iv_next"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:text="CANCELLED"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_7ssp"
+        android:gravity="center"
+        android:background="@drawable/black_roundcorner_button"
+        android:backgroundTint="@color/colorRed1"
+        android:visibility="visible"
+        app:fontName="Montserrat_SemiBold"/>
+
+    <com.autohubtraining.autohub.customview.CustomTextView
+        android:id="@+id/tv_bookingname"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/iv_next"
+        android:layout_marginRight="@dimen/_85sdp"
+        android:text="MODEL PACK"
+        android:textColor="@color/colorBlack"
+        android:textAllCaps="true"
+        android:textSize="@dimen/_11ssp"
+        app:fontName="Montserrat_SemiBold" />
+
+</RelativeLayout>

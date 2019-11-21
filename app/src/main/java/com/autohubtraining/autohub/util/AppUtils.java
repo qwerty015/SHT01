@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
+import android.location.Location;
 import android.util.Base64;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import androidx.core.content.ContextCompat;
 
 import com.autohubtraining.autohub.R;
+import com.google.firebase.firestore.GeoPoint;
 
 import java.io.ByteArrayOutputStream;
 import java.util.regex.Matcher;
@@ -25,6 +27,22 @@ import java.util.regex.Pattern;
 public class AppUtils {
     public static void showToast(String msg, Context mContext) {
         Toast.makeText(mContext, "" + msg, Toast.LENGTH_SHORT).show();
+    }
+
+    public static float getDistance(GeoPoint point1, GeoPoint point2) {
+        if (point1 == null || point2 == null) {
+            return 0;
+        }
+
+        Location loc1 = new Location("");
+        loc1.setLatitude(point1.getLatitude());
+        loc1.setLongitude(point1.getLongitude());
+
+        Location loc2 = new Location("");
+        loc2.setLatitude(point2.getLatitude());
+        loc2.setLongitude(point2.getLongitude());
+
+        return loc1.distanceTo(loc2) / 1000.0f;
     }
 
     /**

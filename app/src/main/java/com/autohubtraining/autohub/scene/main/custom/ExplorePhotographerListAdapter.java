@@ -11,8 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.user_plan.UserPlan;
+import com.autohubtraining.autohub.util.AppUtils;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
@@ -52,6 +54,7 @@ public class ExplorePhotographerListAdapter extends BaseAdapter implements Filte
         TextView tv_camerainfo;
         TextView tv_price;
         TextView tv_numpictures;
+        TextView tv_distance;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -69,6 +72,7 @@ public class ExplorePhotographerListAdapter extends BaseAdapter implements Filte
             viewHolder.tv_camerainfo = convertView.findViewById(R.id.tv_camerainfo);
             viewHolder.tv_price = convertView.findViewById(R.id.tv_price);
             viewHolder.tv_numpictures = convertView.findViewById(R.id.tv_numpictures);
+            viewHolder.tv_distance = convertView.findViewById(R.id.tv_distance);
 
             convertView.setTag(viewHolder);
         } else {
@@ -90,6 +94,9 @@ public class ExplorePhotographerListAdapter extends BaseAdapter implements Filte
         UserPlan plan = photographer.getArrayPlan().get(0);
         viewHolder.tv_price.setText("$ " + plan.getPrice() + " /");
         viewHolder.tv_numpictures.setText(plan.getNumberOfPictures() + " PICTURES");
+
+        float distance = AppUtils.getDistance(DataHandler.getInstance().getUser().getLocation(), photographer.getLocation());
+        viewHolder.tv_distance.setText(String.format("%.1f KM", distance));
 
         return convertView;
     }

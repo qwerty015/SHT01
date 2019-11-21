@@ -1,6 +1,7 @@
 package com.autohubtraining.autohub.data.model;
 
 import com.autohubtraining.autohub.data.model.user_plan.UserPlan;
+import com.google.firebase.firestore.GeoPoint;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class User implements Serializable{
 	private List<String> cameraAccessories;
 	private ArrayList<UserPlan> arrayPlan;
 	private List<String> followings;
+	private GeoPoint location;
 
 	public void setUserId(String userId){
 		this.userId = userId;
@@ -132,5 +134,13 @@ public class User implements Serializable{
 
 	public List<String> getFollowings() {
 		return followings;
+	}
+
+	public void setLocation(GeoPoint location) {
+		this.location = location;
+	}
+
+	public GeoPoint getLocation() {
+		return location;
 	}
 }

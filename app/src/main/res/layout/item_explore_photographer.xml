@@ -56,7 +56,7 @@
         android:layout_toRightOf="@id/tv_camerainfo"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginLeft="@dimen/_7sdp"
-        android:text="1.5 KM"
+        android:text="0 KM"
         android:textColor="@color/colorBlack"
         android:textSize="@dimen/_10ssp"
         app:fontName="Montserrat_Bold"/>

@@ -8,7 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
+import com.autohubtraining.autohub.util.AppUtils;
 
 import java.util.ArrayList;
 
@@ -40,6 +42,7 @@ public class FavouriteAdapter extends BaseAdapter {
     private static class ViewHolder {
         int position;
         TextView tv_name;
+        TextView tv_distance;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -52,6 +55,7 @@ public class FavouriteAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.item_favourite, parent, false);
 
             viewHolder.tv_name = convertView.findViewById(R.id.tv_name);
+            viewHolder.tv_distance = convertView.findViewById(R.id.tv_distance);
 
             convertView.setTag(viewHolder);
         } else {
@@ -63,6 +67,9 @@ public class FavouriteAdapter extends BaseAdapter {
         final User photographer = alFavourite.get(viewHolder.position);
 
         viewHolder.tv_name.setText(photographer.getFirstName() + " " + photographer.getLastName());
+
+        float distance = AppUtils.getDistance(DataHandler.getInstance().getUser().getLocation(), photographer.getLocation());
+        viewHolder.tv_distance.setText(String.format("%.1f KM", distance));
 
         return convertView;
     }

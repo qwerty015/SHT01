@@ -1,23 +1,31 @@
 package com.autohubtraining.autohub.data.model.booking;
 
+import com.google.firebase.firestore.ServerTimestamp;
+
 import java.io.Serializable;
+import java.util.Date;
 
 public class Booking implements Serializable {
     private String bookingId;
     private int status;
-    private long datetime;
+
+    @ServerTimestamp
+    private Date timestamp;
 
     private String name;
     private String price;
     private float score;
     private String feedback;
+    private String distance;
 
     private String photographerId;
     private String photographerName;
+    private String photographerAvatarUrl;
     private String cameraInfo;
 
     private String clientId;
     private String clientName;
+    private String clientAvatarUrl;
 
     public void setBookingId(String bookingId) {
         this.bookingId = bookingId;
@@ -35,12 +43,12 @@ public class Booking implements Serializable {
         return status;
     }
 
-    public void setDatetime(long datetime) {
-        this.datetime = datetime;
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
     }
 
-    public long getDatetime() {
-        return datetime;
+    public Date getTimestamp() {
+        return timestamp;
     }
 
     public void setName(String name) {
@@ -75,6 +83,14 @@ public class Booking implements Serializable {
         return feedback;
     }
 
+    public void setDistance(String distance) {
+        this.distance = distance;
+    }
+
+    public String getDistance() {
+        return distance;
+    }
+
     public void setPhotographerId(String photographerId) {
         this.photographerId = photographerId;
     }
@@ -89,6 +105,14 @@ public class Booking implements Serializable {
 
     public String getPhotographerName() {
         return photographerName;
+    }
+
+    public void setPhotographerAvatarUrl(String photographerAvatarUrl) {
+        this.photographerAvatarUrl = photographerAvatarUrl;
+    }
+
+    public String getPhotographerAvatarUrl() {
+        return photographerAvatarUrl;
     }
 
     public void setCameraInfo(String cameraInfo) {
@@ -113,5 +137,13 @@ public class Booking implements Serializable {
 
     public String getClientName() {
         return clientName;
+    }
+
+    public void setClientAvatarUrl(String clientAvatarUrl) {
+        this.clientAvatarUrl = clientAvatarUrl;
+    }
+
+    public String getClientAvatarUrl() {
+        return clientAvatarUrl;
     }
 }
