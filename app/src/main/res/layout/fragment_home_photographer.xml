@@ -45,6 +45,7 @@
             app:fontName="Montserrat_Bold"/>
 
         <com.autohubtraining.autohub.customview.CustomTextView
+            android:id="@+id/tv_earnings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_30sdp"
@@ -94,6 +95,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/layout_upcomingshoots"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_100sdp"
         android:layout_marginTop="@dimen/_15sdp"
@@ -111,6 +113,7 @@
             app:fontName="Montserrat_Bold"/>
 
         <com.autohubtraining.autohub.customview.CustomTextView
+            android:id="@+id/tv_upcomingshoots"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_30sdp"

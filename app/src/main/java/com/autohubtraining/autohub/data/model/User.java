@@ -1,5 +1,6 @@
 package com.autohubtraining.autohub.data.model;
 
+import com.autohubtraining.autohub.data.model.booking.Feedback;
 import com.autohubtraining.autohub.data.model.user_plan.UserPlan;
 import com.google.firebase.firestore.GeoPoint;
 
@@ -23,6 +24,7 @@ public class User implements Serializable{
 	private ArrayList<UserPlan> arrayPlan;
 	private List<String> followings;
 	private GeoPoint location;
+	private ArrayList<Feedback> arrayFeedback;
 
 	public void setUserId(String userId){
 		this.userId = userId;
@@ -142,5 +144,13 @@ public class User implements Serializable{
 
 	public GeoPoint getLocation() {
 		return location;
+	}
+
+	public void setArrayFeedback(ArrayList<Feedback> arrayFeedback) {
+		this.arrayFeedback = arrayFeedback;
+	}
+
+	public ArrayList<Feedback> getArrayFeedback() {
+		return arrayFeedback;
 	}
 }

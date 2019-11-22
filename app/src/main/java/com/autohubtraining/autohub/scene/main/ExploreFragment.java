@@ -190,13 +190,14 @@ public class ExploreFragment extends BaseFragment {
             } else {
                 Log.d(AppConstants.TAG, "Success:");
                 if (documentSnapshot.getDocuments() != null) {
+                    User user = DataHandler.getInstance().getUser();
                     al_photographers = new ArrayList<User>();
 
                     int index = 0;
                     for (DocumentSnapshot snapshot : documentSnapshot.getDocuments()) {
                         User photographer = snapshot.toObject(User.class);
 
-                        if (!photographer.getUserId().equals(DataHandler.getInstance().getUser().getUserId())) {
+                        if (!photographer.getUserId().equals(user.getUserId()) && AppUtils.getDistance(user.getLocation(), photographer.getLocation()) < 10.0f) {
                             al_photographers.add(photographer);
 
                             Collections.sort(al_photographers.get(index).getArrayPlan(), new Comparator<UserPlan>() {

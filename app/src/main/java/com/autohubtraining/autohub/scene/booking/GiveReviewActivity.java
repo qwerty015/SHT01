@@ -9,14 +9,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.booking.Booking;
+import com.autohubtraining.autohub.data.model.booking.Feedback;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,6 +44,7 @@ public class GiveReviewActivity extends BaseActivity {
     EditText et_review;
 
     Booking booking;
+    ArrayList<Feedback> al_feedback = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,8 @@ public class GiveReviewActivity extends BaseActivity {
             Glide.with(this).load(booking.getPhotographerAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
             tv_photographername.setText(booking.getPhotographerName());
         }
+
+        getPhotographerFeedbacks();
     }
 
     @OnClick({R.id.b_done})
@@ -62,6 +71,36 @@ public class GiveReviewActivity extends BaseActivity {
                 setBookingStatus(AppConstants.BOOKING_COMPLETED);
                 break;
         }
+    }
+
+    /**
+     * method is used for getting photographer feedbacks.
+     *
+     * @param
+     * @return
+     */
+    private void getPhotographerFeedbacks() {
+        showLoading("");
+
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(booking.getPhotographerId()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                dismissLoading();
+
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    User photographer = document.toObject(User.class);
+
+                    if (photographer.getArrayFeedback() == null) {
+                        al_feedback = new ArrayList<>();
+                    } else {
+                        al_feedback = photographer.getArrayFeedback();
+                    }
+                } else {
+                    Log.d(AppConstants.TAG, "Failed: " + task.getException());
+                }
+            }
+        });
     }
 
     /**
@@ -80,6 +119,42 @@ public class GiveReviewActivity extends BaseActivity {
 
         /* set data into firebase database*/
         FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).document(booking.getBookingId()).update(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                Feedback feedback = new Feedback();
+
+                feedback.setName(booking.getName());
+                feedback.setPrice(booking.getPrice());
+                feedback.setScore(rating_bar.getRating());
+                feedback.setFeedback(et_review.getText().toString());
+
+                al_feedback.add(feedback);
+
+                saveFeedbackToPhotographer();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                dismissLoading();
+
+                showErrorToast(e.getMessage());
+                Log.e(AppConstants.TAG, "data failed with an exception" + e.toString());
+            }
+        });
+    }
+
+    /**
+     * method is used for saving feedback to firestore.
+     *
+     * @param
+     * @return
+     */
+    private void saveFeedbackToPhotographer() {
+        Map<String, Object> data = new HashMap<>();
+        data.put("arrayFeedback", al_feedback);
+
+        /* set data into firebase database*/
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(booking.getPhotographerId()).update(data).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void aVoid) {
                 dismissLoading();

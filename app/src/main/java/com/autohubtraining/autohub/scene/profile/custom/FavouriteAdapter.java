@@ -69,7 +69,7 @@ public class FavouriteAdapter extends BaseAdapter {
         viewHolder.tv_name.setText(photographer.getFirstName() + " " + photographer.getLastName());
 
         float distance = AppUtils.getDistance(DataHandler.getInstance().getUser().getLocation(), photographer.getLocation());
-        viewHolder.tv_distance.setText(String.format("%.1f KM", distance));
+        viewHolder.tv_distance.setText(String.format("%.1f KMS AWAY", distance));
 
         return convertView;
     }

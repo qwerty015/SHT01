@@ -5,8 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -21,6 +19,7 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.events.CustomEvent;
 import com.autohubtraining.autohub.data.model.User;
+import com.autohubtraining.autohub.data.model.booking.Booking;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.views.CustomViewPager;
@@ -28,6 +27,7 @@ import com.autohubtraining.autohub.util.views.ViewPagerAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
@@ -35,9 +35,8 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -59,6 +58,9 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     HomeClientFragment homeClientFragment;
     ExploreFragment exploreFragment;
     BookingsFragment bookingsFragment;
+
+    ArrayList<Booking> al_bookings_new = new ArrayList<>();
+    ArrayList<Booking> al_bookings_prev = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +92,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
         view_pager.setAdapter(viewPagerAdapter);
         view_pager.setCurrentItem(1);
+
+        getBookingData();
     }
 
     @OnClick({})
@@ -220,8 +224,13 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.navigation_home:
-                if (view_pager != null)
+                if (view_pager != null) {
                     view_pager.setCurrentItem(0);
+
+                    if (DataHandler.getInstance().getUser().getType() == AppConstants.PHOTOGRAPHER) {
+                        homePhotographerFragment.updateData();
+                    }
+                }
 
                 break;
 
@@ -234,6 +243,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             case R.id.navigation_booking:
                 if (view_pager != null) {
                     view_pager.setCurrentItem(2);
+
+                    bookingsFragment.updateBookingListView();
                 }
 
                 break;
@@ -262,6 +273,67 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             } else {
                 navigation.setSelectedItemId(R.id.navigation_booking);
             }
+        }
+    }
+
+    /**
+     * method is used for getting booking data
+     *
+     * @param
+     * @return
+     */
+    private void getBookingData() {
+        User user = DataHandler.getInstance().getUser();
+
+        if (user.getType() == AppConstants.CLIENT) {
+            FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).whereEqualTo("clientId", user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
+                if (e != null) {
+                    Log.d(AppConstants.TAG, "Failed: " + e.getMessage());
+                } else {
+                    Log.d(AppConstants.TAG, "Success:");
+                    if (documentSnapshot.getDocuments() != null) {
+                        al_bookings_new = new ArrayList<>();
+                        al_bookings_prev = new ArrayList<>();
+
+                        for (DocumentSnapshot snapshot : documentSnapshot.getDocuments()) {
+                            Booking booking = snapshot.toObject(Booking.class);
+
+                            if (booking.getStatus() == AppConstants.BOKKING_NEW) {
+                                al_bookings_new.add(booking);
+                            } else {
+                                al_bookings_prev.add(booking);
+                            }
+                        }
+
+                        bookingsFragment.updateBookingListView();
+                    }
+                }
+            });
+        } else {
+            FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).whereEqualTo("photographerId", user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
+                if (e != null) {
+                    Log.d(AppConstants.TAG, "Failed: " + e.getMessage());
+                } else {
+                    Log.d(AppConstants.TAG, "Success:");
+                    if (documentSnapshot.getDocuments() != null) {
+                        al_bookings_new = new ArrayList<>();
+                        al_bookings_prev = new ArrayList<>();
+
+                        for (DocumentSnapshot snapshot : documentSnapshot.getDocuments()) {
+                            Booking booking = snapshot.toObject(Booking.class);
+
+                            if (booking.getStatus() == AppConstants.BOKKING_NEW) {
+                                al_bookings_new.add(booking);
+                            } else {
+                                al_bookings_prev.add(booking);
+                            }
+                        }
+
+                        homePhotographerFragment.updateData();
+                        bookingsFragment.updateBookingListView();
+                    }
+                }
+            });
         }
     }
 }

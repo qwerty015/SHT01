@@ -22,20 +22,9 @@ import com.autohubtraining.autohub.scene.booking.BookingDoneActivity;
 import com.autohubtraining.autohub.scene.booking.BookingReceivedActivity;
 import com.autohubtraining.autohub.scene.booking.GiveReviewActivity;
 import com.autohubtraining.autohub.scene.main.custom.BookingListAdapter;
-import com.autohubtraining.autohub.scene.photographer_detail.PhotographerDetail;
-import com.autohubtraining.autohub.scene.profile.FavouriteActivity;
 import com.autohubtraining.autohub.scene.profile.ProfileActivity;
-import com.autohubtraining.autohub.scene.profile.custom.FavouriteAdapter;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,8 +45,6 @@ public class BookingsFragment extends BaseFragment {
     ListView lv_prev_bookings;
 
     private MainActivity mainActivity;
-    private ArrayList<Booking> al_bookings_new = new ArrayList<>();
-    private ArrayList<Booking> al_bookings_prev = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,12 +54,11 @@ public class BookingsFragment extends BaseFragment {
         mainActivity = (MainActivity) getActivity();
 
         updateAvatar();
-        getBookingData();
 
         lv_new_bookings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Booking booking = al_bookings_new.get(i);
+                Booking booking = mainActivity.al_bookings_new.get(i);
 
                 if (DataHandler.getInstance().getUser().getType() == AppConstants.CLIENT) {
                     Intent intent = new Intent(mainActivity, BookingDoneActivity.class);
@@ -89,7 +75,7 @@ public class BookingsFragment extends BaseFragment {
         lv_prev_bookings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Booking booking = al_bookings_prev.get(i);
+                Booking booking = mainActivity.al_bookings_prev.get(i);
 
                 if (DataHandler.getInstance().getUser().getType() == AppConstants.CLIENT) {
                     if (booking.getStatus() == AppConstants.BOOKING_COMPLETED && booking.getFeedback() == null) {
@@ -158,71 +144,27 @@ public class BookingsFragment extends BaseFragment {
      * @param
      * @return
      */
-    private void getBookingData() {
-        showLoading("");
+    public void updateBookingListView() {
+        BookingListAdapter adapter_bookings_new = new BookingListAdapter(mainActivity, mainActivity.al_bookings_new);
+        lv_new_bookings.setAdapter(adapter_bookings_new);
 
-        User user = DataHandler.getInstance().getUser();
+        BookingListAdapter adapter_bookings_prev = new BookingListAdapter(mainActivity, mainActivity.al_bookings_prev);
+        lv_prev_bookings.setAdapter(adapter_bookings_prev);
+    }
 
-        if (user.getType() == AppConstants.CLIENT) {
-            FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).whereEqualTo("clientId", user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
-                dismissLoading();
+    /**
+     * method is used for showing new booking list and hiding the previous booking list.
+     *
+     * @param
+     * @return
+     */
+    public void showNewBookingList() {
+        if (iv_new_bookings_ul.getVisibility() == View.GONE) {
+            iv_new_bookings_ul.setVisibility(View.VISIBLE);
+            lv_new_bookings.setVisibility(View.VISIBLE);
 
-                if (e != null) {
-                    Log.d(AppConstants.TAG, "Failed: " + e.getMessage());
-                } else {
-                    Log.d(AppConstants.TAG, "Success:");
-                    if (documentSnapshot.getDocuments() != null) {
-                        al_bookings_new = new ArrayList<>();
-                        al_bookings_prev = new ArrayList<>();
-
-                        for (DocumentSnapshot snapshot : documentSnapshot.getDocuments()) {
-                            Booking booking = snapshot.toObject(Booking.class);
-
-                            if (booking.getStatus() == AppConstants.BOKKING_NEW) {
-                                al_bookings_new.add(booking);
-                            } else {
-                                al_bookings_prev.add(booking);
-                            }
-                        }
-
-                        BookingListAdapter adapter_bookings_new = new BookingListAdapter(mainActivity, al_bookings_new);
-                        lv_new_bookings.setAdapter(adapter_bookings_new);
-
-                        BookingListAdapter adapter_bookings_prev = new BookingListAdapter(mainActivity, al_bookings_prev);
-                        lv_prev_bookings.setAdapter(adapter_bookings_prev);
-                    }
-                }
-            });
-        } else {
-            FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).whereEqualTo("photographerId", user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
-                dismissLoading();
-
-                if (e != null) {
-                    Log.d(AppConstants.TAG, "Failed: " + e.getMessage());
-                } else {
-                    Log.d(AppConstants.TAG, "Success:");
-                    if (documentSnapshot.getDocuments() != null) {
-                        al_bookings_new = new ArrayList<>();
-                        al_bookings_prev = new ArrayList<>();
-
-                        for (DocumentSnapshot snapshot : documentSnapshot.getDocuments()) {
-                            Booking booking = snapshot.toObject(Booking.class);
-
-                            if (booking.getStatus() == AppConstants.BOKKING_NEW) {
-                                al_bookings_new.add(booking);
-                            } else {
-                                al_bookings_prev.add(booking);
-                            }
-                        }
-
-                        BookingListAdapter adapter_bookings_new = new BookingListAdapter(mainActivity, al_bookings_new);
-                        lv_new_bookings.setAdapter(adapter_bookings_new);
-
-                        BookingListAdapter adapter_bookings_prev = new BookingListAdapter(mainActivity, al_bookings_prev);
-                        lv_prev_bookings.setAdapter(adapter_bookings_prev);
-                    }
-                }
-            });
+            iv_prev_bookings_ul.setVisibility(View.GONE);
+            lv_prev_bookings.setVisibility(View.GONE);
         }
     }
 }

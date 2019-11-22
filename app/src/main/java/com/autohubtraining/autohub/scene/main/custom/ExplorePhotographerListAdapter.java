@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
+import com.autohubtraining.autohub.data.model.booking.Feedback;
 import com.autohubtraining.autohub.data.model.user_plan.UserPlan;
 import com.autohubtraining.autohub.util.AppUtils;
 import com.bumptech.glide.Glide;
@@ -55,6 +56,7 @@ public class ExplorePhotographerListAdapter extends BaseAdapter implements Filte
         TextView tv_price;
         TextView tv_numpictures;
         TextView tv_distance;
+        TextView tv_rating;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -73,6 +75,7 @@ public class ExplorePhotographerListAdapter extends BaseAdapter implements Filte
             viewHolder.tv_price = convertView.findViewById(R.id.tv_price);
             viewHolder.tv_numpictures = convertView.findViewById(R.id.tv_numpictures);
             viewHolder.tv_distance = convertView.findViewById(R.id.tv_distance);
+            viewHolder.tv_rating = convertView.findViewById(R.id.tv_rating);
 
             convertView.setTag(viewHolder);
         } else {
@@ -97,6 +100,19 @@ public class ExplorePhotographerListAdapter extends BaseAdapter implements Filte
 
         float distance = AppUtils.getDistance(DataHandler.getInstance().getUser().getLocation(), photographer.getLocation());
         viewHolder.tv_distance.setText(String.format("%.1f KM", distance));
+
+        if (photographer.getArrayFeedback() != null) {
+            float ratingSum = 0;
+
+            for (int i = 0; i < photographer.getArrayFeedback().size(); i++) {
+                Feedback feedback = photographer.getArrayFeedback().get(i);
+                ratingSum += feedback.getScore();
+            }
+
+            if (photographer.getArrayFeedback().size() > 0) {
+                viewHolder.tv_rating.setText(String.format("%.1f", ratingSum / photographer.getArrayFeedback().size()));
+            }
+        }
 
         return convertView;
     }

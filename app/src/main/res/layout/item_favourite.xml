@@ -28,10 +28,10 @@
 
     <com.autohubtraining.autohub.customview.CustomTextView
         android:id="@+id/tv_distance"
-        android:layout_width="@dimen/_110sdp"
+        android:layout_width="@dimen/_100sdp"
         android:layout_height="wrap_content"
         android:layout_toLeftOf="@id/iv_next"
-        android:layout_marginRight="@dimen/_60sdp"
+        android:layout_marginRight="@dimen/_50sdp"
         android:text="0.0 KMS AWAY"
         android:textColor="@color/colorBlack"
         android:textAllCaps="true"

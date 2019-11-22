@@ -15,6 +15,7 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.booking.Booking;
+import com.autohubtraining.autohub.data.model.booking.Feedback;
 import com.autohubtraining.autohub.data.model.user_plan.UserPlan;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.scene.booking.BookingDoneActivity;
@@ -72,6 +73,10 @@ public class PhotographerDetail extends BaseActivity {
     TextView tv_editingincluded;
     @BindView(R.id.b_book_package)
     Button b_book_package;
+    @BindView(R.id.tv_package_reviews_count)
+    TextView tv_package_reviews_count;
+    @BindView(R.id.tv_package_rating)
+    TextView tv_package_rating;
 
     private User photographer;
 
@@ -171,6 +176,19 @@ public class PhotographerDetail extends BaseActivity {
             }
         }
 
+        if (photographer.getArrayFeedback() != null) {
+            float ratingSum = 0;
+
+            for (int i = 0; i < photographer.getArrayFeedback().size(); i++) {
+                Feedback feedback = photographer.getArrayFeedback().get(i);
+                ratingSum += feedback.getScore();
+            }
+
+            if (photographer.getArrayFeedback().size() > 0) {
+                tv_rating.setText(String.format("%.1f", ratingSum / photographer.getArrayFeedback().size()));
+            }
+        }
+
         addPlanTabLayout();
     }
 
@@ -190,6 +208,40 @@ public class PhotographerDetail extends BaseActivity {
 
         tab_plan.addTab(tab_plan.newTab().setText("OFFER"));
 
+        if (photographer.getArrayPlan() != null) {
+            UserPlan userPlan = photographer.getArrayPlan().get(0);
+
+            tv_planname.setText(userPlan.getPlanName());
+            tv_numpictures.setText(userPlan.getNumberOfPictures());
+
+            if (userPlan.getEditingIncluded().equals("true")) {
+                tv_editingincluded.setText("YES");
+            } else {
+                tv_editingincluded.setText("NO");
+            }
+
+            b_book_package.setText(R.string.book_this_package);
+
+            if (photographer.getArrayFeedback() != null) {
+                float ratingSum = 0;
+                int count = 0;
+
+                for (int i = 0; i < photographer.getArrayFeedback().size(); i++) {
+                    Feedback feedback = photographer.getArrayFeedback().get(i);
+
+                    if (userPlan.getPlanName().equals(feedback.getName())) {
+                        ratingSum += feedback.getScore();
+                        count++;
+                    }
+                }
+
+                if (count > 0) {
+                    tv_package_reviews_count.setText(count + " REVIEWS");
+                    tv_package_rating.setText(String.format("%.1f", ratingSum / count));
+                }
+            }
+        }
+
         tab_plan.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -207,17 +259,40 @@ public class PhotographerDetail extends BaseActivity {
                         }
 
                         b_book_package.setText(R.string.book_this_package);
+
+                        if (photographer.getArrayFeedback() != null) {
+                            float ratingSum = 0;
+                            int count = 0;
+
+                            for (int i = 0; i < photographer.getArrayFeedback().size(); i++) {
+                                Feedback feedback = photographer.getArrayFeedback().get(i);
+
+                                if (userPlan.getPlanName().equals(feedback.getName())) {
+                                    ratingSum += feedback.getScore();
+                                    count++;
+                                }
+                            }
+
+                            if (count > 0) {
+                                tv_package_reviews_count.setText(count + " REVIEWS");
+                                tv_package_rating.setText(String.format("%.1f", ratingSum / count));
+                            }
+                        }
                     } else {
                         tv_planname.setText("FREE SHOOT");
                         tv_numpictures.setText("0");
                         tv_editingincluded.setText("NO");
                         b_book_package.setText(R.string.redeem_offer);
+                        tv_package_reviews_count.setText("0 REVIEWS");
+                        tv_package_rating.setText("0.0");
                     }
                 } else {
                     tv_planname.setText("FREE SHOOT");
                     tv_numpictures.setText("0");
                     tv_editingincluded.setText("NO");
                     b_book_package.setText(R.string.redeem_offer);
+                    tv_package_reviews_count.setText("0 REVIEWS");
+                    tv_package_rating.setText("0.0");
                 }
             }
 
