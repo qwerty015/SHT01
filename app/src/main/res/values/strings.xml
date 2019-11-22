@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Autohub</string>
+    <string name="default_notification_channel_id" translatable="false">sht_default_channel</string>
+    <string name="default_notification_channel_name" translatable="true">Autohub</string>
+
+
     <string name="lets_click">let\'s get clicking.</string>
 
     <string name="Montserrat_Regular">Montserrat-Regular</string>

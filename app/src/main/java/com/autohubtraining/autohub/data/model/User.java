@@ -25,6 +25,7 @@ public class User implements Serializable{
 	private List<String> followings;
 	private GeoPoint location;
 	private ArrayList<Feedback> arrayFeedback;
+	private String token;
 
 	public void setUserId(String userId){
 		this.userId = userId;
@@ -152,5 +153,13 @@ public class User implements Serializable{
 
 	public ArrayList<Feedback> getArrayFeedback() {
 		return arrayFeedback;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	public String getToken() {
+		return token;
 	}
 }

@@ -52,8 +52,8 @@ public class LoginActivity extends BaseActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        email.setText("mohamed.fouad0629@gmail.com");
-        password.setText("123456");
+//        email.setText("mohamed.fouad0629@gmail.com");
+//        password.setText("123456");
     }
 
     @OnClick({R.id.visiblePwdBtn, R.id.forgot_password, R.id.nextBtn})

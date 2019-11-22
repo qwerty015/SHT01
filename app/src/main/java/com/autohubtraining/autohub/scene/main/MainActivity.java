@@ -21,15 +21,21 @@ import com.autohubtraining.autohub.data.events.CustomEvent;
 import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.booking.Booking;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
+import com.autohubtraining.autohub.scene.booking.BookingReceivedActivity;
+import com.autohubtraining.autohub.scene.booking.GiveReviewActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.autohubtraining.autohub.util.views.CustomViewPager;
 import com.autohubtraining.autohub.util.views.ViewPagerAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -59,8 +65,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     ExploreFragment exploreFragment;
     BookingsFragment bookingsFragment;
 
-    ArrayList<Booking> al_bookings_new = new ArrayList<>();
-    ArrayList<Booking> al_bookings_prev = new ArrayList<>();
+    boolean bCancelBookingStatus = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +75,25 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         ButterKnife.bind(this);
 
         User user = DataHandler.getInstance().getUser();
+
+        if (getIntent().getExtras() != null) {
+            if (getIntent().getExtras().containsKey(AppConstants.key_status)) {
+                String status = getIntent().getStringExtra(AppConstants.key_status);
+                String bookingId = getIntent().getStringExtra(AppConstants.key_booking_id);
+
+                if (status.equals("0")) {
+                    Intent intent = new Intent(this, BookingReceivedActivity.class);
+                    intent.putExtra(AppConstants.key_booking_id, bookingId);
+                    startActivity(intent);
+                } else if (status.equals("1")) {
+                    bCancelBookingStatus = true;
+                } else if (status.equals("2")) {
+                    Intent intent = new Intent(this, GiveReviewActivity.class);
+                    intent.putExtra(AppConstants.key_booking_id, bookingId);
+                    startActivity(intent);
+                }
+            }
+        }
 
         navigation.setOnNavigationItemSelectedListener(this);
         navigation.setSelectedItemId(R.id.navigation_explore);
@@ -91,9 +115,14 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         viewPagerAdapter.addFragment(bookingsFragment, "title");
 
         view_pager.setAdapter(viewPagerAdapter);
-        view_pager.setCurrentItem(1);
 
-        getBookingData();
+        if (bCancelBookingStatus) {
+            view_pager.setCurrentItem(2);
+        } else {
+            view_pager.setCurrentItem(1);
+        }
+
+        getDeviceToken();
     }
 
     @OnClick({})
@@ -277,63 +306,56 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     }
 
     /**
-     * method is used for getting booking data
+     * method is used for getting device token.
      *
      * @param
      * @return
      */
-    private void getBookingData() {
+    private void getDeviceToken() {
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(AppConstants.TAG, "getInstanceId failed", task.getException());
+                            return;
+                        }
+
+                        // Get new Instance ID token
+                        String token = task.getResult().getToken();
+                        User user = DataHandler.getInstance().getUser();
+
+                        if (user.getToken() == null || !user.getToken().equals(token)) {
+                            saveDeviceToken(token);
+                        }
+                    }
+                });
+    }
+
+    /**
+     * method is used for saving device token to firestore.
+     *
+     * @param
+     * @return
+     */
+    private void saveDeviceToken(String token) {
         User user = DataHandler.getInstance().getUser();
 
-        if (user.getType() == AppConstants.CLIENT) {
-            FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).whereEqualTo("clientId", user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
-                if (e != null) {
-                    Log.d(AppConstants.TAG, "Failed: " + e.getMessage());
-                } else {
-                    Log.d(AppConstants.TAG, "Success:");
-                    if (documentSnapshot.getDocuments() != null) {
-                        al_bookings_new = new ArrayList<>();
-                        al_bookings_prev = new ArrayList<>();
+        Map<String, Object> data = new HashMap<>();
+        data.put("token", token);
 
-                        for (DocumentSnapshot snapshot : documentSnapshot.getDocuments()) {
-                            Booking booking = snapshot.toObject(Booking.class);
-
-                            if (booking.getStatus() == AppConstants.BOKKING_NEW) {
-                                al_bookings_new.add(booking);
-                            } else {
-                                al_bookings_prev.add(booking);
-                            }
-                        }
-
-                        bookingsFragment.updateBookingListView();
-                    }
-                }
-            });
-        } else {
-            FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).whereEqualTo("photographerId", user.getUserId()).addSnapshotListener((documentSnapshot, e) -> {
-                if (e != null) {
-                    Log.d(AppConstants.TAG, "Failed: " + e.getMessage());
-                } else {
-                    Log.d(AppConstants.TAG, "Success:");
-                    if (documentSnapshot.getDocuments() != null) {
-                        al_bookings_new = new ArrayList<>();
-                        al_bookings_prev = new ArrayList<>();
-
-                        for (DocumentSnapshot snapshot : documentSnapshot.getDocuments()) {
-                            Booking booking = snapshot.toObject(Booking.class);
-
-                            if (booking.getStatus() == AppConstants.BOKKING_NEW) {
-                                al_bookings_new.add(booking);
-                            } else {
-                                al_bookings_prev.add(booking);
-                            }
-                        }
-
-                        homePhotographerFragment.updateData();
-                        bookingsFragment.updateBookingListView();
-                    }
-                }
-            });
-        }
+        /* set data into firebase database*/
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(user.getUserId()).update(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                user.setToken(token);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                showErrorToast(e.getMessage());
+                Log.e(AppConstants.TAG, "data failed with an exception" + e.toString());
+            }
+        });
     }
 }

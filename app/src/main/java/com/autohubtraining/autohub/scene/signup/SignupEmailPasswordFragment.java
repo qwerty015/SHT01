@@ -54,9 +54,9 @@ public class SignupEmailPasswordFragment extends BaseFragment {
 
         activity = (SignupActivity) getActivity();
 
-        email.setText("mohamed.fouad0629@gmail.com");
-        password.setText("123456");
-        confirm_password.setText("123456");
+//        email.setText("mohamed.fouad0629@gmail.com");
+//        password.setText("123456");
+//        confirm_password.setText("123456");
 
         password.addTextChangedListener(new TextWatcher() {
             @Override

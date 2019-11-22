@@ -14,7 +14,10 @@ public interface AppConstants {
     String ref_booking = "booking";
 
     String key_photographer_id = "photographer_id";
-    String key_booking = "booking";
+    String key_booking_id = "booking_id";
+
+    String key_status = "status";
+    String key_user_id = "user_id";
 
     int DESCRIPTIION_LENGTH = 240;
 

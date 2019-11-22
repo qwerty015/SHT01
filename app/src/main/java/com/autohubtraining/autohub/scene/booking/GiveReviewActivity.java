@@ -53,14 +53,11 @@ public class GiveReviewActivity extends BaseActivity {
         setContentView(R.layout.activity_give_review);
         ButterKnife.bind(this);
 
-        if (getIntent().getExtras().containsKey(AppConstants.key_booking)) {
-            booking = (Booking) getIntent().getSerializableExtra(AppConstants.key_booking);
+        if (getIntent().getExtras().containsKey(AppConstants.key_booking_id)) {
+            String id = getIntent().getStringExtra(AppConstants.key_booking_id);
 
-            Glide.with(this).load(booking.getPhotographerAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
-            tv_photographername.setText(booking.getPhotographerName());
+            getBooking(id);
         }
-
-        getPhotographerFeedbacks();
     }
 
     @OnClick({R.id.b_done})
@@ -74,14 +71,41 @@ public class GiveReviewActivity extends BaseActivity {
     }
 
     /**
+     * method is used for getting booking data from FirebaseFirestore.
+     *
+     * @param id documentId of photographer
+     * @return
+     */
+    public void getBooking(String id) {
+        showLoading("");
+
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    booking = document.toObject(Booking.class);
+
+                    Glide.with(GiveReviewActivity.this).load(booking.getPhotographerAvatarUrl()).placeholder(R.drawable.ic_profile).into(iv_avatar);
+                    tv_photographername.setText(booking.getPhotographerName());
+
+                    getPhotographerFeedbacks();
+                } else {
+                    dismissLoading();
+
+                    Log.d(AppConstants.TAG, "Failed: " + task.getException());
+                }
+            }
+        });
+    }
+
+    /**
      * method is used for getting photographer feedbacks.
      *
      * @param
      * @return
      */
     private void getPhotographerFeedbacks() {
-        showLoading("");
-
         FirebaseFirestore.getInstance().collection(AppConstants.ref_user).document(booking.getPhotographerId()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "630755591150-k7lsqjs6avtqub0sc694tqbo4k98n32b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.autohubtraining.autohub",
+            "certificate_hash": "781f45250705313cfb8beae95f5df5b0c298f2e9"
+          }
+        },
+        {
           "client_id": "630755591150-pbt9duaei54ps803erg4el0tfch97vob.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -29,7 +37,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBpQbBEjC1tpfIz3TullBXc2hnlBimoB2A"
+          "current_key": "AIzaSyCGGOa6a7gKq4es8QK3F5rhPzIh_GKvjV4"
         }
       ],
       "services": {

@@ -85,8 +85,8 @@ public class HomePhotographerFragment extends BaseFragment {
      */
     public void updateData() {
         float score = 0;
-        for (int i = 0; i < mainActivity.al_bookings_prev.size(); i++) {
-            Booking booking = mainActivity.al_bookings_prev.get(i);
+        for (int i = 0; i < mainActivity.bookingsFragment.al_bookings_prev.size(); i++) {
+            Booking booking = mainActivity.bookingsFragment.al_bookings_prev.get(i);
 
             if (booking.getStatus() == AppConstants.BOOKING_COMPLETED) {
                 score += Float.parseFloat(booking.getPrice());
@@ -94,6 +94,6 @@ public class HomePhotographerFragment extends BaseFragment {
         }
 
         tv_earnings.setText(String.format("$ %.1f", score));
-        tv_upcomingshoots.setText("" + mainActivity.al_bookings_new.size());
+        tv_upcomingshoots.setText("" + mainActivity.bookingsFragment.al_bookings_new.size());
     }
 }

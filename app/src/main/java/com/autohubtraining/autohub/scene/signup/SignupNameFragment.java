@@ -30,8 +30,8 @@ public class SignupNameFragment extends BaseFragment {
         View retView = inflater.inflate(R.layout.fragment_signup_name, container, false);
         ButterKnife.bind(this, retView);
 
-        firstName.setText("Mohamed");
-        lastName.setText("Fouad");
+//        firstName.setText("Mohamed");
+//        lastName.setText("Fouad");
 
         return retView;
     }

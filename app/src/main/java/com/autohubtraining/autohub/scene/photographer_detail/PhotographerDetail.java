@@ -400,7 +400,7 @@ public class PhotographerDetail extends BaseActivity {
                 dismissLoading();
 
                 Intent intent = new Intent(PhotographerDetail.this, BookingDoneActivity.class);
-                intent.putExtra(AppConstants.key_booking, booking);
+                intent.putExtra(AppConstants.key_booking_id, booking.getBookingId());
                 startActivity(intent);
                 finish();
             }

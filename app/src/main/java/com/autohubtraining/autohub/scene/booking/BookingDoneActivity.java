@@ -9,12 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.autohubtraining.autohub.R;
+import com.autohubtraining.autohub.data.model.User;
 import com.autohubtraining.autohub.data.model.booking.Booking;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -49,10 +53,9 @@ public class BookingDoneActivity extends BaseActivity {
         setContentView(R.layout.activity_booking_done);
         ButterKnife.bind(this);
 
-        if (getIntent().getExtras().containsKey(AppConstants.key_booking)) {
-             booking = (Booking) getIntent().getSerializableExtra(AppConstants.key_booking);
-
-             showBookingData();
+        if (getIntent().getExtras().containsKey(AppConstants.key_booking_id)) {
+             String id = getIntent().getStringExtra(AppConstants.key_booking_id);
+             getBooking(id);
         }
     }
 
@@ -65,6 +68,32 @@ public class BookingDoneActivity extends BaseActivity {
 
                 break;
         }
+    }
+
+    /**
+     * method is used for getting booking data from FirebaseFirestore.
+     *
+     * @param id documentId of photographer
+     * @return
+     */
+    public void getBooking(String id) {
+        showLoading("");
+
+        FirebaseFirestore.getInstance().collection(AppConstants.ref_booking).document(id).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                dismissLoading();
+
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    booking = document.toObject(Booking.class);
+
+                    showBookingData();
+                } else {
+                    Log.d(AppConstants.TAG, "Failed: " + task.getException());
+                }
+            }
+        });
     }
 
     /**

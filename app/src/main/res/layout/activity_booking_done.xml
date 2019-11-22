@@ -61,7 +61,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_10sdp"
-                        android:text="John Fills"
+                        android:text=""
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/_11ssp"
                         app:fontName="Montserrat_SemiBold" />
@@ -89,7 +89,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:text="NIKON D5300"
+                            android:text=""
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/_11ssp"
                             app:fontName="Montserrat_SemiBold" />
@@ -111,7 +111,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:text="MODEL PACK"
+                            android:text=""
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/_11ssp"
                             app:fontName="Montserrat_SemiBold" />
@@ -144,7 +144,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_3sdp"
-                        android:text="$150"
+                        android:text="$0"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/_11ssp"
                         app:fontName="Montserrat_SemiBold" />
