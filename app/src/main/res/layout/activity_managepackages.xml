@@ -84,6 +84,7 @@
                             app:fontName="Montserrat_Medium"/>
 
                         <ImageView
+                            android:id="@+id/iv_edit1"
                             android:layout_width="@dimen/_13sdp"
                             android:layout_height="@dimen/_13sdp"
                             android:layout_alignParentRight="true"
@@ -113,13 +114,15 @@
 
                         <com.autohubtraining.autohub.customview.CustomEditView
                             android:id="@+id/et_numphotographs1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_60sdp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/_30sdp"
+                            android:gravity="right"
                             android:text="0"
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/_11ssp"
+                            android:inputType="number"
                             android:background="@null"
                             app:fontName="Montserrat_Medium" />
 
@@ -180,13 +183,15 @@
 
                         <com.autohubtraining.autohub.customview.CustomEditView
                             android:id="@+id/et_rate1"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_60sdp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/_30sdp"
+                            android:gravity="right"
                             android:text="0"
                             android:textSize="@dimen/_11ssp"
                             android:textColor="@color/colorBlack"
+                            android:inputType="number"
                             android:background="@null"
                             app:fontName="Montserrat_Medium" />
 
@@ -218,6 +223,7 @@
                             app:fontName="Montserrat_Medium"/>
 
                         <ImageView
+                            android:id="@+id/iv_edit2"
                             android:layout_width="@dimen/_13sdp"
                             android:layout_height="@dimen/_13sdp"
                             android:layout_alignParentRight="true"
@@ -247,13 +253,15 @@
 
                         <com.autohubtraining.autohub.customview.CustomEditView
                             android:id="@+id/et_numphotographs2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_60sdp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/_30sdp"
+                            android:gravity="right"
                             android:text="0"
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/_11ssp"
+                            android:inputType="number"
                             android:background="@null"
                             app:fontName="Montserrat_Medium" />
 
@@ -314,13 +322,15 @@
 
                         <com.autohubtraining.autohub.customview.CustomEditView
                             android:id="@+id/et_rate2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="@dimen/_60sdp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/_30sdp"
+                            android:gravity="right"
                             android:text="0"
                             android:textSize="@dimen/_11ssp"
                             android:textColor="@color/colorBlack"
+                            android:inputType="number"
                             android:background="@null"
                             app:fontName="Montserrat_Medium" />
 

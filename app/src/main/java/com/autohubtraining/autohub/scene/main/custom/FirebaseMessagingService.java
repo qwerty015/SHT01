@@ -13,9 +13,7 @@ import android.util.Log;
 import androidx.core.app.NotificationCompat;
 
 import com.autohubtraining.autohub.R;
-import com.autohubtraining.autohub.scene.booking.BookingDoneActivity;
 import com.autohubtraining.autohub.scene.main.MainActivity;
-import com.autohubtraining.autohub.scene.photographer_detail.PhotographerDetail;
 import com.autohubtraining.autohub.util.AppConstants;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -66,10 +64,10 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
 //                handleNow();
 //            }
 
-            String status = remoteMessage.getData().get("status");
-            String bookingId = remoteMessage.getData().get("bookingId");
-            String title = remoteMessage.getNotification().getTitle();
-            String body = remoteMessage.getNotification().getBody();
+            String status = remoteMessage.getData().get(AppConstants.key_status);
+            String bookingId = remoteMessage.getData().get(AppConstants.key_booking_id);
+            String title = remoteMessage.getData().get("title");
+            String body = remoteMessage.getData().get("body");
 
             sendNotification(status, bookingId, title, body);
 
@@ -155,7 +153,6 @@ public class FirebaseMessagingService extends com.google.firebase.messaging.Fire
                         .setContentTitle(title)
                         .setContentText(body)
                         .setAutoCancel(true)
-                        .setSound(defaultSoundUri)
                         .setContentIntent(pendingIntent);
 
         NotificationManager notificationManager =

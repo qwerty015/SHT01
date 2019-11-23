@@ -19,7 +19,7 @@ import com.autohubtraining.autohub.R;
 import com.autohubtraining.autohub.data.DataHandler;
 import com.autohubtraining.autohub.data.events.CustomEvent;
 import com.autohubtraining.autohub.data.model.User;
-import com.autohubtraining.autohub.data.model.booking.Booking;
+import com.autohubtraining.autohub.scene.LogoActivity;
 import com.autohubtraining.autohub.scene.base.BaseActivity;
 import com.autohubtraining.autohub.scene.booking.BookingReceivedActivity;
 import com.autohubtraining.autohub.scene.booking.GiveReviewActivity;
@@ -31,6 +31,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
@@ -41,7 +44,6 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,8 +76,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        User user = DataHandler.getInstance().getUser();
-
         if (getIntent().getExtras() != null) {
             if (getIntent().getExtras().containsKey(AppConstants.key_status)) {
                 String status = getIntent().getStringExtra(AppConstants.key_status);
@@ -95,34 +95,13 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             }
         }
 
-        navigation.setOnNavigationItemSelectedListener(this);
-        navigation.setSelectedItemId(R.id.navigation_explore);
-        view_pager.setPagingEnabled(false);
+        User user = DataHandler.getInstance().getUser();
 
-        viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
-
-        if (user.getType() == AppConstants.CLIENT) {
-            homeClientFragment = new HomeClientFragment();
+        if (user == null) {
+            checkUserIsLogin();
         } else {
-            homePhotographerFragment = new HomePhotographerFragment();
+            initActivity();
         }
-
-        exploreFragment = new ExploreFragment();
-        bookingsFragment = new BookingsFragment();
-
-        viewPagerAdapter.addFragment(user.getType() == AppConstants.CLIENT ? homeClientFragment : homePhotographerFragment, "title");
-        viewPagerAdapter.addFragment(exploreFragment, "title");
-        viewPagerAdapter.addFragment(bookingsFragment, "title");
-
-        view_pager.setAdapter(viewPagerAdapter);
-
-        if (bCancelBookingStatus) {
-            view_pager.setCurrentItem(2);
-        } else {
-            view_pager.setCurrentItem(1);
-        }
-
-        getDeviceToken();
     }
 
     @OnClick({})
@@ -172,6 +151,39 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 saveUserLocation(new GeoPoint(loc.getLatitude(), loc.getLongitude()));
             }
         }
+    }
+
+    private void initActivity() {
+        User user = DataHandler.getInstance().getUser();
+
+        navigation.setOnNavigationItemSelectedListener(this);
+        navigation.setSelectedItemId(R.id.navigation_explore);
+        view_pager.setPagingEnabled(false);
+
+        viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
+
+        if (user.getType() == AppConstants.CLIENT) {
+            homeClientFragment = new HomeClientFragment();
+        } else {
+            homePhotographerFragment = new HomePhotographerFragment();
+        }
+
+        exploreFragment = new ExploreFragment();
+        bookingsFragment = new BookingsFragment();
+
+        viewPagerAdapter.addFragment(user.getType() == AppConstants.CLIENT ? homeClientFragment : homePhotographerFragment, "title");
+        viewPagerAdapter.addFragment(exploreFragment, "title");
+        viewPagerAdapter.addFragment(bookingsFragment, "title");
+
+        view_pager.setAdapter(viewPagerAdapter);
+
+        if (bCancelBookingStatus) {
+            view_pager.setCurrentItem(2);
+        } else {
+            view_pager.setCurrentItem(1);
+        }
+
+        getDeviceToken();
     }
 
     /**
@@ -357,5 +369,56 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 Log.e(AppConstants.TAG, "data failed with an exception" + e.toString());
             }
         });
+    }
+
+    /**
+     * method is used for checking user is login.
+     *
+     * @param
+     * @return
+     */
+    private void checkUserIsLogin() {
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (firebaseUser != null) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            DocumentReference documentReference = db.collection(AppConstants.ref_user).document(firebaseUser.getUid());
+            documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        Log.d("ABC", "SUCCESS");
+                        DocumentSnapshot doc = task.getResult();
+
+                        if (doc.getData() != null) {
+                            User user = doc.toObject(User.class);
+                            DataHandler.getInstance().setUser(user);
+
+                            initActivity();
+                        }
+                    }
+                }
+            })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("ABC", "FAIL");
+                            Intent intent = new Intent(MainActivity.this, LogoActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            MainActivity.this.startActivity(intent);
+                            MainActivity.this.finish();
+                        }
+                    });
+        } else {
+            Intent intent = new Intent(MainActivity.this, LogoActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            MainActivity.this.startActivity(intent);
+            MainActivity.this.finish();
+        }
     }
 }

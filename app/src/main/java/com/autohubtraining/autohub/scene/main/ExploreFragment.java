@@ -163,9 +163,17 @@ public class ExploreFragment extends BaseFragment {
             String address;
 
             if (addresses.get(0).getSubLocality() == null) {
-                address = addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
+                if (addresses.get(0).getSubAdminArea() == null) {
+                    address = addresses.get(0).getAdminArea();
+                } else {
+                    address = addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
+                }
             } else {
-                address = addresses.get(0).getSubLocality() + ", " + addresses.get(0).getAdminArea();
+                if (addresses.get(0).getSubLocality() == null) {
+                    address = addresses.get(0).getAdminArea();
+                } else {
+                    address = addresses.get(0).getSubLocality() + ", " + addresses.get(0).getAdminArea();
+                }
             }
 
             tv_location.setText(address);

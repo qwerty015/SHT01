@@ -96,7 +96,21 @@ public class HomeClientFragment extends BaseFragment {
 
         try {
             addresses = geocoder.getFromLocation(user.getLocation().getLatitude(), user.getLocation().getLongitude(), 1); // Here 1 represent max location result to returned, by documents it recommended 1 to 5
-            String address = addresses.get(0).getSubLocality() + ", " + addresses.get(0).getAdminArea();
+            String address;
+
+            if (addresses.get(0).getSubLocality() == null) {
+                if (addresses.get(0).getSubAdminArea() == null) {
+                    address = addresses.get(0).getAdminArea();
+                } else {
+                    address = addresses.get(0).getSubAdminArea() + ", " + addresses.get(0).getAdminArea();
+                }
+            } else {
+                if (addresses.get(0).getSubLocality() == null) {
+                    address = addresses.get(0).getAdminArea();
+                } else {
+                    address = addresses.get(0).getSubLocality() + ", " + addresses.get(0).getAdminArea();
+                }
+            }
 
             tv_location.setText(address);
         } catch (Exception e) {
